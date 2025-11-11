@@ -62,6 +62,12 @@ class MoveClassifier:
         Returns:
             Tuple of (classification, accuracy, opening_name)
         """
+        # Check for checkmate first (before node extraction which requires engine lines)
+        import chess
+        board = chess.Board(node.state.fen)
+        if board.is_checkmate():
+            return Classification.BEST, 100.0, None
+        
         # Extract nodes
         previous = self.extractor.extract_previous_node(node)
         current = self.extractor.extract_current_node(node)
@@ -92,7 +98,12 @@ class MoveClassifier:
         
         # Priority 4: Point Loss
         classification = classify_by_point_loss(previous, current)
-        accuracy = calculate_accuracy(previous, current)
+        
+        # Calculate accuracy (BEST moves get 100%)
+        if classification == Classification.BEST:
+            accuracy = 100.0
+        else:
+            accuracy = calculate_accuracy(previous, current)
         
         # Priority 5: CRITICAL (refines BEST)
         if self.options.include_critical and classification == Classification.BEST:

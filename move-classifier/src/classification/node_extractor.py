@@ -26,12 +26,13 @@ class ExtractedPreviousNode:
         second_top_move: Second-best move (optional)
         second_subjective_eval: Second line subjective evaluation (optional)
         played_move: Move that was actually played (optional)
+        played_move_evaluation: Evaluation if played move found in PV lines (optional)
         player_color: Color of player to move
     """
     board: chess.Board
     fen: str
     top_line: EngineLine
-    top_move: Move
+    top_move: Optional[Move]  # May be None in terminal positions
     evaluation: Evaluation
     subjective_evaluation: Evaluation
     player_color: PieceColor
@@ -39,6 +40,7 @@ class ExtractedPreviousNode:
     second_top_move: Optional[Move] = None
     second_subjective_eval: Optional[Evaluation] = None
     played_move: Optional[Move] = None
+    played_move_evaluation: Optional[Evaluation] = None
 
 
 @dataclass
@@ -100,16 +102,20 @@ class NodeExtractor:
         if not top_line:
             return None
         
-        top_move = top_line.get_first_move()
         evaluation = top_line.evaluation
         subjective_eval = get_subjective_evaluation(evaluation, player_color)
+        
+        # Get top move if available (may be empty in terminal positions)
+        top_move = None
+        if top_line.moves:
+            top_move = top_line.get_first_move()
         
         # Get second line if available
         second_line = parent.state.get_second_line()
         second_move = None
         second_subjective = None
         
-        if second_line:
+        if second_line and second_line.moves:
             try:
                 second_move = second_line.get_first_move()
                 second_subjective = get_subjective_evaluation(
@@ -122,6 +128,14 @@ class NodeExtractor:
         # Get played move
         played_move = node.state.move
         
+        # Try to find the evaluation of the played move in the multi-PV lines
+        played_move_eval = None
+        if played_move:
+            for engine_line in parent.state.engine_lines:
+                if engine_line.moves and engine_line.moves[0].san == played_move.san:
+                    played_move_eval = get_subjective_evaluation(engine_line.evaluation, player_color)
+                    break
+        
         return ExtractedPreviousNode(
             board=board,
             fen=fen,
@@ -133,7 +147,8 @@ class NodeExtractor:
             second_top_line=second_line,
             second_top_move=second_move,
             second_subjective_eval=second_subjective,
-            played_move=played_move
+            played_move=played_move,
+            played_move_evaluation=played_move_eval
         )
     
     @staticmethod
@@ -174,17 +189,18 @@ class NodeExtractor:
         
         # Get top move if available
         top_move = None
-        try:
-            top_move = top_line.get_first_move()
-        except ValueError:
-            pass  # No moves available
+        if top_line.moves:
+            try:
+                top_move = top_line.get_first_move()
+            except ValueError:
+                pass  # No moves available
         
         # Get second line if available
         second_line = node.state.get_second_line()
         second_move = None
         second_subjective = None
         
-        if second_line:
+        if second_line and second_line.moves:
             try:
                 second_move = second_line.get_first_move()
                 second_subjective = get_subjective_evaluation(

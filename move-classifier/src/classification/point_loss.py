@@ -10,7 +10,8 @@ from ..core.constants import (
 )
 from ..analysis.expected_points import (
     get_expected_points,
-    calculate_point_loss
+    calculate_point_loss,
+    get_subjective_evaluation
 )
 from .node_extractor import ExtractedPreviousNode, ExtractedCurrentNode
 
@@ -30,6 +31,7 @@ def is_top_move_played(
     """
     if not current.played_move or not previous.top_move:
         return False
+    
     
     # Compare by SAN notation
     return previous.top_move.san == current.played_move.san
@@ -54,12 +56,21 @@ def classify_by_point_loss(
     if is_top_move_played(previous, current):
         return Classification.BEST
     
-    eval_before = previous.subjective_evaluation
-    eval_after = current.subjective_evaluation
+    # Get evaluations
+    if previous.played_move_evaluation:
+        # Found in multi-PV - use accurate evaluations from same position
+        eval_before = previous.subjective_evaluation
+        eval_after = previous.played_move_evaluation
+    else:
+        # Not in multi-PV - pass RAW evaluations (like JavaScript does)
+        eval_before = previous.evaluation
+        eval_after = current.evaluation
     
     # Case 1: Centipawn -> Centipawn (standard case)
     if eval_before.type == "centipawn" and eval_after.type == "centipawn":
-        return _classify_cp_to_cp(eval_before.value, eval_after.value, current.player_color)
+        # Pass raw values and player color; perspective handled inside
+        return _classify_cp_to_cp(eval_before.value, eval_after.value, current.player_color, 
+                                   found_in_multipv=(previous.played_move_evaluation is not None))
     
     # Case 2: Mate -> Mate
     elif eval_before.type == "mate" and eval_after.type == "mate":
@@ -77,28 +88,45 @@ def classify_by_point_loss(
     return Classification.OKAY
 
 
-def _classify_cp_to_cp(cp_before: int, cp_after: int, player_color) -> Classification:
+def _classify_cp_to_cp(cp_before: int, cp_after: int, player_color, found_in_multipv: bool = True) -> Classification:
     """Standard centipawn -> centipawn classification.
     
     Args:
-        cp_before: Centipawns before (from player's perspective)
-        cp_after: Centipawns after (from player's perspective)
+        cp_before: Centipawns before (subjective if in multi-PV, raw otherwise)
+        cp_after: Centipawns after (subjective if in multi-PV, raw otherwise)
         player_color: Player color
+        found_in_multipv: Whether the move was found in multi-PV lines
         
     Returns:
         Classification
     """
-    # Calculate expected points
+    # Calculate expected points using JavaScript's approach
     from ..core.evaluation import Evaluation
     from ..core.types import PieceColor
     
-    eval_before = Evaluation(type="centipawn", value=cp_before)
-    eval_after = Evaluation(type="centipawn", value=cp_after)
-    
-    ep_before = get_expected_points(eval_before)
-    ep_after = get_expected_points(eval_after)
-    
-    point_loss = max(0.0, ep_before - ep_after)
+    if found_in_multipv:
+        # Both values are already from player's perspective
+        eval_before = Evaluation(type="centipawn", value=cp_before)
+        eval_after = Evaluation(type="centipawn", value=cp_after)
+        
+        ep_before = get_expected_points(eval_before)
+        ep_after = get_expected_points(eval_after)
+        
+        point_loss = max(0.0, ep_before - ep_after)
+    else:
+        # Raw evaluations - apply JavaScript's EXACT logic
+        # JavaScript getExpectedPoints uses RAW evaluation values DIRECTLY in sigmoid
+        # The moveColour parameter is NOT used for centipawn evaluations
+        
+        eval_before_raw = Evaluation(type="centipawn", value=cp_before)
+        eval_after_raw = Evaluation(type="centipawn", value=cp_after)
+        
+        ep_before = get_expected_points(eval_before_raw)
+        ep_after = get_expected_points(eval_after_raw)
+        
+        # Point loss with color adjustment (JavaScript's formula)
+        point_loss = (ep_before - ep_after) * (1 if player_color == PieceColor.WHITE else -1)
+        point_loss = max(0.0, point_loss)
     
     # Apply thresholds
     if point_loss < POINT_LOSS_THRESHOLDS["BEST"]:
@@ -214,11 +242,31 @@ def calculate_accuracy(
     Returns:
         Accuracy score (0-100)
     """
-    point_loss = calculate_point_loss(
-        previous.evaluation,
-        current.evaluation,
-        current.player_color
-    )
-    
-    return get_move_accuracy(point_loss)
+    # Use the played move's evaluation if found in multi-PV
+    if previous.played_move_evaluation:
+        # Found in multi-PV lines - both evals from same position
+        point_loss = calculate_point_loss(
+            previous.subjective_evaluation,
+            previous.played_move_evaluation,
+            current.player_color
+        )
+        return get_move_accuracy(point_loss)
+    else:
+        # Not in multi-PV - use JavaScript's EXACT approach
+        # Pass RAW evaluations directly (like JavaScript does)
+        from ..analysis.expected_points import get_expected_points
+        from ..core.types import PieceColor
+        
+        # Use RAW evaluation values in sigmoid (JavaScript's approach)
+        eval_before_raw = previous.evaluation
+        eval_after_raw = current.evaluation
+        
+        ep_before = get_expected_points(eval_before_raw)
+        ep_after = get_expected_points(eval_after_raw)
+        
+        # Point loss with color adjustment
+        point_loss = (ep_before - ep_after) * (1 if current.player_color == PieceColor.WHITE else -1)
+        point_loss = max(0.0, point_loss)
+        
+        return get_move_accuracy(point_loss)
 

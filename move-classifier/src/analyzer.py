@@ -114,6 +114,13 @@ class GameAnalyzer:
             if i % 5 == 0:
                 print(f"  Analyzing position {i + 1}/{len(nodes)}...")
             
+            # Skip terminal positions (checkmate, stalemate)
+            import chess
+            board = chess.Board(node.state.fen)
+            if board.is_game_over():
+                node.state.engine_lines = []
+                continue
+            
             # Analyze position
             fen = node.state.fen
             engine_lines = engine.analyze_position(fen)

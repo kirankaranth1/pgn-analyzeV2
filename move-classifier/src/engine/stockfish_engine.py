@@ -106,6 +106,14 @@ class StockfishEngine:
         engine_lines = []
         board = chess.Board(fen)
         
+        # Get maximum depth reached
+        depths = []
+        for l in lines:
+            m = re.search(r'depth (\d+)', l)
+            if m:
+                depths.append(int(m.group(1)))
+        max_depth = max(depths) if depths else 0
+        
         for line in lines:
             if not line.startswith("info"):
                 continue
@@ -122,8 +130,10 @@ class StockfishEngine:
                 continue
             depth = int(depth_match.group(1))
             
-            # Only process lines at final depth
-            if depth < self.config.depth:
+            # Only process lines at final depth (or maximum depth reached)
+            # Use max depth if we didn't reach configured depth
+            target_depth = min(self.config.depth, max_depth) if max_depth > 0 else self.config.depth
+            if depth < target_depth:
                 continue
             
             # Extract evaluation
@@ -132,8 +142,17 @@ class StockfishEngine:
                 continue
             
             # Extract principal variation (moves)
-            pv_match = re.search(r'pv (.+?)(?:$|\s+info)', line)
+            pv_match = re.search(r'\bpv\s+(.+)$', line)
             if not pv_match:
+                # No PV found, create engine line with no moves but keep evaluation
+                engine_line = EngineLine(
+                    evaluation=evaluation,
+                    source="stockfish",
+                    depth=depth,
+                    index=multipv,
+                    moves=[]
+                )
+                engine_lines.append(engine_line)
                 continue
             
             pv_uci_moves = pv_match.group(1).strip().split()
