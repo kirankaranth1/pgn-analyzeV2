@@ -12,17 +12,20 @@ from dataclasses import dataclass
 class EngineConfig:
     """Configuration for engine analysis."""
     
-    depth: int = 20
+    depth: int = 16
     """Search depth in plies."""
     
     time_limit: Optional[int] = None
     """Time limit per position in milliseconds."""
     
-    multi_pv: int = 3
+    multi_pv: int = 2
     """Number of principal variations to analyze."""
     
     use_cloud_eval: bool = True
     """Try cloud evaluation before local engine."""
+    
+    stockfish_path: Optional[str] = None
+    """Path to Stockfish binary. If None, will search in PATH."""
 
 
 @dataclass

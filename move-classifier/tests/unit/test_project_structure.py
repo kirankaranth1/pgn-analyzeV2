@@ -286,8 +286,8 @@ class TestConfiguration:
         assert hasattr(config, "use_cloud_eval")
         
         # Test default values
-        assert config.depth == 20
-        assert config.multi_pv == 3
+        assert config.depth == 16
+        assert config.multi_pv == 2
         assert config.use_cloud_eval is True
     
     def test_classification_config_exists(self):
@@ -309,7 +309,7 @@ class TestConfiguration:
         assert hasattr(config, "classification")
         
         # Verify nested configs
-        assert config.engine.depth == 20
+        assert config.engine.depth == 16
         assert config.classification.enable_tactical_analysis is True
 
 
