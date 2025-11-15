@@ -9,11 +9,13 @@ Handles simple classification rules including:
 
 import json
 import os
-from typing import Optional, Dict
+import chess
+from typing import Optional, Dict, Union
 from pathlib import Path
 
 from ..models.enums import Classification
 from ..models.extracted_nodes import ExtractedPreviousNode, ExtractedCurrentNode
+from ..models.state_tree import StateTreeNode
 
 
 class OpeningBook:
@@ -125,6 +127,47 @@ class BasicClassifier:
             return checkmate
         
         # No basic classification applies
+        return None
+    
+    def classify_from_state_tree_node(
+        self,
+        node: StateTreeNode
+    ) -> Optional[Classification]:
+        """
+        Classify a move directly from a StateTreeNode.
+        
+        This is useful for terminal positions (e.g., checkmate) where
+        engine analysis may not be available, preventing extraction.
+        
+        Only checks classifications that don't require extracted nodes:
+        - THEORY (uses FEN and state)
+        - CHECKMATE → BEST (uses board state)
+        
+        Args:
+            node: State tree node (position after the move)
+            
+        Returns:
+            Classification if rule applies, None otherwise
+        """
+        if not node.state.move:
+            return None
+        
+        # Check THEORY (doesn't need engine data)
+        fen = node.state.fen
+        opening_name = self._opening_book.get_opening_name(fen)
+        
+        if self._include_theory and opening_name is not None:
+            # Store opening name in the node state
+            node.state.opening = opening_name
+            return Classification.BOOK
+        
+        # Check CHECKMATE (doesn't need engine data)
+        board = chess.Board(node.state.fen)
+        if board.is_checkmate():
+            return Classification.BEST
+        
+        # Note: FORCED cannot be checked without the previous node's board state
+        # which requires extraction. Return None to indicate further analysis needed.
         return None
     
     def _classify_forced(self, previous_node: ExtractedPreviousNode) -> Optional[Classification]:

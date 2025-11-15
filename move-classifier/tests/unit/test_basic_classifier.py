@@ -477,6 +477,131 @@ class TestClassificationPriority:
         assert result is None
 
 
+class TestDirectClassificationFromStateTreeNode:
+    """Test direct classification from StateTreeNode for terminal positions."""
+    
+    def test_checkmate_direct_classification(self):
+        """Test that checkmate can be classified directly from StateTreeNode."""
+        # Create a checkmate position
+        from src.models.state_tree import StateTreeNode
+        from src.models.enums import PieceColor
+        
+        fen = "4R1k1/5ppp/8/8/8/8/5PPP/6K1 b - - 1 1"
+        
+        # Create a state tree node
+        node = StateTreeNode(
+            id="test-node-1",
+            mainline=True,
+            state=BoardState(
+                fen=fen,
+                move=Move(san="Re8#", uci="e1e8"),
+                move_color=PieceColor.WHITE,
+                engine_lines=[],
+                classification=None,
+                accuracy=None,
+                opening=None
+            ),
+            parent=None,
+            children=[]
+        )
+        
+        classifier = BasicClassifier()
+        result = classifier.classify_from_state_tree_node(node)
+        
+        # Should detect checkmate
+        assert result == Classification.BEST
+    
+    def test_theory_direct_classification(self):
+        """Test that theory moves can be classified directly from StateTreeNode."""
+        from src.models.state_tree import StateTreeNode
+        from src.models.enums import PieceColor
+        
+        # e4 opening position
+        fen = "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1"
+        
+        node = StateTreeNode(
+            id="test-node-2",
+            mainline=True,
+            state=BoardState(
+                fen=fen,
+                move=Move(san="e4", uci="e2e4"),
+                move_color=PieceColor.WHITE,
+                engine_lines=[],
+                classification=None,
+                accuracy=None,
+                opening=None
+            ),
+            parent=None,
+            children=[]
+        )
+        
+        classifier = BasicClassifier()
+        result = classifier.classify_from_state_tree_node(node)
+        
+        # Should detect theory
+        assert result == Classification.BOOK
+        assert node.state.opening is not None
+    
+    def test_normal_move_direct_classification_returns_none(self):
+        """Test that normal moves return None from direct classification."""
+        from src.models.state_tree import StateTreeNode
+        from src.models.enums import PieceColor
+        
+        # Random middlegame position
+        fen = "r3k2r/ppp2ppp/2n5/3p4/3P4/2N5/PPP2PPP/1R2K2R b Kkq - 1 10"
+        
+        node = StateTreeNode(
+            id="test-node-3",
+            mainline=True,
+            state=BoardState(
+                fen=fen,
+                move=Move(san="Rb1", uci="a1b1"),
+                move_color=PieceColor.WHITE,
+                engine_lines=[],
+                classification=None,
+                accuracy=None,
+                opening=None
+            ),
+            parent=None,
+            children=[]
+        )
+        
+        classifier = BasicClassifier()
+        result = classifier.classify_from_state_tree_node(node)
+        
+        # Should return None (not checkmate, not theory, can't check forced)
+        assert result is None
+    
+    def test_root_node_returns_none(self):
+        """Test that root node (no move) returns None."""
+        from src.models.state_tree import StateTreeNode
+        
+        # Starting position, no move
+        fen = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
+        
+        node = StateTreeNode(
+            id="test-root",
+            mainline=True,
+            state=BoardState(
+                fen=fen,
+                move=None,  # No move
+                move_color=None,
+                engine_lines=[],
+                classification=None,
+                accuracy=None,
+                opening=None
+            ),
+            parent=None,
+            children=[]
+        )
+        
+        classifier = BasicClassifier()
+        result = classifier.classify_from_state_tree_node(node)
+        
+        # Should return None (no move to classify)
+        assert result is None
+
+
 if __name__ == "__main__":
     # Quick sanity check
     print("Testing Basic Classifier...")

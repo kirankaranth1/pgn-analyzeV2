@@ -386,6 +386,19 @@ class TestBasicClassifierIntegration:
                         classifications["BEST"].append(move_info)
                     else:
                         classifications["NONE"].append(move_info)
+                else:
+                    # Try direct classification for terminal positions (e.g., checkmate)
+                    result = classifier.classify_from_state_tree_node(nodes[i])
+                    
+                    move_num = (i + 1) // 2
+                    color = "White" if i % 2 == 1 else "Black"
+                    move_info = (i, f"{move_num}. {nodes[i].state.move.san} ({color})")
+                    
+                    if result == Classification.BOOK:
+                        classifications["THEORY"].append((move_info, nodes[i].state.opening))
+                    elif result == Classification.BEST:
+                        classifications["BEST"].append(move_info)
+                    # Otherwise, it truly cannot be classified
             
             print(f"\n📊 REAL ENGINE ANALYSIS - Opera Game Classification:")
             print(f"   FORCED: {len(classifications['FORCED'])}")
@@ -393,13 +406,13 @@ class TestBasicClassifierIntegration:
             print(f"   BEST: {len(classifications['BEST'])}")
             print(f"   NONE: {len(classifications['NONE'])}")
             
-            # Note: The final checkmate move may not be extractable because
-            # engines don't analyze terminal positions, so BEST count may be 0
-            # Just verify we found theory moves
+            # With the fallback classification method, we should now detect checkmate
+            assert len(classifications["BEST"]) >= 1, "Expected at least one BEST (checkmate)"
+            # Should have some theory
             assert len(classifications["THEORY"]) > 0, "Expected theory moves"
             
             print("\n✅ Real engine analysis complete!")
-            print(f"   Note: Checkmate move may not be classified (terminal position)")
+            print(f"   Checkmate correctly classified using fallback method")
 
             
         except Exception as e:

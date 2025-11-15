@@ -167,7 +167,17 @@ def visualize_node(node, node_index: int, show_fen: bool = False, show_engine: b
                 print(f"  Classification: None")
                 print(f"  Note:           Requires point loss evaluation")
         else:
-            print(f"  Classification: N/A (extraction failed)")
+            # Extraction failed - try direct classification for terminal positions
+            result = classifier.classify_from_state_tree_node(node)
+            if result == Classification.BOOK:
+                print(f"  Classification: THEORY (direct)")
+                print(f"  Opening:        {node.state.opening}")
+            elif result == Classification.BEST:
+                print(f"  Classification: BEST (direct)")
+                print(f"  Reason:         Delivers checkmate")
+            else:
+                print(f"  Classification: N/A")
+                print(f"  Note:           Extraction failed, no engine analysis")
     
     # Engine analysis
     if show_engine and len(node.state.engine_lines) > 0:
@@ -386,7 +396,14 @@ Examples:
                 else:
                     classifications["NONE"] += 1
             else:
-                classifications["N/A"] += 1
+                # Try direct classification for terminal positions
+                result = classifier.classify_from_state_tree_node(nodes[i])
+                if result == Classification.BOOK:
+                    classifications["THEORY"] += 1
+                elif result == Classification.BEST:
+                    classifications["BEST"] += 1
+                else:
+                    classifications["N/A"] += 1
         
         print(f"  FORCED (only 1 legal move):        {classifications['FORCED']}")
         print(f"  THEORY (in opening book):           {classifications['THEORY']}")
