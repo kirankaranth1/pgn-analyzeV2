@@ -1,307 +1,154 @@
 # Chess Move Classifier
 
-A comprehensive chess move classification system that analyzes PGN files using Stockfish and classifies each move into categories like **BRILLIANT**, **CRITICAL**, **BEST**, **EXCELLENT**, **OKAY**, **INACCURACY**, **MISTAKE**, and **BLUNDER**.
+A comprehensive Python system for analyzing and classifying chess moves based on engine evaluation and tactical patterns.
 
-## Features
+## Overview
 
-- **Stockfish Integration**: Uses Stockfish UCI protocol with multi-PV analysis
-- **11 Classification Types**: Comprehensive move quality assessment
-- **Opening Book**: Recognizes thousands of opening positions
-- **Accuracy Scoring**: Calculates 0-100 accuracy scores for each move
-- **JSON Output**: Detailed analysis reports with statistics
-- **Configurable**: Adjustable depth, multi-PV, and classification options
+This system implements a 5-stage preprocessing pipeline that transforms raw game data (PGN) into classification-ready data structures, then applies sophisticated classification rules to evaluate move quality.
 
-## Classifications
+### Pipeline Stages
 
-| Classification | Description | Criteria |
-|---------------|-------------|----------|
-| **BRILLIANT** | Spectacular sacrifice | Leaves pieces hanging with compensation |
-| **CRITICAL** | Essential only move | Only move to maintain advantage |
-| **BEST** | Optimal move | < 1% win probability loss |
-| **EXCELLENT** | Very strong move | 1-4.5% loss |
-| **OKAY** | Acceptable move | 4.5-8% loss |
-| **INACCURACY** | Questionable move | 8-12% loss |
-| **MISTAKE** | Clear error | 12-22% loss |
-| **BLUNDER** | Serious mistake | ≥ 22% loss |
-| **THEORY** | Opening book move | Found in opening database |
-| **FORCED** | Only legal move | No choice available |
+1. **Parse Game** - Convert PGN string into state tree
+2. **Engine Analysis** - Add engine evaluations (cloud or local)
+3. **Build Node Chain** - Linearize tree for processing
+4. **Extract Nodes** - Create simplified structures
+5. **Calculate Derived Values** - Compute metrics (accuracy, point loss, etc.)
 
-## Installation
+### Classifications
 
-### Requirements
+The system classifies moves into the following categories:
 
-- Python 3.7+
-- Stockfish chess engine
+**Basic:**
+- CHECKMATE - Delivers checkmate
+- FORCED - Only legal move
+- BOOK - Opening theory move
 
-### Setup
+**Point Loss:**
+- BEST - Optimal move (< 1% win probability loss)
+- EXCELLENT - Very strong (1-4.5% loss)
+- GOOD - Solid (4.5-10% loss)
+- INACCURACY - Suboptimal (10-20% loss)
+- MISTAKE - Significant error (20-30% loss)
+- BLUNDER - Major error (> 30% loss)
+- CRITICAL - Wrong choice between two similar moves
 
-1. Clone or download this repository
+**Advanced:**
+- BRILLIANT - Sacrificial best move
+- GREAT_FIND - Only move preventing significant loss
 
-2. Install Python dependencies:
-```bash
-cd move-classifier
-pip install -r requirements.txt
-```
+**Tactical:**
+- ATTACKING_MOVE - Aggressive play
+- DEFENSIVE_MOVE - Defensive response
 
-3. Download Stockfish:
-   - **macOS/Linux**: [Stockfish Downloads](https://stockfishchess.org/download/)
-   - **macOS Homebrew**: `brew install stockfish`
-   - Extract and note the path to the binary
-
-## Usage
-
-### Basic Usage
-
-```bash
-python main.py \
-  --pgn game.pgn \
-  --stockfish /path/to/stockfish \
-  --output analysis.json
-```
-
-### Advanced Options
-
-```bash
-python main.py \
-  --pgn game.pgn \
-  --stockfish /usr/local/bin/stockfish \
-  --output analysis.json \
-  --depth 25 \
-  --multipv 3 \
-  --threads 4 \
-  --hash 256 \
-  --no-brilliant
-```
-
-### Command-Line Arguments
-
-**Required:**
-- `--pgn PATH` - Path to PGN file to analyze
-- `--stockfish PATH` - Path to Stockfish binary
-- `--output PATH` - Output JSON file path
-
-**Engine Configuration:**
-- `--depth N` - Search depth in plies (default: 20)
-- `--multipv N` - Number of principal variations (default: 2)
-- `--threads N` - Number of CPU threads (default: 1)
-- `--hash N` - Hash table size in MB (default: 128)
-
-**Classification Options:**
-- `--no-theory` - Disable THEORY classification
-- `--no-critical` - Disable CRITICAL classification
-- `--no-brilliant` - Disable BRILLIANT classification (faster)
-
-**Other:**
-- `--openings PATH` - Path to openings.json (default: openings.json)
-
-## Output Format
-
-The analysis generates a JSON file with the following structure:
-
-```json
-{
-  "game_info": {
-    "white": "Player1",
-    "black": "Player2",
-    "result": "1-0",
-    "date": "2024.01.01",
-    "event": "Tournament Name",
-    "site": "Location"
-  },
-  "moves": [
-    {
-      "move_number": 1,
-      "half_move": 1,
-      "color": "white",
-      "san": "e4",
-      "uci": "e2e4",
-      "fen_after": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1",
-      "classification": "theory",
-      "accuracy": 100.0,
-      "opening": "King's Pawn Opening",
-      "evaluation": {
-        "type": "centipawn",
-        "value": 45
-      },
-      "best_move": "e4"
-    }
-  ],
-  "statistics": {
-    "white": {
-      "brilliant": 0,
-      "critical": 1,
-      "best": 8,
-      "excellent": 5,
-      "okay": 3,
-      "inaccuracy": 2,
-      "mistake": 1,
-      "blunder": 0,
-      "average_accuracy": 87.5
-    },
-    "black": {
-      "brilliant": 0,
-      "critical": 0,
-      "best": 6,
-      "excellent": 4,
-      "okay": 4,
-      "inaccuracy": 3,
-      "mistake": 2,
-      "blunder": 1,
-      "average_accuracy": 82.3
-    }
-  }
-}
-```
-
-## Architecture
-
-The system follows a modular architecture:
+## Project Structure
 
 ```
 move-classifier/
 ├── src/
-│   ├── core/              # Domain models and constants
-│   ├── engine/            # Stockfish UCI integration
-│   ├── parser/            # PGN parsing
-│   ├── classification/    # Classification algorithms
-│   ├── analysis/          # Supporting analysis
-│   ├── utils/             # Utilities
-│   └── output/            # Report generation
-├── architecture/          # Detailed documentation
-├── openings.json          # Opening book database
-└── main.py               # CLI entry point
+│   ├── __init__.py
+│   ├── constants.py           # System constants
+│   ├── config.py              # Configuration settings
+│   │
+│   ├── models/                # Data structures
+│   │   ├── __init__.py
+│   │   ├── enums.py          # Enumerations
+│   │   ├── state_tree.py     # State tree structures
+│   │   ├── extracted_nodes.py # Extracted node types
+│   │   └── game_analysis.py  # Analysis results
+│   │
+│   ├── preprocessing/         # 5-stage pipeline
+│   │   ├── __init__.py
+│   │   ├── parser.py         # Stage 1: Parse PGN
+│   │   ├── engine_analyzer.py # Stage 2: Engine analysis
+│   │   ├── node_chain_builder.py # Stage 3: Build chain
+│   │   ├── node_extractor.py # Stage 4: Extract nodes
+│   │   └── calculator.py     # Stage 5: Calculate metrics
+│   │
+│   ├── engine/               # Engine interfaces
+│   │   ├── __init__.py
+│   │   ├── uci_engine.py    # Local UCI engine
+│   │   └── cloud_evaluator.py # Cloud API
+│   │
+│   ├── classification/       # Classification system
+│   │   ├── __init__.py
+│   │   ├── classifier.py    # Main classifier
+│   │   ├── basic_classifier.py # Basic rules
+│   │   ├── point_loss_classifier.py # Core evaluation
+│   │   ├── advanced_classifier.py # Advanced rules
+│   │   ├── attack_defense_classifier.py # Attack/defense
+│   │   └── tactical_analyzer.py # Tactical patterns
+│   │
+│   └── utils/               # Utilities
+│       ├── __init__.py
+│       ├── chess_utils.py  # Chess helpers
+│       ├── evaluation_utils.py # Evaluation calculations
+│       └── notation_converter.py # Notation conversion
+│
+├── docs/                    # Documentation
+│   └── architecture/        # Architecture docs
+│
+├── requirements.txt         # Dependencies
+├── setup.py                # Package setup
+└── README.md               # This file
 ```
 
-### Classification Algorithm
-
-The system uses a **waterfall priority system**:
-
-1. **FORCED** - Only legal move available
-2. **THEORY** - Position found in opening book
-3. **CHECKMATE** - Delivers checkmate (→ BEST)
-4. **Point Loss** - Calculate expected point loss
-   - BEST (< 1% loss)
-   - EXCELLENT (1-4.5%)
-   - OKAY (4.5-8%)
-   - INACCURACY (8-12%)
-   - MISTAKE (12-22%)
-   - BLUNDER (≥ 22%)
-5. **CRITICAL** - Refines BEST when second-best loses ≥ 10%
-6. **BRILLIANT** - Refines BEST+ for spectacular sacrifices
-
-### Key Formulas
-
-**Expected Points (Win Probability):**
-```
-EP = 1 / (1 + e^(-0.0035 × centipawns))
-```
-
-**Move Accuracy:**
-```
-Accuracy = 103.16 × e^(-4 × pointLoss) - 3.17
-```
-
-## Performance
-
-- **Analysis Speed**: ~2-5 seconds per position with Stockfish
-- **Typical Game**: 40-50 moves ≈ 2-4 minutes total
-- **BRILLIANT Detection**: Most expensive (optional, can be disabled)
-
-### Optimization Tips
-
-1. **Reduce depth** for faster analysis: `--depth 15`
-2. **Disable BRILLIANT** for speed: `--no-brilliant`
-3. **Increase threads** on multi-core systems: `--threads 4`
-4. **Increase hash** for deeper searches: `--hash 512`
-
-## Examples
-
-### Example 1: Quick Analysis
+## Installation
 
 ```bash
-python main.py \
-  --pgn games/kasparov-topalov.pgn \
-  --stockfish stockfish \
-  --output kasparov-topalov-analysis.json \
-  --depth 18 \
-  --no-brilliant
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Install package in development mode
+pip install -e .
 ```
 
-### Example 2: Deep Analysis
+## Dependencies
 
-```bash
-python main.py \
-  --pgn games/immortal-game.pgn \
-  --stockfish /usr/local/bin/stockfish \
-  --output immortal-game-analysis.json \
-  --depth 30 \
-  --multipv 3 \
-  --threads 8 \
-  --hash 2048
-```
+- **chess** - Chess library for move parsing and board manipulation
+- **requests** - HTTP client for cloud evaluation API
 
 ## Documentation
 
-Detailed architecture documentation is available in the `architecture/` directory:
+Comprehensive architecture documentation is available in `docs/architecture/`:
 
-- **[README.md](architecture/README.md)** - Architecture overview
-- **[01-core-concepts.md](architecture/01-core-concepts.md)** - Chess notation and evaluations
-- **[02-classification-overview.md](architecture/02-classification-overview.md)** - Classification system
-- **[03-basic-classifications.md](architecture/03-basic-classifications.md)** - FORCED, THEORY, CHECKMATE
-- **[04-point-loss-classification.md](architecture/04-point-loss-classification.md)** - Core algorithm
-- **[05-advanced-classifications.md](architecture/05-advanced-classifications.md)** - CRITICAL, BRILLIANT
-- **[06-attack-defense.md](architecture/06-attack-defense.md)** - Tactical analysis
+- `00-preprocessing-pipeline.md` - Complete preprocessing pipeline
+- `01-core-concepts.md` - Fundamental concepts and terminology
+- `02-classification-overview.md` - Classification system overview
 - And more...
 
-## Troubleshooting
+## Development
 
-### Stockfish Not Found
+### Running Tests
 
-```
-Error: Stockfish binary not found: /path/to/stockfish
-```
-
-**Solution**: Verify the Stockfish path is correct:
 ```bash
-which stockfish  # On macOS/Linux
+pytest tests/
 ```
 
-### Analysis Too Slow
+### Code Quality
 
-**Solutions**:
-- Reduce depth: `--depth 15`
-- Disable BRILLIANT: `--no-brilliant`
-- Use fewer PVs: `--multipv 1` (disables CRITICAL)
-
-### Memory Issues
-
-**Solution**: Reduce hash size:
 ```bash
---hash 64  # Use smaller hash table
+# Format code
+black src/
+
+# Sort imports
+isort src/
+
+# Type checking
+mypy src/
+
+# Linting
+flake8 src/
 ```
 
 ## License
 
-This project implements the move classification system as documented in the architecture specifications.
-
-## Credits
-
-- **Chess Engine**: Stockfish (GPLv3)
-- **Chess Library**: python-chess
-- **Classification Algorithm**: Based on Wintrchess architecture
+MIT License
 
 ## Contributing
 
-Contributions are welcome! Areas for improvement:
-
-- Additional output formats (HTML, PGN with annotations)
-- GUI interface
-- Batch analysis of multiple games
-- Database integration
-- Alternative engine support
-
-## Version
-
-**Version**: 1.0.0
-**Last Updated**: 2024
+Contributions are welcome! Please read the architecture documentation before contributing.
 

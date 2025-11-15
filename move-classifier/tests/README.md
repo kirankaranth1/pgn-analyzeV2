@@ -1,238 +1,184 @@
-# Chess Move Classifier - Test Suite
+# Test Documentation
 
-Comprehensive unit tests for the chess move classification system.
+This directory contains all tests for the chess-move-classifier project.
 
-## Test Files
+## Test Structure
 
-### Test 1: Imports (`test_01_imports.py`)
-**Purpose**: Verify all modules can be imported without errors
-
-**Tests**:
-- ✅ Core module imports (types, evaluation, move, engine_line, state_tree, constants)
-- ✅ Classification module imports (all classifiers)
-- ✅ Analysis module imports (expected points, attackers, defenders, etc.)
-- ✅ Engine module imports
-- ✅ Parser module imports
-- ✅ Utils module imports
-- ✅ Output module imports
-- ✅ Main analyzer import
-
-**Status**: ✅ All 8 tests passing
-
----
-
-### Test 2: Core Data Structures (`test_02_core_data_structures.py`)
-**Purpose**: Verify core data types work correctly
-
-**Tests**:
-- ✅ Classification enum values
-- ✅ Classification value ordering (BLUNDER=0 to BEST=5)
-- ✅ PieceColor enum
-- ✅ Centipawn evaluation creation and display
-- ✅ Mate evaluation creation and display
-- ✅ Evaluation serialization (to/from dict)
-- ✅ Move object creation
-- ✅ Capture detection
-- ✅ Promotion detection
-- ✅ Castling detection
-- ✅ EngineLine with moves
-
-**Status**: ✅ All 11 tests passing
-
----
-
-### Test 3: Mathematical Formulas (`test_03_formulas.py`)
-**Purpose**: Verify correctness of mathematical calculations
-
-**Tests**:
-- ✅ Expected points sigmoid formula
-  - Equal position (0 cp) → 0.5
-  - White advantage (+100 cp) → ~0.587
-  - Black advantage (-100 cp) → ~0.413
-  - Large advantage (+500 cp) → ~0.845
-- ✅ Mate expected points (1.0 or 0.0)
-- ✅ Move accuracy formula (0-100 scale)
-- ✅ Subjective evaluation for white (no flip)
-- ✅ Subjective evaluation for black (flip sign)
-- ✅ Point loss calculation
-- ✅ Centipawn gradient constant (0.0035)
-- ✅ Expected points symmetry (EP(x) + EP(-x) = 1.0)
-- ✅ Sigmoid shape verification (monotonic, asymptotes)
-
-**Status**: ✅ All 9 tests passing
-
----
-
-### Test 4: Classification Logic (`test_04_classification_logic.py`)
-**Purpose**: Test classification algorithms with mock data
-
-**Tests**:
-- ✅ FORCED move detection (only 1 legal move)
-- ✅ Non-forced move detection (many legal moves)
-- ⚠️  Checkmate detection (skipped - board state issue)
-- ✅ Top move played detection
-- ✅ Non-top move detection
-- ✅ BEST classification (top move played)
-- ✅ BLUNDER classification (large point loss)
-- ✅ BoardState with classification
-
-**Status**: ✅ 7/8 tests passing (1 skipped)
-
----
-
-### Test 5: PGN Parsing (`test_05_pgn_parsing.py`)
-**Purpose**: Test PGN file parsing and state tree construction
-
-**Tests**:
-- ✅ Simple PGN string parsing
-- ✅ State tree building from PGN
-- ✅ Header extraction (event, site, players, elo, etc.)
-- ✅ Example PGN file parsing (39 positions)
-- ✅ Move extraction from parsed game
-- ✅ FEN string correctness in state tree
-
-**Status**: ✅ All 6 tests passing
-
----
-
-### Test 6: Documented Examples (`test_06_documented_examples.py`)
-**Purpose**: Verify specific examples from architecture documentation
-
-**Tests**:
-- ✅ Expected Points table (8 values from 04-point-loss-classification.md)
-- ✅ Core concepts EP table (7 values from 01-core-concepts.md)
-- ✅ Point loss example (3.6% = EXCELLENT)
-- ✅ Classification thresholds (all 5 thresholds)
-- ✅ Mate expected points (winning/losing)
-- ✅ Mate → Centipawn thresholds (4 thresholds)
-- ✅ Mate → Mate thresholds (3 thresholds)
-- ✅ Centipawn → Mate thresholds (2 thresholds)
-- ✅ Perspective adjustment example
-- ✅ Classification ranges (11 test cases)
-
-**Status**: ✅ All 10 tests passing
-
----
-
-### Test 7: Advanced Classification Examples (`test_07_advanced_examples.py`)
-**Purpose**: Verify specific CRITICAL and BRILLIANT examples from 05-advanced-classifications.md
-
-**Tests**:
-- ✅ CRITICAL Example 1: Tal vs Smyslov 1959 (18% point loss)
-- ✅ CRITICAL Example 2: Defensive critical move (9.5% point loss)
-- ✅ CRITICAL threshold verification (10%)
-- ✅ Point loss calculations for documented positions
-- ✅ BRILLIANT Example 1: Marshall's Gold Coins Game (Qg3!! sacrifice)
-- ✅ BRILLIANT Example 2: Greek Gift sacrifice (Bxh7+)
-- ✅ NOT BRILLIANT Example 3: Trapped piece scenario
-- ⚠️  NOT BRILLIANT Example 4: Danger levels protection (position varies)
-
-**Status**: ✅ All 8 tests passing
-
----
+```
+tests/
+├── conftest.py              # Pytest configuration and shared fixtures
+├── unit/                    # Unit tests for individual components
+│   ├── test_project_structure.py  # Verify project setup
+│   └── (future unit tests)
+└── integration/             # Integration tests for end-to-end workflows
+    └── (future integration tests)
+```
 
 ## Running Tests
 
-### Run All Tests
+### Run all tests
 ```bash
-cd move-classifier
-source ../venv/bin/activate
-python tests/run_all_tests.py
+pytest
 ```
 
-### Run Individual Tests
+### Run only unit tests
 ```bash
-python tests/test_01_imports.py
-python tests/test_02_core_data_structures.py
-python tests/test_03_formulas.py
-python tests/test_04_classification_logic.py
-python tests/test_05_pgn_parsing.py
-python tests/test_06_documented_examples.py
-python tests/test_07_advanced_examples.py
+pytest tests/unit/
 ```
 
-## Test Statistics
+### Run only integration tests
+```bash
+pytest tests/integration/
+```
 
-- **Total Test Files**: 7
-- **Total Test Functions**: 60
-- **Status**: ✅ 100% Passing (59/60 tests, 1 skipped)
-- **Coverage Areas**:
-  - ✅ Module imports
-  - ✅ Data structures
-  - ✅ Mathematical formulas
-  - ✅ Classification logic
-  - ✅ PGN parsing
+### Run with coverage
+```bash
+pytest --cov=src --cov-report=html --cov-report=term
+```
 
-## Test Coverage
+### Run a specific test file
+```bash
+pytest tests/unit/test_project_structure.py
+```
 
-### Covered
-- ✅ All core types and enums
-- ✅ Evaluation objects (centipawn and mate)
-- ✅ Move objects with flags
-- ✅ Expected points calculation
-- ✅ Point loss calculation
-- ✅ Accuracy calculation
-- ✅ Subjective evaluation
-- ✅ FORCED classification
-- ✅ BEST classification
-- ✅ BLUNDER classification
-- ✅ PGN parsing
-- ✅ State tree building
-- ✅ Header extraction
+### Run a specific test class
+```bash
+pytest tests/unit/test_project_structure.py::TestModelsModule
+```
 
-### Not Yet Covered (Future Tests)
-- ⏳ THEORY classification with opening book
-- ✅ CRITICAL classification (second-best move) - **Added in Test 7**
-- ✅ BRILLIANT classification (sacrifices) - **Added in Test 7**
-- ⏳ Attack/defense analysis
-- ⏳ Piece safety calculations
-- ⏳ Danger levels
-- ⏳ Trapped pieces
-- ⏳ Stockfish engine integration (requires actual engine)
-- ⏳ JSON report generation
-- ⏳ Complete end-to-end analysis
+### Run a specific test
+```bash
+pytest tests/unit/test_project_structure.py::TestModelsModule::test_enums_import
+```
 
-## Notes
+### Run with verbose output
+```bash
+pytest -v
+```
 
-### Warnings
-- **Example PGN**: Contains an illegal SAN ('Qxh5') in move 20, but parsing still succeeds
-- **Checkmate Test**: Skipped due to FEN state setup issue (non-critical)
+### Run with print statements visible
+```bash
+pytest -s
+```
 
-### Dependencies
-- Requires `chess` package (python-chess)
-- Tests use virtual environment at `../venv`
-- All tests are self-contained and use mock data
+## Test Categories
 
-### Future Enhancements
-1. Add integration tests with real Stockfish
-2. Test BRILLIANT detection with known positions
-3. Test CRITICAL detection
-4. Test complete analysis pipeline
-5. Add performance benchmarks
-6. Test edge cases (stalemate, insufficient material, etc.)
+### Unit Tests (`tests/unit/`)
 
-## Test Philosophy
+Unit tests verify individual components in isolation:
 
-Tests follow a progressive approach:
-1. **Basic**: Imports and data structures
-2. **Intermediate**: Formulas and algorithms
-3. **Advanced**: Classification logic
-4. **Integration**: PGN parsing and state trees
+- **test_project_structure.py**: Verifies project setup
+  - All modules can be imported
+  - Constants are defined correctly
+  - Configuration classes work
+  - Data structures can be instantiated
+  - Files and directories exist
 
-This ensures that foundational components work before testing complex interactions.
+Future unit tests will include:
+- `test_models.py`: Data structure tests
+- `test_parser.py`: PGN parsing tests
+- `test_engine_analyzer.py`: Engine analysis tests
+- `test_node_extractor.py`: Node extraction tests
+- `test_calculator.py`: Calculation tests
+- `test_classifiers.py`: Classification logic tests
+- `test_utils.py`: Utility function tests
 
----
+### Integration Tests (`tests/integration/`)
 
-**Last Updated**: November 10, 2025
-**Test Framework**: Python unittest-compatible
-**Status**: Production Ready ✅
+Integration tests verify end-to-end workflows:
 
-## Recent Additions
+Future integration tests will include:
+- `test_preprocessing_pipeline.py`: Complete preprocessing pipeline
+- `test_engine_integration.py`: Engine communication tests
+- `test_game_analysis.py`: Full game analysis workflows
+- `test_classification_workflow.py`: Complete classification process
 
-### Test 7 (November 10, 2025)
-Added comprehensive tests for advanced classifications from `05-advanced-classifications.md`:
-- 2 CRITICAL examples (Tal vs Smyslov, Defensive position)
-- 4 BRILLIANT examples (Marshall's sacrifice, Greek Gift, and 2 negative cases)
-- Threshold and point loss verification
-- Total: 8 new tests, 276 lines of code
+## Test Conventions
+
+### Naming
+- Test files: `test_*.py`
+- Test classes: `Test*`
+- Test methods: `test_*`
+
+### Organization
+- Group related tests in classes
+- Use descriptive test names
+- One assertion per test when possible
+- Use fixtures for shared setup
+
+### Assertions
+```python
+# Good
+assert result == expected_value
+
+# With custom message
+assert result == expected_value, "Result should match expected value"
+
+# Using pytest helpers
+pytest.fail("Explicit failure message")
+```
+
+### Fixtures
+Define shared fixtures in `conftest.py`:
+```python
+@pytest.fixture
+def sample_board_state():
+    return BoardState(fen=STARTING_FEN)
+```
+
+## Coverage Goals
+
+- **Unit tests**: Aim for >90% code coverage
+- **Integration tests**: Cover all main workflows
+- **Critical paths**: 100% coverage for classification logic and calculations
+
+## Continuous Integration
+
+Tests should be run automatically on:
+- Pull requests
+- Commits to main branch
+- Before releases
+
+## Writing New Tests
+
+When adding new functionality:
+
+1. Write unit tests for the component
+2. Add integration tests if it's part of a workflow
+3. Ensure tests are independent (can run in any order)
+4. Use meaningful test names that describe what's being tested
+5. Include both positive and negative test cases
+
+### Example Unit Test
+```python
+def test_get_expected_points_equal_position():
+    """Test expected points for equal position (0 cp = 50%)."""
+    from src.utils.evaluation_utils import get_expected_points
+    from src.models.state_tree import Evaluation
+    
+    evaluation = Evaluation(type="centipawn", value=0.0)
+    result = get_expected_points(evaluation)
+    
+    assert result == 0.5, "Equal position should give 50% win probability"
+```
+
+### Example Integration Test
+```python
+def test_complete_preprocessing_pipeline():
+    """Test full pipeline from PGN to extracted nodes."""
+    pgn = "1. e4 e5 2. Nf3 Nc6"
+    
+    # Parse
+    state_tree = parse_pgn(pgn)
+    
+    # Analyze
+    analyze_state_tree(state_tree, config)
+    
+    # Extract
+    nodes = extract_nodes(state_tree)
+    
+    # Verify
+    assert len(nodes) > 0
+    assert all(node.evaluation is not None for node in nodes)
+```
 

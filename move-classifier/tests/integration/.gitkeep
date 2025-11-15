@@ -1,0 +1,9 @@
+"""
+Placeholder for future integration tests.
+
+Integration tests will test end-to-end workflows such as:
+- Complete preprocessing pipeline (PGN → Classification)
+- Engine integration (UCI and cloud)
+- Full game analysis workflows
+"""
+
