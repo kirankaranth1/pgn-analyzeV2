@@ -37,6 +37,14 @@ Qf1+ 24.Kc2 Bf2 25.Qf3 Qg1 26.Bd5 c5 27.dxc5 Bxc5 28.b4 Bd6
 34.Bxc3 h6 35.b7 Re3 36.Bxf7+
 """.strip()
 
+# Real historical game: Morphy vs Duke Karl/Count Isouard (1858) - The Opera Game
+# Another standard test case featuring brilliant attacking play
+MORPHY_OPERA_1858 = """
+1.e4 e5 2.Nf3 d6 3.d4 Bg4 4.dxe5 Bxf3 5.Qxf3 dxe5 6.Bc4 Nf6 7.Qb3 Qe7
+8.Nc3 c6 9.Bg5 b5 10.Nxb5 cxb5 11.Bxb5+ Nbd7 12.O-O-O Rd8
+13.Rxd7 Rxd7 14.Rd1 Qe6 15.Bxd7+ Nxd7 16.Qb8+ Nxb8 17.Rd8#
+""".strip()
+
 
 class TestStage1Parser:
     """Test Stage 1: PGN Parsing to State Tree."""

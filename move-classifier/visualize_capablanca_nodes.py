@@ -1,12 +1,19 @@
 """
-Visualize Capablanca vs Marshall (1918) Game Nodes
+Visualize Historical Chess Games - Node Inspector
 
 This script parses and displays detailed information about each node
-in the Capablanca vs Marshall game, allowing manual verification of
+from famous historical games, allowing manual verification of
 the preprocessing pipeline output before classification.
 
+Supported Games:
+    - capablanca: Capablanca vs Marshall (1918) - 36 moves
+    - morphy: Morphy vs Duke Karl/Count Isouard (1858) - 17 moves
+
 Usage:
-    python visualize_capablanca_nodes.py [--with-engine]
+    python visualize_capablanca_nodes.py [GAME] [OPTIONS]
+    
+Arguments:
+    GAME             Which game to visualize: 'capablanca' or 'morphy' (default: capablanca)
     
 Options:
     --with-engine    Run full preprocessing with engine analysis (slow)
@@ -39,6 +46,39 @@ Qf1+ 24.Kc2 Bf2 25.Qf3 Qg1 26.Bd5 c5 27.dxc5 Bxc5 28.b4 Bd6
 29.a4 a5 30.axb5 axb4 31.Ra6 bxc3 32.Nxc3 Bb4 33.b6 Bxc3
 34.Bxc3 h6 35.b7 Re3 36.Bxf7+
 """.strip()
+
+# The famous Opera Game (1858)
+MORPHY_OPERA_PGN = """
+1.e4 e5 2.Nf3 d6 3.d4 Bg4 4.dxe5 Bxf3 5.Qxf3 dxe5 6.Bc4 Nf6 7.Qb3 Qe7
+8.Nc3 c6 9.Bg5 b5 10.Nxb5 cxb5 11.Bxb5+ Nbd7 12.O-O-O Rd8
+13.Rxd7 Rxd7 14.Rd1 Qe6 15.Bxd7+ Nxd7 16.Qb8+ Nxb8 17.Rd8#
+""".strip()
+
+# Game metadata
+GAMES = {
+    "capablanca": {
+        "pgn": CAPABLANCA_MARSHALL_PGN,
+        "title": "CAPABLANCA vs MARSHALL (1918) - NODE VISUALIZATION",
+        "event": "New York 1918, Round 1",
+        "white": "Jose Raul Capablanca",
+        "black": "Frank James Marshall",
+        "result": "1-0",
+        "eco": "C89 (Ruy Lopez, Marshall Attack)",
+        "moves": 36,
+        "ply": 71,
+    },
+    "morphy": {
+        "pgn": MORPHY_OPERA_PGN,
+        "title": "MORPHY vs DUKE KARL/COUNT ISOUARD (1858) - NODE VISUALIZATION",
+        "event": "Paris 1858 (Opera House)",
+        "white": "Paul Morphy",
+        "black": "Duke Karl / Count Isouard",
+        "result": "1-0",
+        "eco": "C41 (Philidor Defense)",
+        "moves": 17,
+        "ply": 33,
+    },
+}
 
 
 def format_move_number(move_count: int, color: str) -> str:
@@ -170,7 +210,20 @@ def visualize_extracted_pair(node_index: int, previous, current):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Visualize Capablanca vs Marshall game nodes")
+    parser = argparse.ArgumentParser(
+        description="Visualize historical chess game nodes",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Examples:
+  %(prog)s capablanca --move 8              # Show Marshall Attack
+  %(prog)s morphy --move 16                  # Show queen sacrifice
+  %(prog)s capablanca --with-engine --move 15
+  %(prog)s morphy --start 0 --end 10
+        """
+    )
+    parser.add_argument("game", nargs="?", default="capablanca",
+                       choices=["capablanca", "morphy"],
+                       help="Which game to visualize (default: capablanca)")
     parser.add_argument("--with-engine", action="store_true", help="Run with engine analysis")
     parser.add_argument("--depth", type=int, default=12, help="Engine depth (default: 12)")
     parser.add_argument("--cloud", action="store_true", help="Use cloud evaluation")
@@ -183,19 +236,23 @@ def main():
     
     args = parser.parse_args()
     
+    # Get game data
+    game_data = GAMES[args.game]
+    pgn = game_data["pgn"]
+    
     # Redirect output to file if requested
     if args.save:
         sys.stdout = open(args.save, 'w')
     
     print("╔" + "═" * 78 + "╗")
-    print("║" + " " * 15 + "CAPABLANCA vs MARSHALL (1918) - NODE VISUALIZATION" + " " * 12 + "║")
+    print("║" + game_data["title"].center(78) + "║")
     print("╚" + "═" * 78 + "╝")
     print()
-    print("Game: New York 1918, Round 1")
-    print("White: Jose Raul Capablanca")
-    print("Black: Frank James Marshall")
-    print("Result: 1-0")
-    print("ECO: C89 (Ruy Lopez, Marshall Attack)")
+    print(f"Game: {game_data['event']}")
+    print(f"White: {game_data['white']}")
+    print(f"Black: {game_data['black']}")
+    print(f"Result: {game_data['result']}")
+    print(f"ECO: {game_data['eco']}")
     print()
     
     # Parse game
@@ -207,19 +264,23 @@ def main():
             use_cloud_eval=args.cloud
         )
         try:
-            root = run_full_preprocessing_pipeline(CAPABLANCA_MARSHALL_PGN, config=config)
+            root = run_full_preprocessing_pipeline(pgn, config=config)
             print("✅ Pipeline complete!\n")
         except Exception as e:
             print(f"⚠️  Pipeline failed: {e}")
             print("📝 Falling back to parsing only...\n")
-            root = parse_pgn_game(CAPABLANCA_MARSHALL_PGN)
+            root = parse_pgn_game(pgn)
     else:
         print("📝 Parsing game (no engine analysis)...\n")
-        root = parse_pgn_game(CAPABLANCA_MARSHALL_PGN)
+        root = parse_pgn_game(pgn)
     
     # Get all nodes
     nodes = get_node_chain(root)
-    print(f"📊 Total nodes: {len(nodes)} (root + {len(nodes)-1} moves)\n")
+    expected_nodes = game_data['ply'] + 1
+    print(f"📊 Total nodes: {len(nodes)} (root + {len(nodes)-1} moves)")
+    if len(nodes) != expected_nodes:
+        print(f"⚠️  Warning: Expected {expected_nodes} nodes")
+    print()
     
     # Determine range to display
     start_idx = args.start
@@ -251,6 +312,7 @@ def main():
     print("\n" + "=" * 80)
     print("SUMMARY")
     print("=" * 80)
+    print(f"Game: {args.game.capitalize()}")
     print(f"Nodes displayed: {min(end_idx, len(nodes)) - start_idx}")
     print(f"Total moves: {len(nodes) - 1}")
     
