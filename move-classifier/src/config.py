@@ -35,6 +35,9 @@ class ClassificationConfig:
     expand_all_variations: bool = False
     """Include variations in analysis (not just mainline)."""
     
+    include_theory: bool = True
+    """Enable THEORY classification (opening book lookup)."""
+    
     enable_tactical_analysis: bool = True
     """Enable tactical pattern detection."""
     
