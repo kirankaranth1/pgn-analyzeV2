@@ -41,7 +41,22 @@ def parse_pgn_to_state_tree(
     try:
         game = chess.pgn.read_game(pgn_io)
         if game is None:
-            raise ValueError("Invalid PGN: Could not parse game")
+            # Empty PGN - just return root node with starting position
+            return StateTreeNode(
+                id=generate_unique_id(),
+                mainline=True,
+                parent=None,
+                children=[],
+                state=BoardState(
+                    fen=initial_fen,
+                    move=None,
+                    move_color=None,
+                    engine_lines=[],
+                    classification=None,
+                    accuracy=None,
+                    opening=None
+                )
+            )
     except Exception as e:
         raise ValueError(f"Failed to parse PGN: {e}")
     
@@ -93,6 +108,9 @@ def _add_moves_to_node(
         # Store current color before making move
         move_color_bool = board.turn
         
+        # Get SAN before making the move
+        san = board.san(move)
+        
         # Make the move
         board.push(move)
         
@@ -104,7 +122,7 @@ def _add_moves_to_node(
         
         # Create Move object
         move_obj = Move(
-            san=board.san(move),
+            san=san,
             uci=move.uci()
         )
         

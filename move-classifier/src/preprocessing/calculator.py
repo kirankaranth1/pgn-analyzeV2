@@ -42,8 +42,9 @@ def calculate_move_metrics(
     Returns:
         Tuple of (point_loss, accuracy)
     """
-    # Determine move color from current node's played move
-    player_color_bool = current_node.played_move.color
+    # Determine move color from board turn (before move was played)
+    # The current node has the position after the move, so we use previous node's board
+    player_color_bool = previous_node.board.turn
     player_color = PieceColor.WHITE if player_color_bool else PieceColor.BLACK
     
     # Calculate point loss

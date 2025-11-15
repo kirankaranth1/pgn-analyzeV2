@@ -28,7 +28,32 @@ pytest tests/unit/
 
 ### Run only integration tests
 ```bash
-pytest tests/integration/
+pytest tests/integration/ -v
+```
+
+### Run only unit tests (fast tests)
+```bash
+pytest tests/unit/ -v
+```
+
+### Run without slow tests
+```bash
+pytest -m "not slow"
+```
+
+### Run only network-dependent tests
+```bash
+pytest -m network
+```
+
+### Run only engine-dependent tests
+```bash
+pytest -m engine
+```
+
+### Run specific integration test file
+```bash
+pytest tests/integration/test_preprocessing_pipeline.py -v
 ```
 
 ### Run with coverage
@@ -87,11 +112,22 @@ Future unit tests will include:
 
 Integration tests verify end-to-end workflows:
 
+- **test_preprocessing_pipeline.py**: Complete preprocessing pipeline tests
+  - Stage 1: PGN parsing
+  - Stage 2: Engine analysis (cloud + local)
+  - Stage 3: Node chain building
+  - Stage 4: Node extraction
+  - Stage 5: Calculations
+  - Full pipeline integration
+
+- **test_engine_integration.py**: Engine component integration
+  - Lichess cloud API
+  - Local Stockfish UCI
+  - Engine analyzer coordination
+
 Future integration tests will include:
-- `test_preprocessing_pipeline.py`: Complete preprocessing pipeline
-- `test_engine_integration.py`: Engine communication tests
-- `test_game_analysis.py`: Full game analysis workflows
 - `test_classification_workflow.py`: Complete classification process
+- `test_game_analysis.py`: Full game analysis workflows
 
 ## Test Conventions
 
