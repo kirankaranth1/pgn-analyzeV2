@@ -25,6 +25,18 @@ SIMPLE_GAME = "1. e4 e5 2. Nf3 Nc6"
 SCHOLARS_MATE = "1. e4 e5 2. Bc4 Nc6 3. Qh5 Nf6 4. Qxf7#"
 WITH_VARIATIONS = "1. e4 e5 (1... c5) 2. Nf3"
 
+# Real historical game: Capablanca vs Marshall (1918) - The Marshall Attack
+# This serves as the standard test case for all integration tests
+CAPABLANCA_MARSHALL_1918 = """
+1.e4 e5 2.Nf3 Nc6 3.Bb5 a6 4.Ba4 Nf6 5.O-O Be7 6.Re1 b5 7.Bb3
+O-O 8.c3 d5 9.exd5 Nxd5 10.Nxe5 Nxe5 11.Rxe5 Nf6 12.Re1 Bd6
+13.h3 Ng4 14.Qf3 Qh4 15.d4 Nxf2 16.Re2 Bg4 17.hxg4 Bh2+ 18.Kf1
+Bg3 19.Rxf2 Qh1+ 20.Ke2 Bxf2 21.Bd2 Bh4 22.Qh3 Rae8+ 23.Kd3
+Qf1+ 24.Kc2 Bf2 25.Qf3 Qg1 26.Bd5 c5 27.dxc5 Bxc5 28.b4 Bd6
+29.a4 a5 30.axb5 axb4 31.Ra6 bxc3 32.Nxc3 Bb4 33.b6 Bxc3
+34.Bxc3 h6 35.b7 Re3 36.Bxf7+
+""".strip()
+
 
 class TestStage1Parser:
     """Test Stage 1: PGN Parsing to State Tree."""

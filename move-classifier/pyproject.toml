@@ -77,6 +77,7 @@ markers = [
     "integration: marks tests as integration tests (select with '-m integration')",
     "network: marks tests requiring network access",
     "engine: marks tests requiring Stockfish engine",
+    "standard_integration_test: marks tests as standard integration tests that must always pass",
 ]
 
 [tool.coverage.run]
