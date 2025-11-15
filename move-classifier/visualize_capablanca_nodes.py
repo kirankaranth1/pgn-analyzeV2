@@ -34,6 +34,8 @@ from src.preprocessing.parser import parse_pgn_game
 from src.preprocessing.node_chain_builder import get_node_chain
 from src.preprocessing import run_full_preprocessing_pipeline, extract_node_pair
 from src.config import EngineConfig
+from src.classification.basic_classifier import BasicClassifier
+from src.models.enums import Classification
 
 
 # The famous Capablanca vs Marshall game (1918)
@@ -90,7 +92,7 @@ def format_move_number(move_count: int, color: str) -> str:
         return f"{full_move}..."
 
 
-def visualize_node(node, node_index: int, show_fen: bool = False, show_engine: bool = True):
+def visualize_node(node, node_index: int, show_fen: bool = False, show_engine: bool = True, show_classification: bool = False, classifier=None):
     """Display detailed information about a single node."""
     
     print("=" * 80)
@@ -143,6 +145,29 @@ def visualize_node(node, node_index: int, show_fen: bool = False, show_engine: b
         len(board.pieces(chess.QUEEN, chess.BLACK)) * 9,
     ])
     print(f"  Material:   White={white_material}, Black={black_material} (Δ{white_material-black_material:+d})")
+    
+    # Basic Classification
+    if show_classification and classifier and node_index > 0:
+        print(f"\n🎯 BASIC CLASSIFICATION:")
+        pair = extract_node_pair(node)
+        if pair is not None:
+            previous, current = pair
+            result = classifier.classify(previous, current)
+            
+            if result == Classification.FORCED:
+                print(f"  Classification: FORCED")
+                print(f"  Reason:         Only 1 legal move available")
+            elif result == Classification.BOOK:
+                print(f"  Classification: THEORY")
+                print(f"  Opening:        {current.state.opening}")
+            elif result == Classification.BEST:
+                print(f"  Classification: BEST")
+                print(f"  Reason:         Delivers checkmate")
+            else:
+                print(f"  Classification: None")
+                print(f"  Note:           Requires point loss evaluation")
+        else:
+            print(f"  Classification: N/A (extraction failed)")
     
     # Engine analysis
     if show_engine and len(node.state.engine_lines) > 0:
@@ -219,6 +244,7 @@ Examples:
   %(prog)s morphy --move 16                  # Show queen sacrifice
   %(prog)s capablanca --with-engine --move 15
   %(prog)s morphy --start 0 --end 10
+  %(prog)s morphy --classify --with-engine  # Show classifications with real engine
         """
     )
     parser.add_argument("game", nargs="?", default="capablanca",
@@ -229,6 +255,7 @@ Examples:
     parser.add_argument("--cloud", action="store_true", help="Use cloud evaluation")
     parser.add_argument("--show-fen", action="store_true", help="Show full FEN strings")
     parser.add_argument("--show-extracted", action="store_true", help="Show extracted node pairs")
+    parser.add_argument("--classify", action="store_true", help="Show basic classifications")
     parser.add_argument("--start", type=int, default=0, help="Start from node N")
     parser.add_argument("--end", type=int, help="End at node N")
     parser.add_argument("--move", type=int, help="Show only this move number")
@@ -254,6 +281,13 @@ Examples:
     print(f"Result: {game_data['result']}")
     print(f"ECO: {game_data['eco']}")
     print()
+    
+    # Initialize classifier if needed
+    classifier = None
+    if args.classify:
+        classifier = BasicClassifier()
+        print(f"🎯 Basic Classification Enabled (Opening book: {classifier.opening_book_size} positions)")
+        print()
     
     # Parse game
     if args.with_engine:
@@ -295,7 +329,14 @@ Examples:
     
     # Display nodes
     for i in range(start_idx, min(end_idx, len(nodes))):
-        visualize_node(nodes[i], i, show_fen=args.show_fen, show_engine=args.with_engine)
+        visualize_node(
+            nodes[i], 
+            i, 
+            show_fen=args.show_fen, 
+            show_engine=args.with_engine,
+            show_classification=args.classify,
+            classifier=classifier
+        )
         
         # Show extracted pair if requested
         if args.show_extracted and i > 0:
@@ -324,6 +365,34 @@ Examples:
     # Count extractable pairs
     extractable = sum(1 for i in range(1, len(nodes)) if extract_node_pair(nodes[i]) is not None)
     print(f"Extractable move pairs: {extractable}/{len(nodes)-1}")
+    
+    # Classification summary
+    if args.classify and classifier:
+        print(f"\n🎯 CLASSIFICATION SUMMARY:")
+        classifications = {"FORCED": 0, "THEORY": 0, "BEST": 0, "NONE": 0, "N/A": 0}
+        
+        for i in range(1, len(nodes)):
+            pair = extract_node_pair(nodes[i])
+            if pair is not None:
+                previous, current = pair
+                result = classifier.classify(previous, current)
+                
+                if result == Classification.FORCED:
+                    classifications["FORCED"] += 1
+                elif result == Classification.BOOK:
+                    classifications["THEORY"] += 1
+                elif result == Classification.BEST:
+                    classifications["BEST"] += 1
+                else:
+                    classifications["NONE"] += 1
+            else:
+                classifications["N/A"] += 1
+        
+        print(f"  FORCED (only 1 legal move):        {classifications['FORCED']}")
+        print(f"  THEORY (in opening book):           {classifications['THEORY']}")
+        print(f"  BEST (checkmate):                   {classifications['BEST']}")
+        print(f"  None (needs point loss evaluation): {classifications['NONE']}")
+        print(f"  N/A (extraction failed):            {classifications['N/A']}")
     
     print("\n✅ Visualization complete!")
     
