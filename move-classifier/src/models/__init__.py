@@ -20,6 +20,13 @@ from .game_analysis import (
     EstimatedRatings,
     GameAnalysis
 )
+from .chess_types import (
+    BoardPiece,
+    RawMove,
+    to_raw_move,
+    to_board_piece,
+    get_board_pieces
+)
 
 __all__ = [
     # Enums
@@ -42,4 +49,11 @@ __all__ = [
     # Game Analysis
     "EstimatedRatings",
     "GameAnalysis",
+    
+    # Chess Types
+    "BoardPiece",
+    "RawMove",
+    "to_raw_move",
+    "to_board_piece",
+    "get_board_pieces",
 ]

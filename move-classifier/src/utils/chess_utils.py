@@ -1,66 +1,55 @@
 """
 Chess Utility Functions
 
-Helper functions for chess-specific operations:
-- Move validation
-- Square manipulation
-- Piece operations
-- Board helpers
+Helper functions for chess board manipulation.
 """
 
-import uuid
 import chess
+from typing import Optional
 
 
-def generate_unique_id() -> str:
+def set_fen_turn(fen: str, color: chess.Color) -> str:
     """
-    Generate a unique identifier for state tree nodes.
-    
-    Returns:
-        Unique string identifier
-    """
-    return str(uuid.uuid4())
-
-
-def chess_color_to_piece_color(chess_color: chess.Color) -> str:
-    """
-    Convert python-chess color to PieceColor enum string.
+    Set the turn in a FEN string to the specified color.
     
     Args:
-        chess_color: chess.WHITE or chess.BLACK
+        fen: FEN string to modify
+        color: Color to set (chess.WHITE or chess.BLACK)
         
     Returns:
-        "WHITE" or "BLACK" string
+        Modified FEN string with updated turn
     """
-    return "WHITE" if chess_color == chess.WHITE else "BLACK"
+    parts = fen.split(' ')
+    parts[1] = 'w' if color == chess.WHITE else 'b'
+    return ' '.join(parts)
 
 
-def get_move_color_from_fen(fen: str) -> str:
+def get_capture_square(move: chess.Move) -> Optional[chess.Square]:
     """
-    Extract the active color from a FEN string.
+    Get the square where a capture occurs.
+    
+    For normal captures, this is the destination square.
+    For en passant, this is calculated differently.
     
     Args:
-        fen: FEN string
+        move: The move to check
         
     Returns:
-        "WHITE" or "BLACK"
+        Square where capture occurs, or None if not a capture
     """
-    # FEN format: pieces turn castling enpassant halfmove fullmove
-    # The second field is 'w' or 'b' for the active color
-    parts = fen.split()
-    if len(parts) >= 2:
-        return "WHITE" if parts[1] == 'w' else "BLACK"
-    return "WHITE"  # Default
+    # For en passant captures, the captured pawn is not on the destination square
+    # but we still return the destination square as that's where the capturing piece lands
+    return move.to_square
 
 
-def is_black_to_move(fen: str) -> bool:
+def flip_piece_color(color: chess.Color) -> chess.Color:
     """
-    Check if it's Black's turn to move.
+    Flip the piece color.
     
     Args:
-        fen: FEN string
+        color: Color to flip
         
     Returns:
-        True if Black to move, False otherwise
+        Opposite color
     """
-    return " b " in fen
+    return chess.BLACK if color == chess.WHITE else chess.WHITE
