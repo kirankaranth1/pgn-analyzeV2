@@ -18,6 +18,7 @@ from ..preprocessing.node_extractor import (
 )
 from ..classification.basic_classifier import OpeningBook
 from ..classification.point_loss_classifier import point_loss_classify
+from ..classification.critical_classifier import consider_critical_classification
 
 
 # Stub functions for advanced classifiers (to be implemented)
@@ -35,23 +36,6 @@ def _consider_brilliant_classification(previous_node, current_node) -> bool:
         True if move should be classified as BRILLIANT
     """
     # Stub: Never mark as brilliant yet
-    return False
-
-
-def _consider_critical_classification(previous_node, current_node) -> bool:
-    """
-    Check if move qualifies as CRITICAL (only move).
-    
-    TODO: Implement critical classification logic
-    
-    Args:
-        previous_node: Position before move
-        current_node: Position after move
-        
-    Returns:
-        True if move should be classified as CRITICAL
-    """
-    # Stub: Never mark as critical yet
     return False
 
 
@@ -141,7 +125,7 @@ class Classifier:
         if (
             opts.include_critical
             and top_move_played
-            and _consider_critical_classification(previous, current)
+            and consider_critical_classification(previous, current)
         ):
             classification = Classification.CRITICAL
         

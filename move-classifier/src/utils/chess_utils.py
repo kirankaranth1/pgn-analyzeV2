@@ -5,7 +5,44 @@ Helper functions for chess board manipulation.
 """
 
 import chess
+import uuid
 from typing import Optional
+
+
+def generate_unique_id() -> str:
+    """
+    Generate a unique identifier.
+    
+    Returns:
+        UUID string
+    """
+    return str(uuid.uuid4())
+
+
+def chess_color_to_piece_color(color: chess.Color) -> str:
+    """
+    Convert chess.Color to string representation.
+    
+    Args:
+        color: Chess color (True=WHITE, False=BLACK)
+        
+    Returns:
+        "WHITE" or "BLACK"
+    """
+    return "WHITE" if color == chess.WHITE else "BLACK"
+
+
+def is_black_to_move(position: str) -> bool:
+    """
+    Check if it's black's turn to move from a FEN string.
+    
+    Args:
+        position: FEN string
+        
+    Returns:
+        True if black to move, False if white to move
+    """
+    return position.split()[1] == 'b'
 
 
 def set_fen_turn(fen: str, color: chess.Color) -> str:
