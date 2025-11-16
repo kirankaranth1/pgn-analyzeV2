@@ -7,7 +7,9 @@ Determines if a move should be classified as BRILLIANT.
 import chess
 
 from ..models.extracted_nodes import ExtractedPreviousNode, ExtractedCurrentNode
-from ..utils.piece_safety import get_unsafe_pieces
+from ..models.chess_types import get_board_pieces
+from ..constants import PIECE_VALUES
+from ..utils.piece_safety import get_unsafe_pieces, is_piece_safe
 from ..utils.danger_levels import has_danger_levels
 from ..utils.piece_trapped import is_piece_trapped
 from ..utils.attackers import get_attacking_moves
@@ -52,20 +54,28 @@ def consider_brilliant_classification(
         player_color
     )
     
-    # Get unsafe pieces AFTER the move
-    played_move = None
+    # Determine what was captured (from previous board, before the move)
+    captured_piece_value = 0
     if current.played_move:
-        played_move = chess.Move(
-            current.played_move.from_square,
-            current.played_move.to_square,
-            promotion=current.played_move.promotion
-        )
+        captured_piece = previous.board.piece_at(current.played_move.to_square)
+        if captured_piece:
+            captured_piece_value = PIECE_VALUES[captured_piece.piece_type]
     
-    unsafe_pieces = get_unsafe_pieces(
-        current.board,
-        player_color,
-        played_move
-    )
+    # Get unsafe pieces AFTER the move
+    # We need to manually filter based on captured piece value
+    # because get_unsafe_pieces expects board BEFORE move for capture detection
+    all_pieces_after = get_board_pieces(current.board)
+    unsafe_pieces = []
+    
+    for piece in all_pieces_after:
+        if (
+            piece.color == player_color
+            and piece.type != chess.PAWN
+            and piece.type != chess.KING
+            and PIECE_VALUES[piece.type] > captured_piece_value
+            and not is_piece_safe(current.board, piece)
+        ):
+            unsafe_pieces.append(piece)
     
     # Moving to safety (less unsafe pieces) disallows brilliant
     # UNLESS in check (desperate moves in check can be brilliant)
