@@ -34,7 +34,7 @@ from src.preprocessing.parser import parse_pgn_game
 from src.preprocessing.node_chain_builder import get_node_chain
 from src.preprocessing import run_full_preprocessing_pipeline, extract_node_pair
 from src.config import EngineConfig
-from src.classification.basic_classifier import BasicClassifier
+from src.classification import Classifier
 from src.models.enums import Classification
 
 
@@ -146,38 +146,57 @@ def visualize_node(node, node_index: int, show_fen: bool = False, show_engine: b
     ])
     print(f"  Material:   White={white_material}, Black={black_material} (Δ{white_material-black_material:+d})")
     
-    # Basic Classification
+    # Classification with Point Loss
     if show_classification and classifier and node_index > 0:
-        print(f"\n🎯 BASIC CLASSIFICATION:")
-        pair = extract_node_pair(node)
-        if pair is not None:
-            previous, current = pair
-            result = classifier.classify(previous, current)
+        print(f"\n🎯 CLASSIFICATION:")
+        try:
+            result = classifier.classify(node)
             
+            # Display classification with details
+            print(f"  Classification: {result.value}")
+            
+            # Add explanatory notes
             if result == Classification.FORCED:
-                print(f"  Classification: FORCED")
                 print(f"  Reason:         Only 1 legal move available")
             elif result == Classification.BOOK:
-                print(f"  Classification: THEORY")
-                print(f"  Opening:        {current.state.opening}")
+                print(f"  Reason:         Position in opening book")
+                if node.state.opening:
+                    print(f"  Opening:        {node.state.opening}")
             elif result == Classification.BEST:
-                print(f"  Classification: BEST")
-                print(f"  Reason:         Delivers checkmate")
-            else:
-                print(f"  Classification: None")
-                print(f"  Note:           Requires point loss evaluation")
-        else:
-            # Extraction failed - try direct classification for terminal positions
-            result = classifier.classify_from_state_tree_node(node)
-            if result == Classification.BOOK:
-                print(f"  Classification: THEORY (direct)")
-                print(f"  Opening:        {node.state.opening}")
-            elif result == Classification.BEST:
-                print(f"  Classification: BEST (direct)")
-                print(f"  Reason:         Delivers checkmate")
-            else:
-                print(f"  Classification: N/A")
-                print(f"  Note:           Extraction failed, no engine analysis")
+                board = chess.Board(node.state.fen)
+                if board.is_checkmate():
+                    print(f"  Reason:         Delivers checkmate")
+                else:
+                    print(f"  Reason:         Top engine move played")
+            elif result == Classification.EXCELLENT:
+                print(f"  Reason:         Very small point loss (< 0.045)")
+            elif result == Classification.GOOD:
+                print(f"  Reason:         Small point loss (< 0.08)")
+            elif result == Classification.INACCURACY:
+                print(f"  Reason:         Moderate point loss (< 0.12)")
+            elif result == Classification.MISTAKE:
+                print(f"  Reason:         Significant point loss (< 0.22)")
+            elif result == Classification.BLUNDER:
+                print(f"  Reason:         Large point loss (≥ 0.22)")
+            
+            # Show point loss if available and not special classification
+            if result not in [Classification.FORCED, Classification.BOOK]:
+                pair = extract_node_pair(node)
+                if pair:
+                    from src.preprocessing.calculator import calculate_move_metrics
+                    previous, current = pair
+                    try:
+                        point_loss, accuracy = calculate_move_metrics(previous, current)
+                        print(f"  Point Loss:     {point_loss:.4f}")
+                        print(f"  Accuracy:       {accuracy:.1f}%")
+                    except:
+                        pass
+        except ValueError as e:
+            print(f"  Classification: N/A")
+            print(f"  Note:           {str(e)}")
+        except Exception as e:
+            print(f"  Classification: Error")
+            print(f"  Note:           {str(e)}")
     
     # Engine analysis
     if show_engine and len(node.state.engine_lines) > 0:
@@ -295,8 +314,8 @@ Examples:
     # Initialize classifier if needed
     classifier = None
     if args.classify:
-        classifier = BasicClassifier()
-        print(f"🎯 Basic Classification Enabled (Opening book: {classifier.opening_book_size} positions)")
+        classifier = Classifier()
+        print(f"🎯 Classification Enabled (includes Point Loss classification)")
         print()
     
     # Parse game
@@ -379,13 +398,21 @@ Examples:
     # Classification summary
     if args.classify and classifier:
         print(f"\n🎯 CLASSIFICATION SUMMARY:")
-        classifications = {"FORCED": 0, "THEORY": 0, "BEST": 0, "NONE": 0, "N/A": 0}
+        classifications = {
+            "FORCED": 0, 
+            "THEORY": 0, 
+            "BEST": 0, 
+            "EXCELLENT": 0,
+            "GOOD": 0,
+            "INACCURACY": 0,
+            "MISTAKE": 0,
+            "BLUNDER": 0,
+            "N/A": 0
+        }
         
         for i in range(1, len(nodes)):
-            pair = extract_node_pair(nodes[i])
-            if pair is not None:
-                previous, current = pair
-                result = classifier.classify(previous, current)
+            try:
+                result = classifier.classify(nodes[i])
                 
                 if result == Classification.FORCED:
                     classifications["FORCED"] += 1
@@ -393,22 +420,27 @@ Examples:
                     classifications["THEORY"] += 1
                 elif result == Classification.BEST:
                     classifications["BEST"] += 1
-                else:
-                    classifications["NONE"] += 1
-            else:
-                # Try direct classification for terminal positions
-                result = classifier.classify_from_state_tree_node(nodes[i])
-                if result == Classification.BOOK:
-                    classifications["THEORY"] += 1
-                elif result == Classification.BEST:
-                    classifications["BEST"] += 1
-                else:
-                    classifications["N/A"] += 1
+                elif result == Classification.EXCELLENT:
+                    classifications["EXCELLENT"] += 1
+                elif result == Classification.GOOD:
+                    classifications["GOOD"] += 1
+                elif result == Classification.INACCURACY:
+                    classifications["INACCURACY"] += 1
+                elif result == Classification.MISTAKE:
+                    classifications["MISTAKE"] += 1
+                elif result == Classification.BLUNDER:
+                    classifications["BLUNDER"] += 1
+            except:
+                classifications["N/A"] += 1
         
         print(f"  FORCED (only 1 legal move):        {classifications['FORCED']}")
         print(f"  THEORY (in opening book):           {classifications['THEORY']}")
-        print(f"  BEST (checkmate):                   {classifications['BEST']}")
-        print(f"  None (needs point loss evaluation): {classifications['NONE']}")
+        print(f"  BEST (top move or checkmate):       {classifications['BEST']}")
+        print(f"  EXCELLENT (point loss < 0.045):     {classifications['EXCELLENT']}")
+        print(f"  GOOD (point loss < 0.08):           {classifications['GOOD']}")
+        print(f"  INACCURACY (point loss < 0.12):     {classifications['INACCURACY']}")
+        print(f"  MISTAKE (point loss < 0.22):        {classifications['MISTAKE']}")
+        print(f"  BLUNDER (point loss ≥ 0.22):        {classifications['BLUNDER']}")
         print(f"  N/A (extraction failed):            {classifications['N/A']}")
     
     print("\n✅ Visualization complete!")

@@ -185,7 +185,7 @@ def test_classify_non_best_move():
             fen='r1bqk2r/pppp1ppp/2n2n2/2b1p3/2B1P3/3P1N2/PPP2PPP/RNBQK2R w KQkq - 0 5',
             engine_lines=[
                 EngineLine(
-                    evaluation=Evaluation(type='centipawn', value=30.0),
+                    evaluation=Evaluation(type='centipawn', value=50.0),
                     source='stockfish-17',
                     depth=20,
                     index=1,
@@ -195,7 +195,7 @@ def test_classify_non_best_move():
         )
     )
     
-    # Play a different move (Nc3 instead of O-O)
+    # Play a different move (Nc3 instead of O-O) with evaluation drop
     child = StateTreeNode(
         id='child',
         mainline=True,
@@ -206,7 +206,7 @@ def test_classify_non_best_move():
             move=Move(san='Nc3', uci='b1c3'),
             engine_lines=[
                 EngineLine(
-                    evaluation=Evaluation(type='centipawn', value=25.0),
+                    evaluation=Evaluation(type='centipawn', value=10.0),
                     source='stockfish-17',
                     depth=20,
                     index=1,
@@ -223,8 +223,8 @@ def test_classify_non_best_move():
     classifier = Classifier(config=config)
     classification = classifier.classify(child, config=config)
     
-    # Since point loss classification is stubbed to return GOOD, expect GOOD
-    assert classification == Classification.GOOD
+    # Point loss from +50 to +10 results in EXCELLENT (point loss < 0.045)
+    assert classification == Classification.EXCELLENT
 
 
 def test_classify_requires_parent():

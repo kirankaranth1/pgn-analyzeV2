@@ -8,7 +8,7 @@ Black: Duke Karl / Count Isouard
 Result: 1-0
 ECO: C41 (Philidor Defense)
 
-🎯 Basic Classification Enabled (Opening book: 3399 positions)
+🎯 Classification Enabled (includes Point Loss classification)
 
 ⏳ Running full preprocessing pipeline (depth=16)...
 ✅ Pipeline complete!
@@ -18,7 +18,7 @@ ECO: C41 (Philidor Defense)
 ================================================================================
 NODE 0: ROOT NODE (Starting Position)
 ================================================================================
-Node ID:      3cb533dc...
+Node ID:      419d3c8f...
 Mainline:     True
 Has Parent:   False
 Children:     1
@@ -42,7 +42,7 @@ Engine Analysis (2 lines):
 ================================================================================
 NODE 1: 1. e4 (WHITE)
 ================================================================================
-Node ID:      86c0a95f...
+Node ID:      71af24e8...
 Mainline:     True
 Has Parent:   True
 Children:     1
@@ -60,8 +60,9 @@ Position:
   Legal:      True
   Material:   White=39, Black=39 (Δ+0)
 
-🎯 BASIC CLASSIFICATION:
-  Classification: THEORY
+🎯 CLASSIFICATION:
+  Classification: BOOK
+  Reason:         Position in opening book
   Opening:        King's Pawn Game
 
 Engine Analysis (2 lines):
@@ -104,7 +105,7 @@ EXTRACTED PAIR FOR NODE 1
 ================================================================================
 NODE 2: 1... e5 (BLACK)
 ================================================================================
-Node ID:      755c8d06...
+Node ID:      af7a2cea...
 Mainline:     True
 Has Parent:   True
 Children:     1
@@ -122,8 +123,9 @@ Position:
   Legal:      True
   Material:   White=39, Black=39 (Δ+0)
 
-🎯 BASIC CLASSIFICATION:
-  Classification: THEORY
+🎯 CLASSIFICATION:
+  Classification: BOOK
+  Reason:         Position in opening book
   Opening:        King's Pawn Game
 
 Engine Analysis (2 lines):
@@ -166,7 +168,7 @@ EXTRACTED PAIR FOR NODE 2
 ================================================================================
 NODE 3: 2. Nf3 (WHITE)
 ================================================================================
-Node ID:      6b78eced...
+Node ID:      afd83182...
 Mainline:     True
 Has Parent:   True
 Children:     1
@@ -184,8 +186,9 @@ Position:
   Legal:      True
   Material:   White=39, Black=39 (Δ+0)
 
-🎯 BASIC CLASSIFICATION:
-  Classification: THEORY
+🎯 CLASSIFICATION:
+  Classification: BOOK
+  Reason:         Position in opening book
   Opening:        King's Knight Opening
 
 Engine Analysis (2 lines):
@@ -228,7 +231,7 @@ EXTRACTED PAIR FOR NODE 3
 ================================================================================
 NODE 4: 2... d6 (BLACK)
 ================================================================================
-Node ID:      a97ac6ca...
+Node ID:      1e63a383...
 Mainline:     True
 Has Parent:   True
 Children:     1
@@ -246,8 +249,9 @@ Position:
   Legal:      True
   Material:   White=39, Black=39 (Δ+0)
 
-🎯 BASIC CLASSIFICATION:
-  Classification: THEORY
+🎯 CLASSIFICATION:
+  Classification: BOOK
+  Reason:         Position in opening book
   Opening:        Philidor Defense
 
 Engine Analysis (2 lines):
@@ -290,7 +294,7 @@ EXTRACTED PAIR FOR NODE 4
 ================================================================================
 NODE 5: 3. d4 (WHITE)
 ================================================================================
-Node ID:      5f9c1768...
+Node ID:      1c1c683d...
 Mainline:     True
 Has Parent:   True
 Children:     1
@@ -308,8 +312,9 @@ Position:
   Legal:      True
   Material:   White=39, Black=39 (Δ+0)
 
-🎯 BASIC CLASSIFICATION:
-  Classification: THEORY
+🎯 CLASSIFICATION:
+  Classification: BOOK
+  Reason:         Position in opening book
   Opening:        Philidor Defense
 
 Engine Analysis (2 lines):
@@ -352,7 +357,7 @@ EXTRACTED PAIR FOR NODE 5
 ================================================================================
 NODE 6: 3... Bg4 (BLACK)
 ================================================================================
-Node ID:      c979ccf5...
+Node ID:      404c43f9...
 Mainline:     True
 Has Parent:   True
 Children:     1
@@ -370,9 +375,11 @@ Position:
   Legal:      True
   Material:   White=39, Black=39 (Δ+0)
 
-🎯 BASIC CLASSIFICATION:
-  Classification: None
-  Note:           Requires point loss evaluation
+🎯 CLASSIFICATION:
+  Classification: GOOD
+  Reason:         Small point loss (< 0.08)
+  Point Loss:     0.0599
+  Accuracy:       78.0%
 
 Engine Analysis (2 lines):
   Line 1:     +117.00 | depth=16 | Be3 Nc6 d5 Nce7 c4...
@@ -411,7 +418,7 @@ EXTRACTED PAIR FOR NODE 6
 ================================================================================
 NODE 7: 4. dxe5 (WHITE)
 ================================================================================
-Node ID:      52b3a6eb...
+Node ID:      e7b55b39...
 Mainline:     True
 Has Parent:   True
 Children:     1
@@ -429,9 +436,11 @@ Position:
   Legal:      True
   Material:   White=39, Black=38 (Δ+1)
 
-🎯 BASIC CLASSIFICATION:
-  Classification: None
-  Note:           Requires point loss evaluation
+🎯 CLASSIFICATION:
+  Classification: EXCELLENT
+  Reason:         Very small point loss (< 0.045)
+  Point Loss:     0.0195
+  Accuracy:       92.3%
 
 Engine Analysis (2 lines):
   Line 1:     +94.00 | depth=16 | Nc6 exd6 Bxd6 h3 Bh5...
@@ -470,7 +479,7 @@ EXTRACTED PAIR FOR NODE 7
 ================================================================================
 NODE 8: 4... Bxf3 (BLACK)
 ================================================================================
-Node ID:      652f39f6...
+Node ID:      385219e1...
 Mainline:     True
 Has Parent:   True
 Children:     1
@@ -488,9 +497,11 @@ Position:
   Legal:      True
   Material:   White=36, Black=38 (Δ-2)
 
-🎯 BASIC CLASSIFICATION:
-  Classification: None
-  Note:           Requires point loss evaluation
+🎯 CLASSIFICATION:
+  Classification: GOOD
+  Reason:         Small point loss (< 0.08)
+  Point Loss:     0.0492
+  Accuracy:       81.5%
 
 Engine Analysis (2 lines):
   Line 1:     +153.00 | depth=16 | Qxf3 dxe5 Qb3 Nd7 Be3...
@@ -529,7 +540,7 @@ EXTRACTED PAIR FOR NODE 8
 ================================================================================
 NODE 9: 5. Qxf3 (WHITE)
 ================================================================================
-Node ID:      0401ec96...
+Node ID:      bb27bfd1...
 Mainline:     True
 Has Parent:   True
 Children:     1
@@ -547,9 +558,11 @@ Position:
   Legal:      True
   Material:   White=36, Black=35 (Δ+1)
 
-🎯 BASIC CLASSIFICATION:
-  Classification: None
-  Note:           Requires point loss evaluation
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0000
+  Accuracy:       100.0%
 
 Engine Analysis (2 lines):
   Line 1:     +153.00 | depth=16 | dxe5 Qb3 Nd7 Be3 Bc5...
@@ -588,7 +601,7 @@ EXTRACTED PAIR FOR NODE 9
 ================================================================================
 NODE 10: 5... dxe5 (BLACK)
 ================================================================================
-Node ID:      8cff5efa...
+Node ID:      de00584c...
 Mainline:     True
 Has Parent:   True
 Children:     1
@@ -606,9 +619,11 @@ Position:
   Legal:      True
   Material:   White=35, Black=35 (Δ+0)
 
-🎯 BASIC CLASSIFICATION:
-  Classification: None
-  Note:           Requires point loss evaluation
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0145
+  Accuracy:       94.2%
 
 Engine Analysis (2 lines):
   Line 1:     +171.00 | depth=16 | Qb3 Nd7 Be3 Bc5 Bxc5...
@@ -647,7 +662,7 @@ EXTRACTED PAIR FOR NODE 10
 ================================================================================
 NODE 11: 6. Bc4 (WHITE)
 ================================================================================
-Node ID:      35abd7c1...
+Node ID:      6b1887fe...
 Mainline:     True
 Has Parent:   True
 Children:     1
@@ -665,9 +680,11 @@ Position:
   Legal:      True
   Material:   White=35, Black=35 (Δ+0)
 
-🎯 BASIC CLASSIFICATION:
-  Classification: None
-  Note:           Requires point loss evaluation
+🎯 CLASSIFICATION:
+  Classification: EXCELLENT
+  Reason:         Very small point loss (< 0.045)
+  Point Loss:     0.0285
+  Accuracy:       88.9%
 
 Engine Analysis (2 lines):
   Line 1:     +136.00 | depth=16 | Qf6 Qb3 Nd7 Qxb7 Rb8...
@@ -706,7 +723,7 @@ EXTRACTED PAIR FOR NODE 11
 ================================================================================
 NODE 12: 6... Nf6 (BLACK)
 ================================================================================
-Node ID:      82d705ed...
+Node ID:      756a1c66...
 Mainline:     True
 Has Parent:   True
 Children:     1
@@ -724,9 +741,11 @@ Position:
   Legal:      True
   Material:   White=35, Black=35 (Δ+0)
 
-🎯 BASIC CLASSIFICATION:
-  Classification: None
-  Note:           Requires point loss evaluation
+🎯 CLASSIFICATION:
+  Classification: INACCURACY
+  Reason:         Moderate point loss (< 0.12)
+  Point Loss:     0.0802
+  Accuracy:       71.7%
 
 Engine Analysis (2 lines):
   Line 1:     +238.00 | depth=16 | Qb3 Bc5 Bxf7+ Ke7 Bc4...
@@ -765,7 +784,7 @@ EXTRACTED PAIR FOR NODE 12
 ================================================================================
 NODE 13: 7. Qb3 (WHITE)
 ================================================================================
-Node ID:      571cc6b0...
+Node ID:      e700058b...
 Mainline:     True
 Has Parent:   True
 Children:     1
@@ -783,9 +802,11 @@ Position:
   Legal:      True
   Material:   White=35, Black=35 (Δ+0)
 
-🎯 BASIC CLASSIFICATION:
-  Classification: None
-  Note:           Requires point loss evaluation
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0045
+  Accuracy:       98.2%
 
 Engine Analysis (2 lines):
   Line 1:     +232.00 | depth=16 | Bc5 Bxf7+ Ke7 Bc4 Nc6...
@@ -824,7 +845,7 @@ EXTRACTED PAIR FOR NODE 13
 ================================================================================
 NODE 14: 7... Qe7 (BLACK)
 ================================================================================
-Node ID:      c45aaae8...
+Node ID:      f8f942f7...
 Mainline:     True
 Has Parent:   True
 Children:     1
@@ -842,9 +863,11 @@ Position:
   Legal:      True
   Material:   White=35, Black=35 (Δ+0)
 
-🎯 BASIC CLASSIFICATION:
-  Classification: None
-  Note:           Requires point loss evaluation
+🎯 CLASSIFICATION:
+  Classification: EXCELLENT
+  Reason:         Very small point loss (< 0.045)
+  Point Loss:     0.0118
+  Accuracy:       95.2%
 
 Engine Analysis (2 lines):
   Line 1:     +248.00 | depth=16 | Qxb7 Qb4+ Qxb4 Bxb4+ Bd2...
@@ -883,7 +906,7 @@ EXTRACTED PAIR FOR NODE 14
 ================================================================================
 NODE 15: 8. Nc3 (WHITE)
 ================================================================================
-Node ID:      e1cff75d...
+Node ID:      2f347f63...
 Mainline:     True
 Has Parent:   True
 Children:     1
@@ -901,9 +924,11 @@ Position:
   Legal:      True
   Material:   White=35, Black=35 (Δ+0)
 
-🎯 BASIC CLASSIFICATION:
-  Classification: None
-  Note:           Requires point loss evaluation
+🎯 CLASSIFICATION:
+  Classification: EXCELLENT
+  Reason:         Very small point loss (< 0.045)
+  Point Loss:     0.0118
+  Accuracy:       95.2%
 
 Engine Analysis (2 lines):
   Line 1:     +232.00 | depth=16 | c6 Bg5 Kd8 Bxf7 Kc7...
@@ -942,7 +967,7 @@ EXTRACTED PAIR FOR NODE 15
 ================================================================================
 NODE 16: 8... c6 (BLACK)
 ================================================================================
-Node ID:      13f761d1...
+Node ID:      b3f8818f...
 Mainline:     True
 Has Parent:   True
 Children:     1
@@ -960,9 +985,11 @@ Position:
   Legal:      True
   Material:   White=35, Black=35 (Δ+0)
 
-🎯 BASIC CLASSIFICATION:
-  Classification: None
-  Note:           Requires point loss evaluation
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0111
+  Accuracy:       95.5%
 
 Engine Analysis (2 lines):
   Line 1:     +247.00 | depth=16 | Bg5 Qc7 O-O-O b5 Nxb5...
@@ -1001,7 +1028,7 @@ EXTRACTED PAIR FOR NODE 16
 ================================================================================
 NODE 17: 9. Bg5 (WHITE)
 ================================================================================
-Node ID:      b98d3f65...
+Node ID:      77bb4153...
 Mainline:     True
 Has Parent:   True
 Children:     1
@@ -1019,9 +1046,11 @@ Position:
   Legal:      True
   Material:   White=35, Black=35 (Δ+0)
 
-🎯 BASIC CLASSIFICATION:
-  Classification: None
-  Note:           Requires point loss evaluation
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0037
+  Accuracy:       98.5%
 
 Engine Analysis (2 lines):
   Line 1:     +242.00 | depth=16 | Kd8 Bxf7 Kc7 a3 a6...
@@ -1060,7 +1089,7 @@ EXTRACTED PAIR FOR NODE 17
 ================================================================================
 NODE 18: 9... b5 (BLACK)
 ================================================================================
-Node ID:      d065d74a...
+Node ID:      0346c477...
 Mainline:     True
 Has Parent:   True
 Children:     1
@@ -1078,9 +1107,11 @@ Position:
   Legal:      True
   Material:   White=35, Black=35 (Δ+0)
 
-🎯 BASIC CLASSIFICATION:
-  Classification: None
-  Note:           Requires point loss evaluation
+🎯 CLASSIFICATION:
+  Classification: GOOD
+  Reason:         Small point loss (< 0.08)
+  Point Loss:     0.0541
+  Accuracy:       79.9%
 
 Engine Analysis (2 lines):
   Line 1:     +320.00 | depth=16 | Nxb5 Qb4+ Nc3 Qxb3 axb3...
@@ -1119,7 +1150,7 @@ EXTRACTED PAIR FOR NODE 18
 ================================================================================
 NODE 19: 10. Nxb5 (WHITE)
 ================================================================================
-Node ID:      04813f24...
+Node ID:      f36a9e99...
 Mainline:     True
 Has Parent:   True
 Children:     1
@@ -1137,9 +1168,11 @@ Position:
   Legal:      True
   Material:   White=35, Black=34 (Δ+1)
 
-🎯 BASIC CLASSIFICATION:
-  Classification: None
-  Note:           Requires point loss evaluation
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0000
+  Accuracy:       100.0%
 
 Engine Analysis (2 lines):
   Line 1:     +325.00 | depth=16 | Qb4+ Nc3 Qxb3 axb3 Bb4...
@@ -1178,7 +1211,7 @@ EXTRACTED PAIR FOR NODE 19
 ================================================================================
 NODE 20: 10... cxb5 (BLACK)
 ================================================================================
-Node ID:      b5b08ab5...
+Node ID:      f4ac68ce...
 Mainline:     True
 Has Parent:   True
 Children:     1
@@ -1196,9 +1229,11 @@ Position:
   Legal:      True
   Material:   White=32, Black=34 (Δ-2)
 
-🎯 BASIC CLASSIFICATION:
-  Classification: None
-  Note:           Requires point loss evaluation
+🎯 CLASSIFICATION:
+  Classification: INACCURACY
+  Reason:         Moderate point loss (< 0.12)
+  Point Loss:     0.1075
+  Accuracy:       63.9%
 
 Engine Analysis (2 lines):
   Line 1:     +530.00 | depth=16 | Bxb5+ Kd8 O-O-O+ Kc7 Rd3...
@@ -1237,7 +1272,7 @@ EXTRACTED PAIR FOR NODE 20
 ================================================================================
 NODE 21: 11. Bxb5+ (WHITE)
 ================================================================================
-Node ID:      1fb77fce...
+Node ID:      f3ffc382...
 Mainline:     True
 Has Parent:   True
 Children:     1
@@ -1255,9 +1290,11 @@ Position:
   Legal:      True
   Material:   White=32, Black=33 (Δ-1)
 
-🎯 BASIC CLASSIFICATION:
-  Classification: None
-  Note:           Requires point loss evaluation
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0041
+  Accuracy:       98.3%
 
 Engine Analysis (2 lines):
   Line 1:     +520.00 | depth=16 | Nbd7 O-O-O Rb8 Rxd7 Qxd7...
@@ -1296,7 +1333,7 @@ EXTRACTED PAIR FOR NODE 21
 ================================================================================
 NODE 22: 11... Nbd7 (BLACK)
 ================================================================================
-Node ID:      c987f60f...
+Node ID:      8fbb6bf1...
 Mainline:     True
 Has Parent:   True
 Children:     1
@@ -1314,9 +1351,11 @@ Position:
   Legal:      True
   Material:   White=32, Black=33 (Δ-1)
 
-🎯 BASIC CLASSIFICATION:
-  Classification: None
-  Note:           Requires point loss evaluation
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0008
+  Accuracy:       99.6%
 
 Engine Analysis (2 lines):
   Line 1:     +522.00 | depth=16 | O-O-O Rd8 Rxd7 Nxd7 Bxe7...
@@ -1355,7 +1394,7 @@ EXTRACTED PAIR FOR NODE 22
 ================================================================================
 NODE 23: 12. O-O-O (WHITE)
 ================================================================================
-Node ID:      4e30433a...
+Node ID:      d8ee91a5...
 Mainline:     True
 Has Parent:   True
 Children:     1
@@ -1373,9 +1412,11 @@ Position:
   Legal:      True
   Material:   White=32, Black=33 (Δ-1)
 
-🎯 BASIC CLASSIFICATION:
-  Classification: None
-  Note:           Requires point loss evaluation
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0000
+  Accuracy:       100.0%
 
 Engine Analysis (2 lines):
   Line 1:     +541.00 | depth=16 | Rd8 Rxd7 Nxd7 Bxe7 Bxe7...
@@ -1414,7 +1455,7 @@ EXTRACTED PAIR FOR NODE 23
 ================================================================================
 NODE 24: 12... Rd8 (BLACK)
 ================================================================================
-Node ID:      cae28e31...
+Node ID:      4932235f...
 Mainline:     True
 Has Parent:   True
 Children:     1
@@ -1432,9 +1473,11 @@ Position:
   Legal:      True
   Material:   White=32, Black=33 (Δ-1)
 
-🎯 BASIC CLASSIFICATION:
-  Classification: None
-  Note:           Requires point loss evaluation
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0000
+  Accuracy:       100.0%
 
 Engine Analysis (2 lines):
   Line 1:     +524.00 | depth=16 | Rxd7 Nxd7 Bxe7 Bxe7 Bxd7+...
@@ -1473,7 +1516,7 @@ EXTRACTED PAIR FOR NODE 24
 ================================================================================
 NODE 25: 13. Rxd7 (WHITE)
 ================================================================================
-Node ID:      7391ed0e...
+Node ID:      c2807e92...
 Mainline:     True
 Has Parent:   True
 Children:     1
@@ -1491,9 +1534,11 @@ Position:
   Legal:      True
   Material:   White=32, Black=30 (Δ+2)
 
-🎯 BASIC CLASSIFICATION:
-  Classification: None
-  Note:           Requires point loss evaluation
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0021
+  Accuracy:       99.1%
 
 Engine Analysis (2 lines):
   Line 1:     +519.00 | depth=16 | Nxd7 Bxe7 Bxe7 Bxd7+ Rxd7...
@@ -1532,7 +1577,7 @@ EXTRACTED PAIR FOR NODE 25
 ================================================================================
 NODE 26: 13... Rxd7 (BLACK)
 ================================================================================
-Node ID:      27d9389a...
+Node ID:      6022e152...
 Mainline:     True
 Has Parent:   True
 Children:     1
@@ -1550,9 +1595,11 @@ Position:
   Legal:      True
   Material:   White=27, Black=30 (Δ-3)
 
-🎯 BASIC CLASSIFICATION:
-  Classification: None
-  Note:           Requires point loss evaluation
+🎯 CLASSIFICATION:
+  Classification: EXCELLENT
+  Reason:         Very small point loss (< 0.045)
+  Point Loss:     0.0284
+  Accuracy:       88.9%
 
 Engine Analysis (2 lines):
   Line 1:     +593.00 | depth=16 | Rd1 Qe6 Bxf6 gxf6 Bxd7+...
@@ -1591,7 +1638,7 @@ EXTRACTED PAIR FOR NODE 26
 ================================================================================
 NODE 27: 14. Rd1 (WHITE)
 ================================================================================
-Node ID:      a8b95a8c...
+Node ID:      bd79ae50...
 Mainline:     True
 Has Parent:   True
 Children:     1
@@ -1609,9 +1656,11 @@ Position:
   Legal:      True
   Material:   White=27, Black=30 (Δ-3)
 
-🎯 BASIC CLASSIFICATION:
-  Classification: None
-  Note:           Requires point loss evaluation
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0000
+  Accuracy:       100.0%
 
 Engine Analysis (2 lines):
   Line 1:     +597.00 | depth=16 | Qe6 Bxf6 gxf6 Bxd7+ Qxd7...
@@ -1650,7 +1699,7 @@ EXTRACTED PAIR FOR NODE 27
 ================================================================================
 NODE 28: 14... Qe6 (BLACK)
 ================================================================================
-Node ID:      66d819db...
+Node ID:      ac6fde3f...
 Mainline:     True
 Has Parent:   True
 Children:     1
@@ -1668,9 +1717,11 @@ Position:
   Legal:      True
   Material:   White=27, Black=30 (Δ-3)
 
-🎯 BASIC CLASSIFICATION:
-  Classification: None
-  Note:           Requires point loss evaluation
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0260
+  Accuracy:       89.8%
 
 Engine Analysis (2 lines):
   Line 1:     +682.00 | depth=16 | Bxd7+ Qxd7 Qb8+ Ke7 Qxe5+...
@@ -1709,7 +1760,7 @@ EXTRACTED PAIR FOR NODE 28
 ================================================================================
 NODE 29: 15. Bxd7+ (WHITE)
 ================================================================================
-Node ID:      3601daab...
+Node ID:      df0d0555...
 Mainline:     True
 Has Parent:   True
 Children:     1
@@ -1727,9 +1778,11 @@ Position:
   Legal:      True
   Material:   White=27, Black=25 (Δ+2)
 
-🎯 BASIC CLASSIFICATION:
-  Classification: None
-  Note:           Requires point loss evaluation
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.1398
+  Accuracy:       55.8%
 
 Engine Analysis (2 lines):
   Line 1:     +355.00 | depth=16 | Nxd7 Qb7 f6 Qc8+ Ke7...
@@ -1768,7 +1821,7 @@ EXTRACTED PAIR FOR NODE 29
 ================================================================================
 NODE 30: 15... Nxd7 (BLACK)
 ================================================================================
-Node ID:      20b70e79...
+Node ID:      0127b8cb...
 Mainline:     True
 Has Parent:   True
 Children:     1
@@ -1786,9 +1839,11 @@ Position:
   Legal:      True
   Material:   White=24, Black=25 (Δ-1)
 
-🎯 BASIC CLASSIFICATION:
-  Classification: None
-  Note:           Requires point loss evaluation
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.2240
+  Accuracy:       38.9%
 
 Engine Analysis (2 lines):
   Line 1:     M+2 | depth=16 | Qb8+ Nxb8 Rd8#
@@ -1827,7 +1882,7 @@ EXTRACTED PAIR FOR NODE 30
 ================================================================================
 NODE 31: 16. Qb8+ (WHITE)
 ================================================================================
-Node ID:      59ea2676...
+Node ID:      508f514c...
 Mainline:     True
 Has Parent:   True
 Children:     1
@@ -1845,9 +1900,11 @@ Position:
   Legal:      True
   Material:   White=24, Black=25 (Δ-1)
 
-🎯 BASIC CLASSIFICATION:
-  Classification: None
-  Note:           Requires point loss evaluation
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0000
+  Accuracy:       100.0%
 
 Engine Analysis (1 lines):
   Line 1:     M+1 | depth=16 | Nxb8 Rd8#
@@ -1884,7 +1941,7 @@ EXTRACTED PAIR FOR NODE 31
 ================================================================================
 NODE 32: 16... Nxb8 (BLACK)
 ================================================================================
-Node ID:      b1ba468c...
+Node ID:      1e65e0e0...
 Mainline:     True
 Has Parent:   True
 Children:     1
@@ -1902,7 +1959,7 @@ Position:
   Legal:      True
   Material:   White=15, Black=25 (Δ-10)
 
-🎯 BASIC CLASSIFICATION:
+🎯 CLASSIFICATION:
   Classification: FORCED
   Reason:         Only 1 legal move available
 
@@ -1943,7 +2000,7 @@ EXTRACTED PAIR FOR NODE 32
 ================================================================================
 NODE 33: 17. Rd8# (WHITE)
 ================================================================================
-Node ID:      a2b23b3b...
+Node ID:      367ed5e6...
 Mainline:     True
 Has Parent:   True
 Children:     0
@@ -1961,9 +2018,9 @@ Position:
   Legal:      True
   Material:   White=15, Black=25 (Δ-10)
 
-🎯 BASIC CLASSIFICATION:
-  Classification: BEST (direct)
-  Reason:         Delivers checkmate
+🎯 CLASSIFICATION:
+  Classification: N/A
+  Note:           information missing from current or previous node.
 
 Engine Analysis: Not available
 
@@ -1980,8 +2037,12 @@ Extractable move pairs: 32/33
 🎯 CLASSIFICATION SUMMARY:
   FORCED (only 1 legal move):        1
   THEORY (in opening book):           5
-  BEST (checkmate):                   1
-  None (needs point loss evaluation): 26
-  N/A (extraction failed):            0
+  BEST (top move or checkmate):       16
+  EXCELLENT (point loss < 0.045):     5
+  GOOD (point loss < 0.08):           3
+  INACCURACY (point loss < 0.12):     2
+  MISTAKE (point loss < 0.22):        0
+  BLUNDER (point loss ≥ 0.22):        0
+  N/A (extraction failed):            1
 
 ✅ Visualization complete!

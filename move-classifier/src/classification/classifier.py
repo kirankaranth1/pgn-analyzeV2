@@ -17,26 +17,10 @@ from ..preprocessing.node_extractor import (
     extract_current_state_tree_node
 )
 from ..classification.basic_classifier import OpeningBook
+from ..classification.point_loss_classifier import point_loss_classify
 
 
 # Stub functions for advanced classifiers (to be implemented)
-def _point_loss_classify(previous_node, current_node) -> Classification:
-    """
-    Classify move based on point loss (evaluation drop).
-    
-    TODO: Implement point loss classification logic
-    
-    Args:
-        previous_node: Position before move
-        current_node: Position after move
-        
-    Returns:
-        Classification based on point loss
-    """
-    # Stub: Return GOOD as default
-    return Classification.GOOD
-
-
 def _consider_brilliant_classification(previous_node, current_node) -> bool:
     """
     Check if move qualifies as BRILLIANT.
@@ -150,7 +134,7 @@ class Classifier:
         classification = (
             Classification.BEST
             if top_move_played
-            else _point_loss_classify(previous, current)
+            else point_loss_classify(previous, current)
         )
         
         # Consider CRITICAL classification (only if top move was played)
