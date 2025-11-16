@@ -170,6 +170,8 @@ def visualize_node(node, node_index: int, show_fen: bool = False, show_engine: b
                     print(f"  Reason:         Top engine move played")
             elif result == Classification.CRITICAL:
                 print(f"  Reason:         Only move preventing significant loss (≥10% point loss)")
+            elif result == Classification.BRILLIANT:
+                print(f"  Reason:         Sacrifice or risky move with insufficient counter-threats")
             elif result == Classification.EXCELLENT:
                 print(f"  Reason:         Very small point loss (< 0.045)")
             elif result == Classification.GOOD:
@@ -405,6 +407,7 @@ Examples:
             "THEORY": 0, 
             "BEST": 0, 
             "CRITICAL": 0,
+            "BRILLIANT": 0,
             "EXCELLENT": 0,
             "GOOD": 0,
             "INACCURACY": 0,
@@ -425,6 +428,8 @@ Examples:
                     classifications["BEST"] += 1
                 elif result == Classification.CRITICAL:
                     classifications["CRITICAL"] += 1
+                elif result == Classification.BRILLIANT:
+                    classifications["BRILLIANT"] += 1
                 elif result == Classification.EXCELLENT:
                     classifications["EXCELLENT"] += 1
                 elif result == Classification.GOOD:
@@ -442,6 +447,7 @@ Examples:
         print(f"  THEORY (in opening book):           {classifications['THEORY']}")
         print(f"  BEST (top move or checkmate):       {classifications['BEST']}")
         print(f"  CRITICAL (prevents major loss):     {classifications['CRITICAL']}")
+        print(f"  BRILLIANT (sacrifice/risky):        {classifications['BRILLIANT']}")
         print(f"  EXCELLENT (point loss < 0.045):     {classifications['EXCELLENT']}")
         print(f"  GOOD (point loss < 0.08):           {classifications['GOOD']}")
         print(f"  INACCURACY (point loss < 0.12):     {classifications['INACCURACY']}")

@@ -19,24 +19,7 @@ from ..preprocessing.node_extractor import (
 from ..classification.basic_classifier import OpeningBook
 from ..classification.point_loss_classifier import point_loss_classify
 from ..classification.critical_classifier import consider_critical_classification
-
-
-# Stub functions for advanced classifiers (to be implemented)
-def _consider_brilliant_classification(previous_node, current_node) -> bool:
-    """
-    Check if move qualifies as BRILLIANT.
-    
-    TODO: Implement brilliant classification logic
-    
-    Args:
-        previous_node: Position before move
-        current_node: Position after move
-        
-    Returns:
-        True if move should be classified as BRILLIANT
-    """
-    # Stub: Never mark as brilliant yet
-    return False
+from ..classification.brilliant_classifier import consider_brilliant_classification
 
 
 class Classifier:
@@ -133,7 +116,7 @@ class Classifier:
         if (
             opts.include_brilliant
             and CLASSIFICATION_VALUES.get(classification, 0) >= CLASSIFICATION_VALUES[Classification.BEST]
-            and _consider_brilliant_classification(previous, current)
+            and consider_brilliant_classification(previous, current)
         ):
             classification = Classification.BRILLIANT
         
