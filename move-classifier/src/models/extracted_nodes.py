@@ -2,6 +2,7 @@
 Extracted Node Data Structures
 
 Simplified structures for classification, extracted from state tree nodes.
+Matches JavaScript interfaces from ExtractedNode.ts
 """
 
 from typing import Optional, Any
@@ -16,6 +17,7 @@ class ExtractedPreviousNode:
     Represents the position BEFORE a move was played.
     
     Used to compare the played move against the best move.
+    Matches JavaScript interface: ExtractedPreviousNode
     """
     
     board: Any
@@ -28,13 +30,13 @@ class ExtractedPreviousNode:
     """Best engine line from this position."""
     
     top_move: Move
-    """Best move according to engine."""
+    """Best move according to engine (REQUIRED)."""
     
     evaluation: Evaluation
     """Top line evaluation (White's perspective)."""
     
-    subjective_evaluation: Evaluation
-    """Evaluation from player's perspective."""
+    subjective_evaluation: Optional[Evaluation] = None
+    """Evaluation from player's perspective (OPTIONAL for previous node)."""
     
     second_top_line: Optional[EngineLine] = None
     """Second-best engine line."""
@@ -46,7 +48,7 @@ class ExtractedPreviousNode:
     """Second line evaluation (player's perspective)."""
     
     played_move: Optional[Move] = None
-    """Move that was actually played."""
+    """Move that was actually played (OPTIONAL for previous node)."""
 
 
 @dataclass
@@ -55,6 +57,7 @@ class ExtractedCurrentNode:
     Represents the position AFTER a move was played.
     
     Used to evaluate the resulting position.
+    Matches JavaScript interface: ExtractedCurrentNode
     """
     
     board: Any
@@ -70,13 +73,13 @@ class ExtractedCurrentNode:
     """Position evaluation (White's perspective)."""
     
     subjective_evaluation: Evaluation
-    """Evaluation from player's perspective (REQUIRED)."""
+    """Evaluation from player's perspective (REQUIRED for current node)."""
     
     played_move: Move
-    """Move that was played (REQUIRED)."""
+    """Move that was played (REQUIRED for current node)."""
     
     top_move: Optional[Move] = None
-    """Best next move from here."""
+    """Best next move from here (OPTIONAL for current node)."""
     
     second_top_line: Optional[EngineLine] = None
     """Second-best continuation."""

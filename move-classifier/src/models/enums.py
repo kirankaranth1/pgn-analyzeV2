@@ -46,3 +46,21 @@ class EngineVersion(str, Enum):
     STOCKFISH_17 = "stockfish-17"
     STOCKFISH_17_LITE = "stockfish-17-lite"
     LICHESS_CLOUD = "lichess-cloud"
+
+
+# Classification value ordering (for comparison)
+CLASSIFICATION_VALUES = {
+    Classification.BLUNDER: 0,
+    Classification.MISTAKE: 1,
+    Classification.INACCURACY: 2,
+    Classification.GOOD: 3,
+    Classification.EXCELLENT: 4,
+    Classification.BEST: 5,
+    Classification.CRITICAL: 6,
+    Classification.BRILLIANT: 7,
+    Classification.GREAT_FIND: 8,
+    # Special classifications (not in ordering)
+    Classification.FORCED: 100,
+    Classification.BOOK: 100,
+    Classification.CHECKMATE: 100,
+}

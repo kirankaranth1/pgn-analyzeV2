@@ -38,6 +38,12 @@ class ClassificationConfig:
     include_theory: bool = True
     """Enable THEORY classification (opening book lookup)."""
     
+    include_brilliant: bool = True
+    """Enable BRILLIANT classification."""
+    
+    include_critical: bool = True
+    """Enable CRITICAL classification."""
+    
     enable_tactical_analysis: bool = True
     """Enable tactical pattern detection."""
     

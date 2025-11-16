@@ -117,6 +117,6 @@ def calculate_expected_points_for_evaluation(
         # Return from White's perspective
         return get_expected_points(evaluation)
     else:
-        # Get subjective evaluation first
+        # Get subjective evaluation first, then calculate expected points
         subjective_eval = get_subjective_evaluation(evaluation, player_color)
-        return get_expected_points(subjective_eval)
+        return get_expected_points(subjective_eval, move_colour=player_color)

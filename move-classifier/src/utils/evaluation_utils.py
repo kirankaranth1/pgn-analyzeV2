@@ -23,16 +23,20 @@ from ..constants import (
 
 def get_expected_points(
     evaluation: Evaluation,
+    move_colour: Optional[PieceColor] = None,
     centipawn_gradient: Optional[float] = None
 ) -> float:
     """
     Convert evaluation to win probability (0.0 to 1.0 scale).
+    
+    Matches JavaScript implementation from getExpectedPoints.
     
     Formula for centipawn: EP = 1 / (1 + e^(-0.0035 × evaluation))
     Formula for mate: 1.0 if winning, 0.0 if losing
     
     Args:
         evaluation: Position evaluation
+        move_colour: Color of the moving player (used for mate=0 case)
         centipawn_gradient: Optional custom gradient (default: 0.0035)
         
     Returns:
@@ -42,11 +46,14 @@ def get_expected_points(
     
     if evaluation.type == "mate":
         if evaluation.value == 0:
-            # Mate already delivered - game over
-            # Return 0.5 as we can't determine winner without game result
+            # Mate already delivered - winner determined by move colour
+            # Return 1.0 if WHITE won, 0.0 if BLACK won
+            if move_colour is not None:
+                return 1.0 if move_colour == PieceColor.WHITE else 0.0
+            # If no move colour specified, return 0.5 (unknown)
             return 0.5
         
-        # Forced mate = certain outcome
+        # Forced mate = certain outcome (positive = White winning, negative = Black winning)
         return 1.0 if evaluation.value > 0 else 0.0
     else:
         # Sigmoid function for centipawn evaluation
@@ -83,6 +90,8 @@ def get_expected_points_loss(
     """
     Calculate how much win probability was lost by playing a move.
     
+    Matches JavaScript implementation from getExpectedPointsLoss.
+    
     Args:
         previous_evaluation: Evaluation before the move
         current_evaluation: Evaluation after the move
@@ -91,12 +100,21 @@ def get_expected_points_loss(
     Returns:
         Point loss (0.0 or positive value)
     """
-    prev_ep = get_expected_points(previous_evaluation)
-    curr_ep = get_expected_points(current_evaluation)
+    # Get expected points from opponent's perspective (before move)
+    prev_ep = get_expected_points(
+        previous_evaluation,
+        move_colour=flip_piece_color(move_color)
+    )
     
-    # Apply perspective adjustment
+    # Get expected points from player's perspective (after move)
+    curr_ep = get_expected_points(
+        current_evaluation,
+        move_colour=move_color
+    )
+    
+    # Calculate loss with perspective adjustment
     multiplier = 1 if move_color == PieceColor.WHITE else -1
-    loss = ((1 - prev_ep) - curr_ep) * multiplier
+    loss = (prev_ep - curr_ep) * multiplier
     
     return max(0.0, loss)
 
