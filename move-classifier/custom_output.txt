@@ -1,0 +1,4343 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                             GAME FROM CUSTOM.PGN                             ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+Event:  Live Chess
+White:  kikarant1
+Black:  michaelnl
+Result: 0-1
+ECO:    C21
+
+🎯 Classification Enabled (includes Point Loss classification)
+
+⏳ Running full preprocessing pipeline (depth=16)...
+✅ Pipeline complete!
+
+📊 Total nodes: 71 (root + 70 moves)
+
+================================================================================
+NODE 0: ROOT NODE (Starting Position)
+================================================================================
+Node ID:      a13771e2...
+Mainline:     True
+Has Parent:   False
+Children:     1
+
+Position:
+  Turn:       White
+  Castling:   9295429630892703873
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=39, Black=39 (Δ+0)
+
+Engine Analysis (2 lines):
+  Line 1:     +43.00 | depth=16 | e4 c5 Nf3 d6 d4...
+              source=stockfish-17
+  Line 2:     +30.00 | depth=16 | d4 Nf6 c4 e6 Nf3...
+              source=stockfish-17
+
+
+
+================================================================================
+NODE 1: 1. e4 (WHITE)
+================================================================================
+Node ID:      5b9384d7...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        e4
+  UCI:        e2e4
+  Color:      WHITE
+
+Position:
+  Turn:       Black
+  Castling:   9295429630892703873
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=39, Black=39 (Δ+0)
+
+🎯 CLASSIFICATION:
+  Classification: BOOK
+  Reason:         Position in opening book
+  Opening:        King's Pawn Game
+
+Engine Analysis (2 lines):
+  Line 1:     +27.00 | depth=16 | e5 Nf3 Nf6 Nc3 Nc6...
+              source=stockfish-17
+  Line 2:     +32.00 | depth=16 | c5 Nf3 Nc6 d4 cxd4...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   94.4%
+
+Opening:
+  Name:       King's Pawn Game
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 1
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
+   Evaluation:       centipawn=+43.00
+   Subjective Eval:  +43.00
+   Top Move:         e2e4
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1
+   Played Move:      e2e4
+   Evaluation:       centipawn=+27.00
+   Subjective Eval:  +27.00
+   Top Move:         e7e5
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0139
+   Move Accuracy:    94.4%
+
+
+
+================================================================================
+NODE 2: 1... e5 (BLACK)
+================================================================================
+Node ID:      ef9085d0...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        e5
+  UCI:        e7e5
+  Color:      BLACK
+
+Position:
+  Turn:       White
+  Castling:   9295429630892703873
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=39, Black=39 (Δ+0)
+
+🎯 CLASSIFICATION:
+  Classification: BOOK
+  Reason:         Position in opening book
+  Opening:        King's Pawn Game
+
+Engine Analysis (2 lines):
+  Line 1:     +34.00 | depth=16 | Nf3 Nc6 d4 exd4 Nxd4...
+              source=stockfish-17
+  Line 2:     +19.00 | depth=16 | Nc3 Nf6 Nf3 Nc6 Bb5...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   97.5%
+
+Opening:
+  Name:       King's Pawn Game
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 2
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1
+   Evaluation:       centipawn=+27.00
+   Subjective Eval:  +27.00
+   Top Move:         e7e5
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2
+   Played Move:      e7e5
+   Evaluation:       centipawn=+34.00
+   Subjective Eval:  -34.00
+   Top Move:         g1f3
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0061
+   Move Accuracy:    97.5%
+
+
+
+================================================================================
+NODE 3: 2. d4 (WHITE)
+================================================================================
+Node ID:      269d2570...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        d4
+  UCI:        d2d4
+  Color:      WHITE
+
+Position:
+  Turn:       Black
+  Castling:   9295429630892703873
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=39, Black=39 (Δ+0)
+
+🎯 CLASSIFICATION:
+  Classification: BOOK
+  Reason:         Position in opening book
+  Opening:        Center Game
+
+Engine Analysis (2 lines):
+  Line 1:     +0.00 | depth=16 | exd4 Nf3 Bb4+ Bd2 Bxd2+...
+              source=stockfish-17
+  Line 2:     +57.00 | depth=16 | d6 Nf3 Nc6 Nc3 Nf6...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   88.4%
+
+Opening:
+  Name:       Center Game
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 3
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2
+   Evaluation:       centipawn=+34.00
+   Subjective Eval:  -34.00
+   Top Move:         g1f3
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              rnbqkbnr/pppp1ppp/8/4p3/3PP3/8/PPP2PPP/RNBQKBNR b KQkq - 0 2
+   Played Move:      d2d4
+   Evaluation:       centipawn=+0.00
+   Subjective Eval:  +0.00
+   Top Move:         e5d4
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0297
+   Move Accuracy:    88.4%
+
+
+
+================================================================================
+NODE 4: 2... exd4 (BLACK)
+================================================================================
+Node ID:      20354f29...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        exd4
+  UCI:        e5d4
+  Color:      BLACK
+
+Position:
+  Turn:       White
+  Castling:   9295429630892703873
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=38, Black=39 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: BOOK
+  Reason:         Position in opening book
+  Opening:        Center Game Accepted
+
+Engine Analysis (2 lines):
+  Line 1:     +7.00 | depth=16 | Nf3 Bb4+ Nbd2 Nc6 Bd3...
+              source=stockfish-17
+  Line 2:     -13.00 | depth=16 | Qxd4 Nc6 Qa4 Nf6 Nf3...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   97.5%
+
+Opening:
+  Name:       Center Game Accepted
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 4
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              rnbqkbnr/pppp1ppp/8/4p3/3PP3/8/PPP2PPP/RNBQKBNR b KQkq - 0 2
+   Evaluation:       centipawn=+0.00
+   Subjective Eval:  +0.00
+   Top Move:         e5d4
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              rnbqkbnr/pppp1ppp/8/8/3pP3/8/PPP2PPP/RNBQKBNR w KQkq - 0 3
+   Played Move:      e5d4
+   Evaluation:       centipawn=+7.00
+   Subjective Eval:  -7.00
+   Top Move:         g1f3
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0061
+   Move Accuracy:    97.5%
+
+
+
+================================================================================
+NODE 5: 3. c3 (WHITE)
+================================================================================
+Node ID:      bc089aa4...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        c3
+  UCI:        c2c3
+  Color:      WHITE
+
+Position:
+  Turn:       Black
+  Castling:   9295429630892703873
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=38, Black=39 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: BOOK
+  Reason:         Position in opening book
+  Opening:        Danish Gambit
+
+Engine Analysis (2 lines):
+  Line 1:     -58.00 | depth=16 | Qe7 cxd4 Qxe4+ Ne2 Bb4+...
+              source=stockfish-17
+  Line 2:     -11.00 | depth=16 | d5 exd5 Qxd5 cxd4 Nc6...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   79.1%
+
+Opening:
+  Name:       Danish Gambit
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 5
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              rnbqkbnr/pppp1ppp/8/8/3pP3/8/PPP2PPP/RNBQKBNR w KQkq - 0 3
+   Evaluation:       centipawn=+7.00
+   Subjective Eval:  -7.00
+   Top Move:         g1f3
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              rnbqkbnr/pppp1ppp/8/8/3pP3/2P5/PP3PPP/RNBQKBNR b KQkq - 0 3
+   Played Move:      c2c3
+   Evaluation:       centipawn=-58.00
+   Subjective Eval:  -58.00
+   Top Move:         d8e7
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0567
+   Move Accuracy:    79.1%
+
+
+
+================================================================================
+NODE 6: 3... dxc3 (BLACK)
+================================================================================
+Node ID:      5e8e3d21...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        dxc3
+  UCI:        d4c3
+  Color:      BLACK
+
+Position:
+  Turn:       White
+  Castling:   9295429630892703873
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=37, Black=39 (Δ-2)
+
+🎯 CLASSIFICATION:
+  Classification: GOOD
+  Reason:         Small point loss (< 0.08)
+  Point Loss:     0.0611
+  Accuracy:       77.6%
+
+Engine Analysis (2 lines):
+  Line 1:     +12.00 | depth=16 | Nxc3 Bb4 Bc4 Bxc3+ bxc3...
+              source=stockfish-17
+  Line 2:     -57.00 | depth=16 | Bc4 cxb2 Bxb2 Bb4+ Nc3...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   77.6%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 6
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              rnbqkbnr/pppp1ppp/8/8/3pP3/2P5/PP3PPP/RNBQKBNR b KQkq - 0 3
+   Evaluation:       centipawn=-58.00
+   Subjective Eval:  -58.00
+   Top Move:         d8e7
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              rnbqkbnr/pppp1ppp/8/8/4P3/2p5/PP3PPP/RNBQKBNR w KQkq - 0 4
+   Played Move:      d4c3
+   Evaluation:       centipawn=+12.00
+   Subjective Eval:  -12.00
+   Top Move:         b1c3
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0611
+   Move Accuracy:    77.6%
+
+
+
+================================================================================
+NODE 7: 4. Bc4 (WHITE)
+================================================================================
+Node ID:      0a2b7eae...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Bc4
+  UCI:        f1c4
+  Color:      WHITE
+
+Position:
+  Turn:       Black
+  Castling:   9295429630892703873
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=37, Black=39 (Δ-2)
+
+🎯 CLASSIFICATION:
+  Classification: GOOD
+  Reason:         Small point loss (< 0.08)
+  Point Loss:     0.0689
+  Accuracy:       75.2%
+
+Engine Analysis (2 lines):
+  Line 1:     -67.00 | depth=16 | d5 exd5 cxb2 Bxb2 Nf6...
+              source=stockfish-17
+  Line 2:     -55.00 | depth=16 | cxb2 Bxb2 d5 exd5 Nf6...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   75.2%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 7
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              rnbqkbnr/pppp1ppp/8/8/4P3/2p5/PP3PPP/RNBQKBNR w KQkq - 0 4
+   Evaluation:       centipawn=+12.00
+   Subjective Eval:  -12.00
+   Top Move:         b1c3
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              rnbqkbnr/pppp1ppp/8/8/2B1P3/2p5/PP3PPP/RNBQK1NR b KQkq - 1 4
+   Played Move:      f1c4
+   Evaluation:       centipawn=-67.00
+   Subjective Eval:  -67.00
+   Top Move:         d7d5
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0689
+   Move Accuracy:    75.2%
+
+
+
+================================================================================
+NODE 8: 4... Nc6 (BLACK)
+================================================================================
+Node ID:      24eeb305...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Nc6
+  UCI:        b8c6
+  Color:      BLACK
+
+Position:
+  Turn:       White
+  Castling:   9295429630892703873
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=37, Black=39 (Δ-2)
+
+🎯 CLASSIFICATION:
+  Classification: GOOD
+  Reason:         Small point loss (< 0.08)
+  Point Loss:     0.0619
+  Accuracy:       77.4%
+
+Engine Analysis (2 lines):
+  Line 1:     +4.00 | depth=16 | Nxc3 Bb4 Nf3 Bxc3+ bxc3...
+              source=stockfish-17
+  Line 2:     -40.00 | depth=16 | Nf3 cxb2 Bxb2 Bb4+ Nc3...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   77.4%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 8
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              rnbqkbnr/pppp1ppp/8/8/2B1P3/2p5/PP3PPP/RNBQK1NR b KQkq - 1 4
+   Evaluation:       centipawn=-67.00
+   Subjective Eval:  -67.00
+   Top Move:         d7d5
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              r1bqkbnr/pppp1ppp/2n5/8/2B1P3/2p5/PP3PPP/RNBQK1NR w KQkq - 2 5
+   Played Move:      b8c6
+   Evaluation:       centipawn=+4.00
+   Subjective Eval:  -4.00
+   Top Move:         b1c3
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0619
+   Move Accuracy:    77.4%
+
+
+
+================================================================================
+NODE 9: 5. Nxc3 (WHITE)
+================================================================================
+Node ID:      3ed632eb...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Nxc3
+  UCI:        b1c3
+  Color:      WHITE
+
+Position:
+  Turn:       Black
+  Castling:   9295429630892703873
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=37, Black=38 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0096
+  Accuracy:       96.1%
+
+Engine Analysis (2 lines):
+  Line 1:     -7.00 | depth=16 | Bb4 Nf3 Bxc3+ bxc3 d6...
+              source=stockfish-17
+  Line 2:     +13.00 | depth=16 | Nf6 Nf3 d6 Qb3 Qd7...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   96.1%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 9
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              r1bqkbnr/pppp1ppp/2n5/8/2B1P3/2p5/PP3PPP/RNBQK1NR w KQkq - 2 5
+   Evaluation:       centipawn=+4.00
+   Subjective Eval:  -4.00
+   Top Move:         b1c3
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              r1bqkbnr/pppp1ppp/2n5/8/2B1P3/2N5/PP3PPP/R1BQK1NR b KQkq - 0 5
+   Played Move:      b1c3
+   Evaluation:       centipawn=-7.00
+   Subjective Eval:  -7.00
+   Top Move:         f8b4
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0096
+   Move Accuracy:    96.1%
+
+
+
+================================================================================
+NODE 10: 5... d6 (BLACK)
+================================================================================
+Node ID:      77ec2223...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        d6
+  UCI:        d7d6
+  Color:      BLACK
+
+Position:
+  Turn:       White
+  Castling:   9295429630892703873
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=37, Black=38 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0061
+  Accuracy:       97.5%
+
+Engine Analysis (2 lines):
+  Line 1:     +0.00 | depth=16 | Nf3 Nf6 Qb3 Qd7 Be2...
+              source=stockfish-17
+  Line 2:     -13.00 | depth=16 | f4 Be6 Bxe6 fxe6 Nf3...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   97.5%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 10
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              r1bqkbnr/pppp1ppp/2n5/8/2B1P3/2N5/PP3PPP/R1BQK1NR b KQkq - 0 5
+   Evaluation:       centipawn=-7.00
+   Subjective Eval:  -7.00
+   Top Move:         f8b4
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              r1bqkbnr/ppp2ppp/2np4/8/2B1P3/2N5/PP3PPP/R1BQK1NR w KQkq - 0 6
+   Played Move:      d7d6
+   Evaluation:       centipawn=+0.00
+   Subjective Eval:  -0.00
+   Top Move:         g1f3
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0061
+   Move Accuracy:    97.5%
+
+
+
+================================================================================
+NODE 11: 6. Qh5 (WHITE)
+================================================================================
+Node ID:      f816e63b...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Qh5
+  UCI:        d1h5
+  Color:      WHITE
+
+Position:
+  Turn:       Black
+  Castling:   9295429630892703873
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=37, Black=38 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: INACCURACY
+  Reason:         Moderate point loss (< 0.12)
+  Point Loss:     0.0909
+  Accuracy:       68.6%
+
+Engine Analysis (2 lines):
+  Line 1:     -105.00 | depth=16 | Ne5 Nf3 Nxc4 Qb5+ c6...
+              source=stockfish-17
+  Line 2:     -98.00 | depth=16 | g6 Qd1 Nf6 Nf3 Bg7...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   68.6%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 11
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              r1bqkbnr/ppp2ppp/2np4/8/2B1P3/2N5/PP3PPP/R1BQK1NR w KQkq - 0 6
+   Evaluation:       centipawn=+0.00
+   Subjective Eval:  -0.00
+   Top Move:         g1f3
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              r1bqkbnr/ppp2ppp/2np4/7Q/2B1P3/2N5/PP3PPP/R1B1K1NR b KQkq - 1 6
+   Played Move:      d1h5
+   Evaluation:       centipawn=-105.00
+   Subjective Eval:  -105.00
+   Top Move:         c6e5
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0909
+   Move Accuracy:    68.6%
+
+
+
+================================================================================
+NODE 12: 6... Ne5 (BLACK)
+================================================================================
+Node ID:      7d02913e...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Ne5
+  UCI:        c6e5
+  Color:      BLACK
+
+Position:
+  Turn:       White
+  Castling:   9295429630892703873
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=37, Black=38 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0119
+  Accuracy:       95.2%
+
+Engine Analysis (2 lines):
+  Line 1:     -91.00 | depth=16 | Nf3 Nxc4 Qb5+ c6 Qxc4...
+              source=stockfish-17
+  Line 2:     -94.00 | depth=16 | Qe2 Nxc4 Qxc4 Be7 Nf3...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   95.2%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 12
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              r1bqkbnr/ppp2ppp/2np4/7Q/2B1P3/2N5/PP3PPP/R1B1K1NR b KQkq - 1 6
+   Evaluation:       centipawn=-105.00
+   Subjective Eval:  -105.00
+   Top Move:         c6e5
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              r1bqkbnr/ppp2ppp/3p4/4n2Q/2B1P3/2N5/PP3PPP/R1B1K1NR w KQkq - 2 7
+   Played Move:      c6e5
+   Evaluation:       centipawn=-91.00
+   Subjective Eval:  +91.00
+   Top Move:         g1f3
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0119
+   Move Accuracy:    95.2%
+
+
+
+================================================================================
+NODE 13: 7. Bb3 (WHITE)
+================================================================================
+Node ID:      a779e6f9...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Bb3
+  UCI:        c4b3
+  Color:      WHITE
+
+Position:
+  Turn:       Black
+  Castling:   9295429630892703873
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=37, Black=38 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: EXCELLENT
+  Reason:         Very small point loss (< 0.045)
+  Point Loss:     0.0237
+  Accuracy:       90.7%
+
+Engine Analysis (2 lines):
+  Line 1:     -119.00 | depth=16 | Bg4 Qg5 Qxg5 Bxg5 Nd3+...
+              source=stockfish-17
+  Line 2:     -41.00 | depth=16 | Nf6 Qe2 Bg4 f3 Be6...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   90.7%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 13
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              r1bqkbnr/ppp2ppp/3p4/4n2Q/2B1P3/2N5/PP3PPP/R1B1K1NR w KQkq - 2 7
+   Evaluation:       centipawn=-91.00
+   Subjective Eval:  +91.00
+   Top Move:         g1f3
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              r1bqkbnr/ppp2ppp/3p4/4n2Q/4P3/1BN5/PP3PPP/R1B1K1NR b KQkq - 3 7
+   Played Move:      c4b3
+   Evaluation:       centipawn=-119.00
+   Subjective Eval:  -119.00
+   Top Move:         c8g4
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0237
+   Move Accuracy:    90.7%
+
+
+
+================================================================================
+NODE 14: 7... Nf6 (BLACK)
+================================================================================
+Node ID:      87061041...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Nf6
+  UCI:        g8f6
+  Color:      BLACK
+
+Position:
+  Turn:       White
+  Castling:   9295429630892703873
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=37, Black=38 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: GOOD
+  Reason:         Small point loss (< 0.08)
+  Point Loss:     0.0747
+  Accuracy:       73.4%
+
+Engine Analysis (2 lines):
+  Line 1:     -32.00 | depth=16 | Qe2 Nc6 Nf3 Be6 Nd5...
+              source=stockfish-17
+  Line 2:     -76.00 | depth=16 | Qd1 Be6 Be3 Be7 Nge2...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   73.4%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 14
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              r1bqkbnr/ppp2ppp/3p4/4n2Q/4P3/1BN5/PP3PPP/R1B1K1NR b KQkq - 3 7
+   Evaluation:       centipawn=-119.00
+   Subjective Eval:  -119.00
+   Top Move:         c8g4
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              r1bqkb1r/ppp2ppp/3p1n2/4n2Q/4P3/1BN5/PP3PPP/R1B1K1NR w KQkq - 4 8
+   Played Move:      g8f6
+   Evaluation:       centipawn=-32.00
+   Subjective Eval:  +32.00
+   Top Move:         h5e2
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0747
+   Move Accuracy:    73.4%
+
+
+
+================================================================================
+NODE 15: 8. Qd1 (WHITE)
+================================================================================
+Node ID:      3e1f62d2...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Qd1
+  UCI:        h5d1
+  Color:      WHITE
+
+Position:
+  Turn:       Black
+  Castling:   9295429630892703873
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=37, Black=38 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: EXCELLENT
+  Reason:         Very small point loss (< 0.045)
+  Point Loss:     0.0304
+  Accuracy:       88.2%
+
+Engine Analysis (2 lines):
+  Line 1:     -67.00 | depth=16 | Be6 Nge2 Bxb3 axb3 Be7...
+              source=stockfish-17
+  Line 2:     -41.00 | depth=16 | c6 f4 Ned7 Nf3 Nc5...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   88.2%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 15
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              r1bqkb1r/ppp2ppp/3p1n2/4n2Q/4P3/1BN5/PP3PPP/R1B1K1NR w KQkq - 4 8
+   Evaluation:       centipawn=-32.00
+   Subjective Eval:  +32.00
+   Top Move:         h5e2
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              r1bqkb1r/ppp2ppp/3p1n2/4n3/4P3/1BN5/PP3PPP/R1BQK1NR b KQkq - 5 8
+   Played Move:      h5d1
+   Evaluation:       centipawn=-67.00
+   Subjective Eval:  -67.00
+   Top Move:         c8e6
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0304
+   Move Accuracy:    88.2%
+
+
+
+================================================================================
+NODE 16: 8... Be7 (BLACK)
+================================================================================
+Node ID:      112f4ae4...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Be7
+  UCI:        f8e7
+  Color:      BLACK
+
+Position:
+  Turn:       White
+  Castling:   9295429630892703873
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=37, Black=38 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0078
+  Accuracy:       96.8%
+
+Engine Analysis (2 lines):
+  Line 1:     -58.00 | depth=16 | f4 Ng6 Nf3 O-O O-O...
+              source=stockfish-17
+  Line 2:     -65.00 | depth=16 | Nge2 c6 a4 Be6 O-O...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   96.8%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 16
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              r1bqkb1r/ppp2ppp/3p1n2/4n3/4P3/1BN5/PP3PPP/R1BQK1NR b KQkq - 5 8
+   Evaluation:       centipawn=-67.00
+   Subjective Eval:  -67.00
+   Top Move:         c8e6
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              r1bqk2r/ppp1bppp/3p1n2/4n3/4P3/1BN5/PP3PPP/R1BQK1NR w KQkq - 6 9
+   Played Move:      f8e7
+   Evaluation:       centipawn=-58.00
+   Subjective Eval:  +58.00
+   Top Move:         f2f4
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0078
+   Move Accuracy:    96.8%
+
+
+
+================================================================================
+NODE 17: 9. Nf3 (WHITE)
+================================================================================
+Node ID:      20665751...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Nf3
+  UCI:        g1f3
+  Color:      WHITE
+
+Position:
+  Turn:       Black
+  Castling:   9295429630892703873
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=37, Black=38 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: GOOD
+  Reason:         Small point loss (< 0.08)
+  Point Loss:     0.0613
+  Accuracy:       77.6%
+
+Engine Analysis (2 lines):
+  Line 1:     -130.00 | depth=16 | Bg4 h3 Nxf3+ gxf3 Bh5...
+              source=stockfish-17
+  Line 2:     -77.00 | depth=16 | O-O h3 Nxf3+ Qxf3 Be6...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   77.6%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 17
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              r1bqk2r/ppp1bppp/3p1n2/4n3/4P3/1BN5/PP3PPP/R1BQK1NR w KQkq - 6 9
+   Evaluation:       centipawn=-58.00
+   Subjective Eval:  +58.00
+   Top Move:         f2f4
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              r1bqk2r/ppp1bppp/3p1n2/4n3/4P3/1BN2N2/PP3PPP/R1BQK2R b KQkq - 7 9
+   Played Move:      g1f3
+   Evaluation:       centipawn=-130.00
+   Subjective Eval:  -130.00
+   Top Move:         c8g4
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0613
+   Move Accuracy:    77.6%
+
+
+
+================================================================================
+NODE 18: 9... Bg4 (BLACK)
+================================================================================
+Node ID:      d1334c0d...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Bg4
+  UCI:        c8g4
+  Color:      BLACK
+
+Position:
+  Turn:       White
+  Castling:   9295429630892703873
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=37, Black=38 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0295
+  Accuracy:       88.5%
+
+Engine Analysis (2 lines):
+  Line 1:     -95.00 | depth=16 | h3 Nxf3+ gxf3 Bh5 Nd5...
+              source=stockfish-17
+  Line 2:     -146.00 | depth=16 | Bf4 Nfd7 Qe2 O-O O-O-O...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   88.5%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 18
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              r1bqk2r/ppp1bppp/3p1n2/4n3/4P3/1BN2N2/PP3PPP/R1BQK2R b KQkq - 7 9
+   Evaluation:       centipawn=-130.00
+   Subjective Eval:  -130.00
+   Top Move:         c8g4
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              r2qk2r/ppp1bppp/3p1n2/4n3/4P1b1/1BN2N2/PP3PPP/R1BQK2R w KQkq - 8 10
+   Played Move:      c8g4
+   Evaluation:       centipawn=-95.00
+   Subjective Eval:  +95.00
+   Top Move:         h2h3
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0295
+   Move Accuracy:    88.5%
+
+
+
+================================================================================
+NODE 19: 10. h3 (WHITE)
+================================================================================
+Node ID:      682ee360...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        h3
+  UCI:        h2h3
+  Color:      WHITE
+
+Position:
+  Turn:       Black
+  Castling:   9295429630892703873
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=37, Black=38 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0009
+  Accuracy:       99.6%
+
+Engine Analysis (2 lines):
+  Line 1:     -96.00 | depth=16 | Nxf3+ gxf3 Bh5 Nd5 O-O...
+              source=stockfish-17
+  Line 2:     -92.00 | depth=16 | Bh5 g4 Bg6 Bf4 Nfd7...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   99.6%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 19
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              r2qk2r/ppp1bppp/3p1n2/4n3/4P1b1/1BN2N2/PP3PPP/R1BQK2R w KQkq - 8 10
+   Evaluation:       centipawn=-95.00
+   Subjective Eval:  +95.00
+   Top Move:         h2h3
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              r2qk2r/ppp1bppp/3p1n2/4n3/4P1b1/1BN2N1P/PP3PP1/R1BQK2R b KQkq - 0 10
+   Played Move:      h2h3
+   Evaluation:       centipawn=-96.00
+   Subjective Eval:  -96.00
+   Top Move:         e5f3
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0009
+   Move Accuracy:    99.6%
+
+
+
+================================================================================
+NODE 20: 10... Nxf3+ (BLACK)
+================================================================================
+Node ID:      8c396912...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Nxf3+
+  UCI:        e5f3
+  Color:      BLACK
+
+Position:
+  Turn:       White
+  Castling:   9295429630892703873
+  Check:      True
+  Checkmate:  False
+  Legal:      True
+  Material:   White=34, Black=38 (Δ-4)
+
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0171
+  Accuracy:       93.2%
+
+Engine Analysis (2 lines):
+  Line 1:     -76.00 | depth=16 | gxf3 Bh5 Nd5 c6 Nf4...
+              source=stockfish-17
+  Line 2:     -544.00 | depth=16 | Qxf3 Bxf3 gxf3 Nd7 Be3...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   93.2%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 20
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              r2qk2r/ppp1bppp/3p1n2/4n3/4P1b1/1BN2N1P/PP3PP1/R1BQK2R b KQkq - 0 10
+   Evaluation:       centipawn=-96.00
+   Subjective Eval:  -96.00
+   Top Move:         e5f3
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              r2qk2r/ppp1bppp/3p1n2/8/4P1b1/1BN2n1P/PP3PP1/R1BQK2R w KQkq - 0 11
+   Played Move:      e5f3
+   Evaluation:       centipawn=-76.00
+   Subjective Eval:  +76.00
+   Top Move:         g2f3
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0171
+   Move Accuracy:    93.2%
+
+
+
+================================================================================
+NODE 21: 11. gxf3 (WHITE)
+================================================================================
+Node ID:      41891f01...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        gxf3
+  UCI:        g2f3
+  Color:      WHITE
+
+Position:
+  Turn:       Black
+  Castling:   9295429630892703873
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=34, Black=35 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0231
+  Accuracy:       90.9%
+
+Engine Analysis (2 lines):
+  Line 1:     -103.00 | depth=16 | Bh5 Nd5 O-O Nf4 c6...
+              source=stockfish-17
+  Line 2:     -58.00 | depth=16 | Be6 f4 Bxb3 Qxb3 Qc8...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   90.9%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 21
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              r2qk2r/ppp1bppp/3p1n2/8/4P1b1/1BN2n1P/PP3PP1/R1BQK2R w KQkq - 0 11
+   Evaluation:       centipawn=-76.00
+   Subjective Eval:  +76.00
+   Top Move:         g2f3
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              r2qk2r/ppp1bppp/3p1n2/8/4P1b1/1BN2P1P/PP3P2/R1BQK2R b KQkq - 0 11
+   Played Move:      g2f3
+   Evaluation:       centipawn=-103.00
+   Subjective Eval:  -103.00
+   Top Move:         g4h5
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0231
+   Move Accuracy:    90.9%
+
+
+
+================================================================================
+NODE 22: 11... Bh5 (BLACK)
+================================================================================
+Node ID:      c50103d2...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Bh5
+  UCI:        g4h5
+  Color:      BLACK
+
+Position:
+  Turn:       White
+  Castling:   9295429630892703873
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=34, Black=35 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0025
+  Accuracy:       98.9%
+
+Engine Analysis (2 lines):
+  Line 1:     -100.00 | depth=16 | Nd5 c6 Nf4 O-O Be3...
+              source=stockfish-17
+  Line 2:     -134.00 | depth=16 | Rg1 O-O Nd5 Nxe4 Nf4...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   98.9%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 22
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              r2qk2r/ppp1bppp/3p1n2/8/4P1b1/1BN2P1P/PP3P2/R1BQK2R b KQkq - 0 11
+   Evaluation:       centipawn=-103.00
+   Subjective Eval:  -103.00
+   Top Move:         g4h5
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              r2qk2r/ppp1bppp/3p1n2/7b/4P3/1BN2P1P/PP3P2/R1BQK2R w KQkq - 1 12
+   Played Move:      g4h5
+   Evaluation:       centipawn=-100.00
+   Subjective Eval:  +100.00
+   Top Move:         c3d5
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0025
+   Move Accuracy:    98.9%
+
+
+
+================================================================================
+NODE 23: 12. Bf4 (WHITE)
+================================================================================
+Node ID:      7897add4...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Bf4
+  UCI:        c1f4
+  Color:      WHITE
+
+Position:
+  Turn:       Black
+  Castling:   9295429630892703873
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=34, Black=35 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: GOOD
+  Reason:         Small point loss (< 0.08)
+  Point Loss:     0.0458
+  Accuracy:       82.7%
+
+Engine Analysis (2 lines):
+  Line 1:     -155.00 | depth=16 | O-O Rg1 c6 Qd3 d5...
+              source=stockfish-17
+  Line 2:     -140.00 | depth=16 | c6 Rg1 O-O Qd4 Qb6...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   82.7%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 23
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              r2qk2r/ppp1bppp/3p1n2/7b/4P3/1BN2P1P/PP3P2/R1BQK2R w KQkq - 1 12
+   Evaluation:       centipawn=-100.00
+   Subjective Eval:  +100.00
+   Top Move:         c3d5
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              r2qk2r/ppp1bppp/3p1n2/7b/4PB2/1BN2P1P/PP3P2/R2QK2R b KQkq - 2 12
+   Played Move:      c1f4
+   Evaluation:       centipawn=-155.00
+   Subjective Eval:  -155.00
+   Top Move:         e8g8
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0458
+   Move Accuracy:    82.7%
+
+
+
+================================================================================
+NODE 24: 12... Qd7 (BLACK)
+================================================================================
+Node ID:      ee494b48...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Qd7
+  UCI:        d8d7
+  Color:      BLACK
+
+Position:
+  Turn:       White
+  Castling:   9295429630892703873
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=34, Black=35 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: GOOD
+  Reason:         Small point loss (< 0.08)
+  Point Loss:     0.0577
+  Accuracy:       78.7%
+
+Engine Analysis (2 lines):
+  Line 1:     -86.00 | depth=16 | Qd3 c6 O-O-O O-O h4...
+              source=stockfish-17
+  Line 2:     -116.00 | depth=16 | h4 a5 Kf1 c6 Kg2...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   78.7%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 24
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              r2qk2r/ppp1bppp/3p1n2/7b/4PB2/1BN2P1P/PP3P2/R2QK2R b KQkq - 2 12
+   Evaluation:       centipawn=-155.00
+   Subjective Eval:  -155.00
+   Top Move:         e8g8
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              r3k2r/pppqbppp/3p1n2/7b/4PB2/1BN2P1P/PP3P2/R2QK2R w KQkq - 3 13
+   Played Move:      d8d7
+   Evaluation:       centipawn=-86.00
+   Subjective Eval:  +86.00
+   Top Move:         d1d3
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0577
+   Move Accuracy:    78.7%
+
+
+
+================================================================================
+NODE 25: 13. Qd3 (WHITE)
+================================================================================
+Node ID:      57699c59...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Qd3
+  UCI:        d1d3
+  Color:      WHITE
+
+Position:
+  Turn:       Black
+  Castling:   9295429630892703873
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=34, Black=35 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0000
+  Accuracy:       100.0%
+
+Engine Analysis (2 lines):
+  Line 1:     -86.00 | depth=16 | O-O O-O-O c6 h4 d5...
+              source=stockfish-17
+  Line 2:     -83.00 | depth=16 | c6 O-O-O O-O h4 d5...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   100.0%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 25
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              r3k2r/pppqbppp/3p1n2/7b/4PB2/1BN2P1P/PP3P2/R2QK2R w KQkq - 3 13
+   Evaluation:       centipawn=-86.00
+   Subjective Eval:  +86.00
+   Top Move:         d1d3
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              r3k2r/pppqbppp/3p1n2/7b/4PB2/1BNQ1P1P/PP3P2/R3K2R b KQkq - 4 13
+   Played Move:      d1d3
+   Evaluation:       centipawn=-86.00
+   Subjective Eval:  -86.00
+   Top Move:         e8g8
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0000
+   Move Accuracy:    100.0%
+
+
+
+================================================================================
+NODE 26: 13... O-O-O (BLACK)
+================================================================================
+Node ID:      7d97271e...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        O-O-O
+  UCI:        e8c8
+  Color:      BLACK
+
+Position:
+  Turn:       White
+  Castling:   129
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=34, Black=35 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: GOOD
+  Reason:         Small point loss (< 0.08)
+  Point Loss:     0.0458
+  Accuracy:       82.7%
+
+Engine Analysis (2 lines):
+  Line 1:     -33.00 | depth=16 | O-O-O Kb8 Qe3 Bg6 Be5...
+              source=stockfish-17
+  Line 2:     -41.00 | depth=16 | Qe3 Kb8 O-O-O Bg6 Bh2...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   82.7%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 26
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              r3k2r/pppqbppp/3p1n2/7b/4PB2/1BNQ1P1P/PP3P2/R3K2R b KQkq - 4 13
+   Evaluation:       centipawn=-86.00
+   Subjective Eval:  -86.00
+   Top Move:         e8g8
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              2kr3r/pppqbppp/3p1n2/7b/4PB2/1BNQ1P1P/PP3P2/R3K2R w KQ - 5 14
+   Played Move:      e8c8
+   Evaluation:       centipawn=-33.00
+   Subjective Eval:  +33.00
+   Top Move:         e1c1
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0458
+   Move Accuracy:    82.7%
+
+
+
+================================================================================
+NODE 27: 14. O-O-O (WHITE)
+================================================================================
+Node ID:      65d3a6b8...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        O-O-O
+  UCI:        e1c1
+  Color:      WHITE
+
+Position:
+  Turn:       Black
+  Castling:   0
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=34, Black=35 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0026
+  Accuracy:       98.9%
+
+Engine Analysis (2 lines):
+  Line 1:     -36.00 | depth=16 | Kb8 Qe3 Rhe8 Kb1 c6...
+              source=stockfish-17
+  Line 2:     -26.00 | depth=16 | Rhe8 Qd4 b6 Rhg1 Bg6...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   98.9%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 27
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              2kr3r/pppqbppp/3p1n2/7b/4PB2/1BNQ1P1P/PP3P2/R3K2R w KQ - 5 14
+   Evaluation:       centipawn=-33.00
+   Subjective Eval:  +33.00
+   Top Move:         e1c1
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              2kr3r/pppqbppp/3p1n2/7b/4PB2/1BNQ1P1P/PP3P2/2KR3R b - - 6 14
+   Played Move:      e1c1
+   Evaluation:       centipawn=-36.00
+   Subjective Eval:  -36.00
+   Top Move:         c8b8
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0026
+   Move Accuracy:    98.9%
+
+
+
+================================================================================
+NODE 28: 14... Rhe8 (BLACK)
+================================================================================
+Node ID:      8c8441bb...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Rhe8
+  UCI:        h8e8
+  Color:      BLACK
+
+Position:
+  Turn:       White
+  Castling:   0
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=34, Black=35 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: EXCELLENT
+  Reason:         Very small point loss (< 0.045)
+  Point Loss:     0.0105
+  Accuracy:       95.8%
+
+Engine Analysis (2 lines):
+  Line 1:     -24.00 | depth=16 | Qd4 b6 Rhg1 Bg6 Kb1...
+              source=stockfish-17
+  Line 2:     -27.00 | depth=16 | Rhg1 Bf8 Qd4 Kb8 Rd3...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   95.8%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 28
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              2kr3r/pppqbppp/3p1n2/7b/4PB2/1BNQ1P1P/PP3P2/2KR3R b - - 6 14
+   Evaluation:       centipawn=-36.00
+   Subjective Eval:  -36.00
+   Top Move:         c8b8
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              2krr3/pppqbppp/3p1n2/7b/4PB2/1BNQ1P1P/PP3P2/2KR3R w - - 7 15
+   Played Move:      h8e8
+   Evaluation:       centipawn=-24.00
+   Subjective Eval:  +24.00
+   Top Move:         d3d4
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0105
+   Move Accuracy:    95.8%
+
+
+
+================================================================================
+NODE 29: 15. Rhg1 (WHITE)
+================================================================================
+Node ID:      2a75526f...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Rhg1
+  UCI:        h1g1
+  Color:      WHITE
+
+Position:
+  Turn:       Black
+  Castling:   0
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=34, Black=35 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0044
+  Accuracy:       98.2%
+
+Engine Analysis (2 lines):
+  Line 1:     -29.00 | depth=16 | Bf8 Qd4 Kb8 Rd3 c6...
+              source=stockfish-17
+  Line 2:     -18.00 | depth=16 | Bg6 Be3 c6 Bxa7 Qc7...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   98.2%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 29
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              2krr3/pppqbppp/3p1n2/7b/4PB2/1BNQ1P1P/PP3P2/2KR3R w - - 7 15
+   Evaluation:       centipawn=-24.00
+   Subjective Eval:  +24.00
+   Top Move:         d3d4
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              2krr3/pppqbppp/3p1n2/7b/4PB2/1BNQ1P1P/PP3P2/2KR2R1 b - - 8 15
+   Played Move:      h1g1
+   Evaluation:       centipawn=-29.00
+   Subjective Eval:  -29.00
+   Top Move:         e7f8
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0044
+   Move Accuracy:    98.2%
+
+
+
+================================================================================
+NODE 30: 15... Bg6 (BLACK)
+================================================================================
+Node ID:      a69880e3...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Bg6
+  UCI:        h5g6
+  Color:      BLACK
+
+Position:
+  Turn:       White
+  Castling:   0
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=34, Black=35 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: EXCELLENT
+  Reason:         Very small point loss (< 0.045)
+  Point Loss:     0.0131
+  Accuracy:       94.7%
+
+Engine Analysis (2 lines):
+  Line 1:     -14.00 | depth=16 | Be3 c6 Bxa7 Qc7 Kb1...
+              source=stockfish-17
+  Line 2:     -32.00 | depth=16 | Qd4 Kb8 Be3 c5 Qa4...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   94.7%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 30
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              2krr3/pppqbppp/3p1n2/7b/4PB2/1BNQ1P1P/PP3P2/2KR2R1 b - - 8 15
+   Evaluation:       centipawn=-29.00
+   Subjective Eval:  -29.00
+   Top Move:         e7f8
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              2krr3/pppqbppp/3p1nb1/8/4PB2/1BNQ1P1P/PP3P2/2KR2R1 w - - 9 16
+   Played Move:      h5g6
+   Evaluation:       centipawn=-14.00
+   Subjective Eval:  +14.00
+   Top Move:         f4e3
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0131
+   Move Accuracy:    94.7%
+
+
+
+================================================================================
+NODE 31: 16. h4 (WHITE)
+================================================================================
+Node ID:      6a26c21f...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        h4
+  UCI:        h3h4
+  Color:      WHITE
+
+Position:
+  Turn:       Black
+  Castling:   0
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=34, Black=35 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: EXCELLENT
+  Reason:         Very small point loss (< 0.045)
+  Point Loss:     0.0409
+  Accuracy:       84.4%
+
+Engine Analysis (2 lines):
+  Line 1:     -61.00 | depth=16 | Kb8 Be3 c6 f4 d5...
+              source=stockfish-17
+  Line 2:     -57.00 | depth=16 | c6 Be3 Kb8 f4 d5...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   84.4%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 31
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              2krr3/pppqbppp/3p1nb1/8/4PB2/1BNQ1P1P/PP3P2/2KR2R1 w - - 9 16
+   Evaluation:       centipawn=-14.00
+   Subjective Eval:  +14.00
+   Top Move:         f4e3
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              2krr3/pppqbppp/3p1nb1/8/4PB1P/1BNQ1P2/PP3P2/2KR2R1 b - - 0 16
+   Played Move:      h3h4
+   Evaluation:       centipawn=-61.00
+   Subjective Eval:  -61.00
+   Top Move:         c8b8
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0409
+   Move Accuracy:    84.4%
+
+
+
+================================================================================
+NODE 32: 16... Kb8 (BLACK)
+================================================================================
+Node ID:      8ff8d7ba...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Kb8
+  UCI:        c8b8
+  Color:      BLACK
+
+Position:
+  Turn:       White
+  Castling:   0
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=34, Black=35 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0000
+  Accuracy:       100.0%
+
+Engine Analysis (2 lines):
+  Line 1:     -62.00 | depth=16 | Be3 c6 f4 d5 f5...
+              source=stockfish-17
+  Line 2:     -69.00 | depth=16 | Qc4 Bf8 Be3 c6 Qa4...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   100.0%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 32
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              2krr3/pppqbppp/3p1nb1/8/4PB1P/1BNQ1P2/PP3P2/2KR2R1 b - - 0 16
+   Evaluation:       centipawn=-61.00
+   Subjective Eval:  -61.00
+   Top Move:         c8b8
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              1k1rr3/pppqbppp/3p1nb1/8/4PB1P/1BNQ1P2/PP3P2/2KR2R1 w - - 1 17
+   Played Move:      c8b8
+   Evaluation:       centipawn=-62.00
+   Subjective Eval:  +62.00
+   Top Move:         f4e3
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0000
+   Move Accuracy:    100.0%
+
+
+
+================================================================================
+NODE 33: 17. Kb1 (WHITE)
+================================================================================
+Node ID:      e34a4329...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Kb1
+  UCI:        c1b1
+  Color:      WHITE
+
+Position:
+  Turn:       Black
+  Castling:   0
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=34, Black=35 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0000
+  Accuracy:       100.0%
+
+Engine Analysis (2 lines):
+  Line 1:     -49.00 | depth=16 | c6 Be3 d5 Ka1 Qc7...
+              source=stockfish-17
+  Line 2:     -48.00 | depth=16 | Nh5 Be3 c6 Ka1 f5...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   100.0%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 33
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              1k1rr3/pppqbppp/3p1nb1/8/4PB1P/1BNQ1P2/PP3P2/2KR2R1 w - - 1 17
+   Evaluation:       centipawn=-62.00
+   Subjective Eval:  +62.00
+   Top Move:         f4e3
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              1k1rr3/pppqbppp/3p1nb1/8/4PB1P/1BNQ1P2/PP3P2/1K1R2R1 b - - 2 17
+   Played Move:      c1b1
+   Evaluation:       centipawn=-49.00
+   Subjective Eval:  -49.00
+   Top Move:         c7c6
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0000
+   Move Accuracy:    100.0%
+
+
+
+================================================================================
+NODE 34: 17... a6 (BLACK)
+================================================================================
+Node ID:      619c6334...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        a6
+  UCI:        a7a6
+  Color:      BLACK
+
+Position:
+  Turn:       White
+  Castling:   0
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=34, Black=35 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: EXCELLENT
+  Reason:         Very small point loss (< 0.045)
+  Point Loss:     0.0375
+  Accuracy:       85.6%
+
+Engine Analysis (2 lines):
+  Line 1:     -6.00 | depth=16 | Ka1 Nh5 Be3 f5 Ba4...
+              source=stockfish-17
+  Line 2:     -7.00 | depth=16 | Rd2 Qh3 Nd5 Nxd5 Bxd5...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   85.6%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 34
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              1k1rr3/pppqbppp/3p1nb1/8/4PB1P/1BNQ1P2/PP3P2/1K1R2R1 b - - 2 17
+   Evaluation:       centipawn=-49.00
+   Subjective Eval:  -49.00
+   Top Move:         c7c6
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              1k1rr3/1ppqbppp/p2p1nb1/8/4PB1P/1BNQ1P2/PP3P2/1K1R2R1 w - - 0 18
+   Played Move:      a7a6
+   Evaluation:       centipawn=-6.00
+   Subjective Eval:  +6.00
+   Top Move:         b1a1
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0375
+   Move Accuracy:    85.6%
+
+
+
+================================================================================
+NODE 35: 18. Ka1 (WHITE)
+================================================================================
+Node ID:      56105dd0...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Ka1
+  UCI:        b1a1
+  Color:      WHITE
+
+Position:
+  Turn:       Black
+  Castling:   0
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=34, Black=35 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0061
+  Accuracy:       97.5%
+
+Engine Analysis (2 lines):
+  Line 1:     -13.00 | depth=16 | Nh5 Be3 f5 Qd4 c5...
+              source=stockfish-17
+  Line 2:     -10.00 | depth=16 | c6 Qd4 Bf8 Qa4 Qc7...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   97.5%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 35
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              1k1rr3/1ppqbppp/p2p1nb1/8/4PB1P/1BNQ1P2/PP3P2/1K1R2R1 w - - 0 18
+   Evaluation:       centipawn=-6.00
+   Subjective Eval:  +6.00
+   Top Move:         b1a1
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              1k1rr3/1ppqbppp/p2p1nb1/8/4PB1P/1BNQ1P2/PP3P2/K2R2R1 b - - 1 18
+   Played Move:      b1a1
+   Evaluation:       centipawn=-13.00
+   Subjective Eval:  -13.00
+   Top Move:         f6h5
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0061
+   Move Accuracy:    97.5%
+
+
+
+================================================================================
+NODE 36: 18... c6 (BLACK)
+================================================================================
+Node ID:      365f2547...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        c6
+  UCI:        c7c6
+  Color:      BLACK
+
+Position:
+  Turn:       White
+  Castling:   0
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=34, Black=35 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: EXCELLENT
+  Reason:         Very small point loss (< 0.045)
+  Point Loss:     0.0131
+  Accuracy:       94.7%
+
+Engine Analysis (2 lines):
+  Line 1:     +2.00 | depth=16 | Qd4 Bf8 Qb4 Qc7 Rc1...
+              source=stockfish-17
+  Line 2:     -14.00 | depth=16 | Na4 Qc7 Rc1 Bf8 Rgd1...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   94.7%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 36
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              1k1rr3/1ppqbppp/p2p1nb1/8/4PB1P/1BNQ1P2/PP3P2/K2R2R1 b - - 1 18
+   Evaluation:       centipawn=-13.00
+   Subjective Eval:  -13.00
+   Top Move:         f6h5
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              1k1rr3/1p1qbppp/p1pp1nb1/8/4PB1P/1BNQ1P2/PP3P2/K2R2R1 w - - 0 19
+   Played Move:      c7c6
+   Evaluation:       centipawn=+2.00
+   Subjective Eval:  -2.00
+   Top Move:         d3d4
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0131
+   Move Accuracy:    94.7%
+
+
+
+================================================================================
+NODE 37: 19. e5 (WHITE)
+================================================================================
+Node ID:      d1c2a3e5...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        e5
+  UCI:        e4e5
+  Color:      WHITE
+
+Position:
+  Turn:       Black
+  Castling:   0
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=34, Black=35 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: BLUNDER
+  Reason:         Large point loss (≥ 0.22)
+  Point Loss:     0.3541
+  Accuracy:       21.9%
+
+Engine Analysis (2 lines):
+  Line 1:     -501.00 | depth=16 | Bxd3 Rxd3 Qf5 exf6 Bxf6...
+              source=stockfish-17
+  Line 2:     -296.00 | depth=16 | Nh5 Qd2 Nxf4 Qxf4 Qc7...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   21.9%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 37
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              1k1rr3/1p1qbppp/p1pp1nb1/8/4PB1P/1BNQ1P2/PP3P2/K2R2R1 w - - 0 19
+   Evaluation:       centipawn=+2.00
+   Subjective Eval:  -2.00
+   Top Move:         d3d4
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              1k1rr3/1p1qbppp/p1pp1nb1/4P3/5B1P/1BNQ1P2/PP3P2/K2R2R1 b - - 0 19
+   Played Move:      e4e5
+   Evaluation:       centipawn=-501.00
+   Subjective Eval:  -501.00
+   Top Move:         g6d3
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.3541
+   Move Accuracy:    21.9%
+
+
+
+================================================================================
+NODE 38: 19... dxe5 (BLACK)
+================================================================================
+Node ID:      bc67602e...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        dxe5
+  UCI:        d6e5
+  Color:      BLACK
+
+Position:
+  Turn:       White
+  Castling:   0
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=33, Black=35 (Δ-2)
+
+🎯 CLASSIFICATION:
+  Classification: BLUNDER
+  Reason:         Large point loss (≥ 0.22)
+  Point Loss:     0.2481
+  Accuracy:       35.1%
+
+Engine Analysis (2 lines):
+  Line 1:     -121.00 | depth=16 | Bxe5+ Ka8 Qe3 Bd6 f4...
+              source=stockfish-17
+  Line 2:     -204.00 | depth=16 | Qe2 Bd6 Be3 Qc8 a3...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   35.1%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 38
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              1k1rr3/1p1qbppp/p1pp1nb1/4P3/5B1P/1BNQ1P2/PP3P2/K2R2R1 b - - 0 19
+   Evaluation:       centipawn=-501.00
+   Subjective Eval:  -501.00
+   Top Move:         g6d3
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              1k1rr3/1p1qbppp/p1p2nb1/4p3/5B1P/1BNQ1P2/PP3P2/K2R2R1 w - - 0 20
+   Played Move:      d6e5
+   Evaluation:       centipawn=-121.00
+   Subjective Eval:  +121.00
+   Top Move:         f4e5
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.2481
+   Move Accuracy:    35.1%
+
+
+
+================================================================================
+NODE 39: 20. Bxe5+ (WHITE)
+================================================================================
+Node ID:      7778fd68...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Bxe5+
+  UCI:        f4e5
+  Color:      WHITE
+
+Position:
+  Turn:       Black
+  Castling:   0
+  Check:      True
+  Checkmate:  False
+  Legal:      True
+  Material:   White=33, Black=34 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0000
+  Accuracy:       100.0%
+
+Engine Analysis (2 lines):
+  Line 1:     -118.00 | depth=16 | Ka8 Qe3 Bd6 f4 Qe7...
+              source=stockfish-17
+  Line 2:     +0.00 | depth=16 | Kc8 Qe3 Qf5 Na4 Rxd1+...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   100.0%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 39
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              1k1rr3/1p1qbppp/p1p2nb1/4p3/5B1P/1BNQ1P2/PP3P2/K2R2R1 w - - 0 20
+   Evaluation:       centipawn=-121.00
+   Subjective Eval:  +121.00
+   Top Move:         f4e5
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              1k1rr3/1p1qbppp/p1p2nb1/4B3/7P/1BNQ1P2/PP3P2/K2R2R1 b - - 0 20
+   Played Move:      f4e5
+   Evaluation:       centipawn=-118.00
+   Subjective Eval:  -118.00
+   Top Move:         b8a8
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0000
+   Move Accuracy:    100.0%
+
+
+
+================================================================================
+NODE 40: 20... Ka8 (BLACK)
+================================================================================
+Node ID:      46444e15...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Ka8
+  UCI:        b8a8
+  Color:      BLACK
+
+Position:
+  Turn:       White
+  Castling:   0
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=33, Black=34 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0000
+  Accuracy:       100.0%
+
+Engine Analysis (2 lines):
+  Line 1:     -139.00 | depth=16 | Qe3 Bd6 f4 Qe7 Rxd6...
+              source=stockfish-17
+  Line 2:     -166.00 | depth=16 | Qc4 Qf5 Bc7 Rxd1+ Rxd1...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   100.0%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 40
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              1k1rr3/1p1qbppp/p1p2nb1/4B3/7P/1BNQ1P2/PP3P2/K2R2R1 b - - 0 20
+   Evaluation:       centipawn=-118.00
+   Subjective Eval:  -118.00
+   Top Move:         b8a8
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              k2rr3/1p1qbppp/p1p2nb1/4B3/7P/1BNQ1P2/PP3P2/K2R2R1 w - - 1 21
+   Played Move:      b8a8
+   Evaluation:       centipawn=-139.00
+   Subjective Eval:  +139.00
+   Top Move:         d3e3
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0000
+   Move Accuracy:    100.0%
+
+
+
+================================================================================
+NODE 41: 21. Qxd7 (WHITE)
+================================================================================
+Node ID:      334bfc07...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Qxd7
+  UCI:        d3d7
+  Color:      WHITE
+
+Position:
+  Turn:       Black
+  Castling:   0
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=33, Black=25 (Δ+8)
+
+🎯 CLASSIFICATION:
+  Classification: GOOD
+  Reason:         Small point loss (< 0.08)
+  Point Loss:     0.0604
+  Accuracy:       77.8%
+
+Engine Analysis (2 lines):
+  Line 1:     -215.00 | depth=16 | Rxd7 f4 Bc5 Rg5 h6...
+              source=stockfish-17
+  Line 2:     -100.00 | depth=16 | Nxd7 Bc7 Nc5 Bxd8 Nxb3+...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   77.8%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 41
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              k2rr3/1p1qbppp/p1p2nb1/4B3/7P/1BNQ1P2/PP3P2/K2R2R1 w - - 1 21
+   Evaluation:       centipawn=-139.00
+   Subjective Eval:  +139.00
+   Top Move:         d3e3
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              k2rr3/1p1Qbppp/p1p2nb1/4B3/7P/1BN2P2/PP3P2/K2R2R1 b - - 0 21
+   Played Move:      d3d7
+   Evaluation:       centipawn=-215.00
+   Subjective Eval:  -215.00
+   Top Move:         d8d7
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0604
+   Move Accuracy:    77.8%
+
+
+
+================================================================================
+NODE 42: 21... Rxd7 (BLACK)
+================================================================================
+Node ID:      db0ce445...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Rxd7
+  UCI:        d8d7
+  Color:      BLACK
+
+Position:
+  Turn:       White
+  Castling:   0
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=24, Black=25 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0008
+  Accuracy:       99.7%
+
+Engine Analysis (2 lines):
+  Line 1:     -214.00 | depth=16 | f4 Bc5 Rg5 h6 Rg2...
+              source=stockfish-17
+  Line 2:     -239.00 | depth=16 | Rxd7 Nxd7 Bxg7 Bxh4 Bd4...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   99.7%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 42
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              k2rr3/1p1Qbppp/p1p2nb1/4B3/7P/1BN2P2/PP3P2/K2R2R1 b - - 0 21
+   Evaluation:       centipawn=-215.00
+   Subjective Eval:  -215.00
+   Top Move:         d8d7
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              k3r3/1p1rbppp/p1p2nb1/4B3/7P/1BN2P2/PP3P2/K2R2R1 w - - 0 22
+   Played Move:      d8d7
+   Evaluation:       centipawn=-214.00
+   Subjective Eval:  +214.00
+   Top Move:         f3f4
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0008
+   Move Accuracy:    99.7%
+
+
+
+================================================================================
+NODE 43: 22. Bxf6 (WHITE)
+================================================================================
+Node ID:      76119735...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Bxf6
+  UCI:        e5f6
+  Color:      WHITE
+
+Position:
+  Turn:       Black
+  Castling:   0
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=24, Black=22 (Δ+2)
+
+🎯 CLASSIFICATION:
+  Classification: MISTAKE
+  Reason:         Significant point loss (< 0.22)
+  Point Loss:     0.1394
+  Accuracy:       55.9%
+
+Engine Analysis (2 lines):
+  Line 1:     -430.00 | depth=16 | Rxd1+ Rxd1 Bxf6 Rh1 Re5...
+              source=stockfish-17
+  Line 2:     +427.00 | depth=16 | Rd3 Rxd3 Bxd3 Bxg7 Bxh4...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   55.9%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 43
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              k3r3/1p1rbppp/p1p2nb1/4B3/7P/1BN2P2/PP3P2/K2R2R1 w - - 0 22
+   Evaluation:       centipawn=-214.00
+   Subjective Eval:  +214.00
+   Top Move:         f3f4
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              k3r3/1p1rbppp/p1p2Bb1/8/7P/1BN2P2/PP3P2/K2R2R1 b - - 0 22
+   Played Move:      e5f6
+   Evaluation:       centipawn=-430.00
+   Subjective Eval:  -430.00
+   Top Move:         d7d1
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.1394
+   Move Accuracy:    55.9%
+
+
+
+================================================================================
+NODE 44: 22... Rxd1+ (BLACK)
+================================================================================
+Node ID:      f28111b3...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Rxd1+
+  UCI:        d7d1
+  Color:      BLACK
+
+Position:
+  Turn:       White
+  Castling:   0
+  Check:      True
+  Checkmate:  False
+  Legal:      True
+  Material:   White=19, Black=22 (Δ-3)
+
+🎯 CLASSIFICATION:
+  Classification: CRITICAL
+  Reason:         Only move preventing significant loss (≥10% point loss)
+  Point Loss:     0.0053
+  Accuracy:       97.8%
+
+Engine Analysis (2 lines):
+  Line 1:     -420.00 | depth=16 | Bxd1 Bxf6 Rh1 Rd8 h5...
+              source=stockfish-17
+  Line 2:     -432.00 | depth=16 | Nxd1 Bxf6 Rh1 Bh5 Rh3...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   97.8%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 44
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              k3r3/1p1rbppp/p1p2Bb1/8/7P/1BN2P2/PP3P2/K2R2R1 b - - 0 22
+   Evaluation:       centipawn=-430.00
+   Subjective Eval:  -430.00
+   Top Move:         d7d1
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              k3r3/1p2bppp/p1p2Bb1/8/7P/1BN2P2/PP3P2/K2r2R1 w - - 0 23
+   Played Move:      d7d1
+   Evaluation:       centipawn=-420.00
+   Subjective Eval:  +420.00
+   Top Move:         b3d1
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0053
+   Move Accuracy:    97.8%
+
+
+
+================================================================================
+NODE 45: 23. Rxd1 (WHITE)
+================================================================================
+Node ID:      8ecffa44...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Rxd1
+  UCI:        g1d1
+  Color:      WHITE
+
+Position:
+  Turn:       Black
+  Castling:   0
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=19, Black=17 (Δ+2)
+
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0000
+  Accuracy:       100.0%
+
+Engine Analysis (2 lines):
+  Line 1:     -417.00 | depth=16 | Bxf6 Rh1 Re5 f4 Rh5...
+              source=stockfish-17
+  Line 2:     -185.00 | depth=16 | gxf6 Re1 Kb8 f4 f5...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   100.0%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 45
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              k3r3/1p2bppp/p1p2Bb1/8/7P/1BN2P2/PP3P2/K2r2R1 w - - 0 23
+   Evaluation:       centipawn=-420.00
+   Subjective Eval:  +420.00
+   Top Move:         b3d1
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              k3r3/1p2bppp/p1p2Bb1/8/7P/1BN2P2/PP3P2/K2R4 b - - 0 23
+   Played Move:      g1d1
+   Evaluation:       centipawn=-417.00
+   Subjective Eval:  -417.00
+   Top Move:         e7f6
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0000
+   Move Accuracy:    100.0%
+
+
+
+================================================================================
+NODE 46: 23... Bxf6 (BLACK)
+================================================================================
+Node ID:      9cc356f4...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Bxf6
+  UCI:        e7f6
+  Color:      BLACK
+
+Position:
+  Turn:       White
+  Castling:   0
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=16, Black=17 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0000
+  Accuracy:       100.0%
+
+Engine Analysis (2 lines):
+  Line 1:     -428.00 | depth=16 | Rh1 Re5 a4 a5 Rd1...
+              source=stockfish-17
+  Line 2:     -446.00 | depth=16 | Ne4 Bxh4 Kb1 Bxe4+ fxe4...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   100.0%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 46
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              k3r3/1p2bppp/p1p2Bb1/8/7P/1BN2P2/PP3P2/K2R4 b - - 0 23
+   Evaluation:       centipawn=-417.00
+   Subjective Eval:  -417.00
+   Top Move:         e7f6
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              k3r3/1p3ppp/p1p2bb1/8/7P/1BN2P2/PP3P2/K2R4 w - - 0 24
+   Played Move:      e7f6
+   Evaluation:       centipawn=-428.00
+   Subjective Eval:  +428.00
+   Top Move:         d1h1
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0000
+   Move Accuracy:    100.0%
+
+
+
+================================================================================
+NODE 47: 24. Rd7 (WHITE)
+================================================================================
+Node ID:      10f4bfab...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Rd7
+  UCI:        d1d7
+  Color:      WHITE
+
+Position:
+  Turn:       Black
+  Castling:   0
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=16, Black=17 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: EXCELLENT
+  Reason:         Very small point loss (< 0.045)
+  Point Loss:     0.0316
+  Accuracy:       87.8%
+
+Engine Analysis (2 lines):
+  Line 1:     -493.00 | depth=16 | Bxh4 Ne4 Re7 Rd2 Bxe4...
+              source=stockfish-17
+  Line 2:     -491.00 | depth=16 | Re1+ Rd1 Rxd1+ Nxd1 Bxh4...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   87.8%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 47
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              k3r3/1p3ppp/p1p2bb1/8/7P/1BN2P2/PP3P2/K2R4 w - - 0 24
+   Evaluation:       centipawn=-428.00
+   Subjective Eval:  +428.00
+   Top Move:         d1h1
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              k3r3/1p1R1ppp/p1p2bb1/8/7P/1BN2P2/PP3P2/K7 b - - 1 24
+   Played Move:      d1d7
+   Evaluation:       centipawn=-493.00
+   Subjective Eval:  -493.00
+   Top Move:         f6h4
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0316
+   Move Accuracy:    87.8%
+
+
+
+================================================================================
+NODE 48: 24... Re1+ (BLACK)
+================================================================================
+Node ID:      02f1edca...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Re1+
+  UCI:        e8e1
+  Color:      BLACK
+
+Position:
+  Turn:       White
+  Castling:   0
+  Check:      True
+  Checkmate:  False
+  Legal:      True
+  Material:   White=16, Black=17 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0004
+  Accuracy:       99.8%
+
+Engine Analysis (2 lines):
+  Line 1:     -492.00 | depth=16 | Rd1 Rxd1+ Nxd1 Bxh4 f4...
+              source=stockfish-17
+  Line 2:     -515.00 | depth=16 | Nd1 Bxh4 a3 h5 Ka2...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   99.8%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 48
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              k3r3/1p1R1ppp/p1p2bb1/8/7P/1BN2P2/PP3P2/K7 b - - 1 24
+   Evaluation:       centipawn=-493.00
+   Subjective Eval:  -493.00
+   Top Move:         f6h4
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              k7/1p1R1ppp/p1p2bb1/8/7P/1BN2P2/PP3P2/K3r3 w - - 2 25
+   Played Move:      e8e1
+   Evaluation:       centipawn=-492.00
+   Subjective Eval:  +492.00
+   Top Move:         d7d1
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0004
+   Move Accuracy:    99.8%
+
+
+
+================================================================================
+NODE 49: 25. Rd1 (WHITE)
+================================================================================
+Node ID:      22d1ebbf...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Rd1
+  UCI:        d7d1
+  Color:      WHITE
+
+Position:
+  Turn:       Black
+  Castling:   0
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=16, Black=17 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0027
+  Accuracy:       98.9%
+
+Engine Analysis (2 lines):
+  Line 1:     -498.00 | depth=16 | Rxd1+ Nxd1 Kb8 f4 Bxh4...
+              source=stockfish-17
+  Line 2:     -421.00 | depth=16 | Re5 a4 Bxh4 f4 Re8...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   98.9%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 49
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              k7/1p1R1ppp/p1p2bb1/8/7P/1BN2P2/PP3P2/K3r3 w - - 2 25
+   Evaluation:       centipawn=-492.00
+   Subjective Eval:  +492.00
+   Top Move:         d7d1
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              k7/1p3ppp/p1p2bb1/8/7P/1BN2P2/PP3P2/K2Rr3 b - - 3 25
+   Played Move:      d7d1
+   Evaluation:       centipawn=-498.00
+   Subjective Eval:  -498.00
+   Top Move:         e1d1
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0027
+   Move Accuracy:    98.9%
+
+
+
+================================================================================
+NODE 50: 25... Rxd1+ (BLACK)
+================================================================================
+Node ID:      c50fe978...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Rxd1+
+  UCI:        e1d1
+  Color:      BLACK
+
+Position:
+  Turn:       White
+  Castling:   0
+  Check:      True
+  Checkmate:  False
+  Legal:      True
+  Material:   White=11, Black=17 (Δ-6)
+
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0018
+  Accuracy:       99.3%
+
+Engine Analysis (2 lines):
+  Line 1:     -494.00 | depth=16 | Nxd1 Kb8 f4 Bxh4 a4...
+              source=stockfish-17
+  Line 2:     -497.00 | depth=16 | Bxd1 Bxh4 Bb3 Bxf2 Ne2...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   99.3%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 50
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              k7/1p3ppp/p1p2bb1/8/7P/1BN2P2/PP3P2/K2Rr3 b - - 3 25
+   Evaluation:       centipawn=-498.00
+   Subjective Eval:  -498.00
+   Top Move:         e1d1
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              k7/1p3ppp/p1p2bb1/8/7P/1BN2P2/PP3P2/K2r4 w - - 0 26
+   Played Move:      e1d1
+   Evaluation:       centipawn=-494.00
+   Subjective Eval:  +494.00
+   Top Move:         c3d1
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0018
+   Move Accuracy:    99.3%
+
+
+
+================================================================================
+NODE 51: 26. Nxd1 (WHITE)
+================================================================================
+Node ID:      c7058ded...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Nxd1
+  UCI:        c3d1
+  Color:      WHITE
+
+Position:
+  Turn:       Black
+  Castling:   0
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=11, Black=12 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0013
+  Accuracy:       99.4%
+
+Engine Analysis (2 lines):
+  Line 1:     -497.00 | depth=16 | Bxh4 Ne3 h5 Ng2 Bg5...
+              source=stockfish-17
+  Line 2:     -490.00 | depth=16 | Kb8 Nc3 Bxh4 Ne2 Bh5...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   99.4%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 51
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              k7/1p3ppp/p1p2bb1/8/7P/1BN2P2/PP3P2/K2r4 w - - 0 26
+   Evaluation:       centipawn=-494.00
+   Subjective Eval:  +494.00
+   Top Move:         c3d1
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              k7/1p3ppp/p1p2bb1/8/7P/1B3P2/PP3P2/K2N4 b - - 0 26
+   Played Move:      c3d1
+   Evaluation:       centipawn=-497.00
+   Subjective Eval:  -497.00
+   Top Move:         f6h4
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0013
+   Move Accuracy:    99.4%
+
+
+
+================================================================================
+NODE 52: 26... Bh5 (BLACK)
+================================================================================
+Node ID:      eb89d6ab...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Bh5
+  UCI:        g6h5
+  Color:      BLACK
+
+Position:
+  Turn:       White
+  Castling:   0
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=11, Black=12 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: EXCELLENT
+  Reason:         Very small point loss (< 0.045)
+  Point Loss:     0.0201
+  Accuracy:       92.0%
+
+Engine Analysis (2 lines):
+  Line 1:     -454.00 | depth=16 | Ne3 Bxf3 Nf5 Bg4 Ne3...
+              source=stockfish-17
+  Line 2:     -473.00 | depth=16 | f4 Bxh4 Bc2 Bg6 Bxg6...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   92.0%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 52
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              k7/1p3ppp/p1p2bb1/8/7P/1B3P2/PP3P2/K2N4 b - - 0 26
+   Evaluation:       centipawn=-497.00
+   Subjective Eval:  -497.00
+   Top Move:         f6h4
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              k7/1p3ppp/p1p2b2/7b/7P/1B3P2/PP3P2/K2N4 w - - 1 27
+   Played Move:      g6h5
+   Evaluation:       centipawn=-454.00
+   Subjective Eval:  +454.00
+   Top Move:         d1e3
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0201
+   Move Accuracy:    92.0%
+
+
+
+================================================================================
+NODE 53: 27. Ne3 (WHITE)
+================================================================================
+Node ID:      12bf1ff1...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Ne3
+  UCI:        d1e3
+  Color:      WHITE
+
+Position:
+  Turn:       Black
+  Castling:   0
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=11, Black=12 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0034
+  Accuracy:       98.6%
+
+Engine Analysis (2 lines):
+  Line 1:     -461.00 | depth=16 | Bxh4 Nf5 Bxf2 Nxg7 Bxf3...
+              source=stockfish-17
+  Line 2:     -461.00 | depth=16 | Bxf3 Nf5 Bg4 Ne3 Be2...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   98.6%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 53
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              k7/1p3ppp/p1p2b2/7b/7P/1B3P2/PP3P2/K2N4 w - - 1 27
+   Evaluation:       centipawn=-454.00
+   Subjective Eval:  +454.00
+   Top Move:         d1e3
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              k7/1p3ppp/p1p2b2/7b/7P/1B2NP2/PP3P2/K7 b - - 2 27
+   Played Move:      d1e3
+   Evaluation:       centipawn=-461.00
+   Subjective Eval:  -461.00
+   Top Move:         f6h4
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0034
+   Move Accuracy:    98.6%
+
+
+
+================================================================================
+NODE 54: 27... Kb8 (BLACK)
+================================================================================
+Node ID:      0accfd0c...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Kb8
+  UCI:        a8b8
+  Color:      BLACK
+
+Position:
+  Turn:       White
+  Castling:   0
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=11, Black=12 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0074
+  Accuracy:       97.0%
+
+Engine Analysis (2 lines):
+  Line 1:     -446.00 | depth=16 | f4 Bxh4 Nf5 Bf6 Nd6...
+              source=stockfish-17
+  Line 2:     -470.00 | depth=16 | Nf5 Bxf3 Bxf7 g6 Nh6...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   97.0%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 54
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              k7/1p3ppp/p1p2b2/7b/7P/1B2NP2/PP3P2/K7 b - - 2 27
+   Evaluation:       centipawn=-461.00
+   Subjective Eval:  -461.00
+   Top Move:         f6h4
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              1k6/1p3ppp/p1p2b2/7b/7P/1B2NP2/PP3P2/K7 w - - 3 28
+   Played Move:      a8b8
+   Evaluation:       centipawn=-446.00
+   Subjective Eval:  +446.00
+   Top Move:         f3f4
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0074
+   Move Accuracy:    97.0%
+
+
+
+================================================================================
+NODE 55: 28. Bd1 (WHITE)
+================================================================================
+Node ID:      6961b988...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Bd1
+  UCI:        b3d1
+  Color:      WHITE
+
+Position:
+  Turn:       Black
+  Castling:   0
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=11, Black=12 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: EXCELLENT
+  Reason:         Very small point loss (< 0.045)
+  Point Loss:     0.0294
+  Accuracy:       88.5%
+
+Engine Analysis (2 lines):
+  Line 1:     -509.00 | depth=16 | Bxh4 Nf5 g5 Bc2 Bxf2...
+              source=stockfish-17
+  Line 2:     -418.00 | depth=16 | Kc7 Ng2 Bg6 h5 Bxh5...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   88.5%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 55
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              1k6/1p3ppp/p1p2b2/7b/7P/1B2NP2/PP3P2/K7 w - - 3 28
+   Evaluation:       centipawn=-446.00
+   Subjective Eval:  +446.00
+   Top Move:         f3f4
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              1k6/1p3ppp/p1p2b2/7b/7P/4NP2/PP3P2/K2B4 b - - 4 28
+   Played Move:      b3d1
+   Evaluation:       centipawn=-509.00
+   Subjective Eval:  -509.00
+   Top Move:         f6h4
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0294
+   Move Accuracy:    88.5%
+
+
+
+================================================================================
+NODE 56: 28... Kc7 (BLACK)
+================================================================================
+Node ID:      1a594e18...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Kc7
+  UCI:        b8c7
+  Color:      BLACK
+
+Position:
+  Turn:       White
+  Castling:   0
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=11, Black=12 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: EXCELLENT
+  Reason:         Very small point loss (< 0.045)
+  Point Loss:     0.0439
+  Accuracy:       83.4%
+
+Engine Analysis (2 lines):
+  Line 1:     -418.00 | depth=16 | Ng2 Kd6 Nf4 Bg6 h5...
+              source=stockfish-17
+  Line 2:     -472.00 | depth=16 | Nf5 Bg6 Ng3 Bxh4 f4...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   83.4%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 56
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              1k6/1p3ppp/p1p2b2/7b/7P/4NP2/PP3P2/K2B4 b - - 4 28
+   Evaluation:       centipawn=-509.00
+   Subjective Eval:  -509.00
+   Top Move:         f6h4
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              8/1pk2ppp/p1p2b2/7b/7P/4NP2/PP3P2/K2B4 w - - 5 29
+   Played Move:      b8c7
+   Evaluation:       centipawn=-418.00
+   Subjective Eval:  +418.00
+   Top Move:         e3g2
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0439
+   Move Accuracy:    83.4%
+
+
+
+================================================================================
+NODE 57: 29. Be2 (WHITE)
+================================================================================
+Node ID:      d5c10838...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Be2
+  UCI:        d1e2
+  Color:      WHITE
+
+Position:
+  Turn:       Black
+  Castling:   0
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=11, Black=12 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: EXCELLENT
+  Reason:         Very small point loss (< 0.045)
+  Point Loss:     0.0439
+  Accuracy:       83.4%
+
+Engine Analysis (2 lines):
+  Line 1:     -509.00 | depth=16 | Bxh4 Nf5 g5 Ng3 Bxg3...
+              source=stockfish-17
+  Line 2:     -422.00 | depth=16 | a5 Ng2 Bg6 a3 h6...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   83.4%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 57
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              8/1pk2ppp/p1p2b2/7b/7P/4NP2/PP3P2/K2B4 w - - 5 29
+   Evaluation:       centipawn=-418.00
+   Subjective Eval:  +418.00
+   Top Move:         e3g2
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              8/1pk2ppp/p1p2b2/7b/7P/4NP2/PP2BP2/K7 b - - 6 29
+   Played Move:      d1e2
+   Evaluation:       centipawn=-509.00
+   Subjective Eval:  -509.00
+   Top Move:         f6h4
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0439
+   Move Accuracy:    83.4%
+
+
+
+================================================================================
+NODE 58: 29... Kd6 (BLACK)
+================================================================================
+Node ID:      3481db14...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Kd6
+  UCI:        c7d6
+  Color:      BLACK
+
+Position:
+  Turn:       White
+  Castling:   0
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=11, Black=12 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: GOOD
+  Reason:         Small point loss (< 0.08)
+  Point Loss:     0.0571
+  Accuracy:       78.9%
+
+Engine Analysis (2 lines):
+  Line 1:     -394.00 | depth=16 | Nf5+ Ke6 Ng3 Bg6 h5...
+              source=stockfish-17
+  Line 2:     -421.00 | depth=16 | a3 Kc7 Ng2 Bg6 f4...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   78.9%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 58
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              8/1pk2ppp/p1p2b2/7b/7P/4NP2/PP2BP2/K7 b - - 6 29
+   Evaluation:       centipawn=-509.00
+   Subjective Eval:  -509.00
+   Top Move:         f6h4
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              8/1p3ppp/p1pk1b2/7b/7P/4NP2/PP2BP2/K7 w - - 7 30
+   Played Move:      c7d6
+   Evaluation:       centipawn=-394.00
+   Subjective Eval:  +394.00
+   Top Move:         e3f5
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0571
+   Move Accuracy:    78.9%
+
+
+
+================================================================================
+NODE 59: 30. Kb1 (WHITE)
+================================================================================
+Node ID:      93f0a0b9...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Kb1
+  UCI:        a1b1
+  Color:      WHITE
+
+Position:
+  Turn:       Black
+  Castling:   0
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=11, Black=12 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: GOOD
+  Reason:         Small point loss (< 0.08)
+  Point Loss:     0.0522
+  Accuracy:       80.5%
+
+Engine Analysis (2 lines):
+  Line 1:     -498.00 | depth=16 | Bg6+ Kc1 Bxh4 Nc4+ Kc7...
+              source=stockfish-17
+  Line 2:     -420.00 | depth=16 | Kc5 Ng2 Bg6+ Kc1 Bf5...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   80.5%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 59
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              8/1p3ppp/p1pk1b2/7b/7P/4NP2/PP2BP2/K7 w - - 7 30
+   Evaluation:       centipawn=-394.00
+   Subjective Eval:  +394.00
+   Top Move:         e3f5
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              8/1p3ppp/p1pk1b2/7b/7P/4NP2/PP2BP2/1K6 b - - 8 30
+   Played Move:      a1b1
+   Evaluation:       centipawn=-498.00
+   Subjective Eval:  -498.00
+   Top Move:         h5g6
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0522
+   Move Accuracy:    80.5%
+
+
+
+================================================================================
+NODE 60: 30... b5 (BLACK)
+================================================================================
+Node ID:      486b6c82...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        b5
+  UCI:        b7b5
+  Color:      BLACK
+
+Position:
+  Turn:       White
+  Castling:   0
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=11, Black=12 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: EXCELLENT
+  Reason:         Very small point loss (< 0.045)
+  Point Loss:     0.0439
+  Accuracy:       83.4%
+
+Engine Analysis (2 lines):
+  Line 1:     -409.00 | depth=16 | Kc1 Kc7 Ng2 Bg6 b3...
+              source=stockfish-17
+  Line 2:     -434.00 | depth=16 | Ka1 Kc5 Ng2 Bg6 a3...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   83.4%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 60
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              8/1p3ppp/p1pk1b2/7b/7P/4NP2/PP2BP2/1K6 b - - 8 30
+   Evaluation:       centipawn=-498.00
+   Subjective Eval:  -498.00
+   Top Move:         h5g6
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              8/5ppp/p1pk1b2/1p5b/7P/4NP2/PP2BP2/1K6 w - - 0 31
+   Played Move:      b7b5
+   Evaluation:       centipawn=-409.00
+   Subjective Eval:  +409.00
+   Top Move:         b1c1
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0439
+   Move Accuracy:    83.4%
+
+
+
+================================================================================
+NODE 61: 31. Kc2 (WHITE)
+================================================================================
+Node ID:      20e4f27e...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Kc2
+  UCI:        b1c2
+  Color:      WHITE
+
+Position:
+  Turn:       Black
+  Castling:   0
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=11, Black=12 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: GOOD
+  Reason:         Small point loss (< 0.08)
+  Point Loss:     0.0461
+  Accuracy:       82.6%
+
+Engine Analysis (2 lines):
+  Line 1:     -503.00 | depth=16 | Bg6+ Kd2 Bxh4 Ke1 Bg5...
+              source=stockfish-17
+  Line 2:     -437.00 | depth=16 | a5 Ng2 Bg6+ Kc1 a4...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   82.6%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 61
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              8/5ppp/p1pk1b2/1p5b/7P/4NP2/PP2BP2/1K6 w - - 0 31
+   Evaluation:       centipawn=-409.00
+   Subjective Eval:  +409.00
+   Top Move:         b1c1
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              8/5ppp/p1pk1b2/1p5b/7P/4NP2/PPK1BP2/8 b - - 1 31
+   Played Move:      b1c2
+   Evaluation:       centipawn=-503.00
+   Subjective Eval:  -503.00
+   Top Move:         h5g6
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0461
+   Move Accuracy:    82.6%
+
+
+
+================================================================================
+NODE 62: 31... Bxh4 (BLACK)
+================================================================================
+Node ID:      9b28f30c...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Bxh4
+  UCI:        f6h4
+  Color:      BLACK
+
+Position:
+  Turn:       White
+  Castling:   0
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=10, Black=12 (Δ-2)
+
+🎯 CLASSIFICATION:
+  Classification: BLUNDER
+  Reason:         Large point loss (≥ 0.22)
+  Point Loss:     0.4245
+  Accuracy:       15.7%
+
+Engine Analysis (2 lines):
+  Line 1:     +82.00 | depth=16 | Nf5+ Ke5 Nxh4 g5 Ng2...
+              source=stockfish-17
+  Line 2:     -503.00 | depth=16 | Bd3 Bg6 f4 Bxd3+ Kxd3...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   15.7%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 62
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              8/5ppp/p1pk1b2/1p5b/7P/4NP2/PPK1BP2/8 b - - 1 31
+   Evaluation:       centipawn=-503.00
+   Subjective Eval:  -503.00
+   Top Move:         h5g6
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              8/5ppp/p1pk4/1p5b/7b/4NP2/PPK1BP2/8 w - - 0 32
+   Played Move:      f6h4
+   Evaluation:       centipawn=+82.00
+   Subjective Eval:  -82.00
+   Top Move:         e3f5
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.4245
+   Move Accuracy:    15.7%
+
+
+
+================================================================================
+NODE 63: 32. b3 (WHITE)
+================================================================================
+Node ID:      11bc8a75...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        b3
+  UCI:        b2b3
+  Color:      WHITE
+
+Position:
+  Turn:       Black
+  Castling:   0
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=10, Black=12 (Δ-2)
+
+🎯 CLASSIFICATION:
+  Classification: BLUNDER
+  Reason:         Large point loss (≥ 0.22)
+  Point Loss:     0.4404
+  Accuracy:       14.5%
+
+Engine Analysis (2 lines):
+  Line 1:     -541.00 | depth=16 | Bg6+ Bd3 Bxd3+ Kxd3 g6...
+              source=stockfish-17
+  Line 2:     -492.00 | depth=16 | Kc7 Nf5 Bg6 Bd3 Bxf5...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   14.5%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 63
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              8/5ppp/p1pk4/1p5b/7b/4NP2/PPK1BP2/8 w - - 0 32
+   Evaluation:       centipawn=+82.00
+   Subjective Eval:  -82.00
+   Top Move:         e3f5
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              8/5ppp/p1pk4/1p5b/7b/1P2NP2/P1K1BP2/8 b - - 0 32
+   Played Move:      b2b3
+   Evaluation:       centipawn=-541.00
+   Subjective Eval:  -541.00
+   Top Move:         h5g6
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.4404
+   Move Accuracy:    14.5%
+
+
+
+================================================================================
+NODE 64: 32... Bxf2 (BLACK)
+================================================================================
+Node ID:      7f44bf17...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Bxf2
+  UCI:        h4f2
+  Color:      BLACK
+
+Position:
+  Turn:       White
+  Castling:   0
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=9, Black=12 (Δ-3)
+
+🎯 CLASSIFICATION:
+  Classification: EXCELLENT
+  Reason:         Very small point loss (< 0.045)
+  Point Loss:     0.0185
+  Accuracy:       92.6%
+
+Engine Analysis (2 lines):
+  Line 1:     -497.00 | depth=16 | Nf5+ Ke5 Ne7 Kf4 Nxc6...
+              source=stockfish-17
+  Line 2:     -566.00 | depth=16 | Kd2 Bg6 a3 Bxe3+ Kxe3...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   92.6%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 64
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              8/5ppp/p1pk4/1p5b/7b/1P2NP2/P1K1BP2/8 b - - 0 32
+   Evaluation:       centipawn=-541.00
+   Subjective Eval:  -541.00
+   Top Move:         h5g6
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              8/5ppp/p1pk4/1p5b/8/1P2NP2/P1K1Bb2/8 w - - 0 33
+   Played Move:      h4f2
+   Evaluation:       centipawn=-497.00
+   Subjective Eval:  +497.00
+   Top Move:         e3f5
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0185
+   Move Accuracy:    92.6%
+
+
+
+================================================================================
+NODE 65: 33. Nf5+ (WHITE)
+================================================================================
+Node ID:      174190c5...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Nf5+
+  UCI:        e3f5
+  Color:      WHITE
+
+Position:
+  Turn:       Black
+  Castling:   0
+  Check:      True
+  Checkmate:  False
+  Legal:      True
+  Material:   White=9, Black=12 (Δ-3)
+
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0026
+  Accuracy:       98.9%
+
+Engine Analysis (2 lines):
+  Line 1:     -503.00 | depth=16 | Ke5 Ne7 Kf4 Nxc6 Bxf3...
+              source=stockfish-17
+  Line 2:     -467.00 | depth=16 | Kd7 Nxg7 Bg6+ Bd3 Bg3...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   98.9%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 65
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              8/5ppp/p1pk4/1p5b/8/1P2NP2/P1K1Bb2/8 w - - 0 33
+   Evaluation:       centipawn=-497.00
+   Subjective Eval:  +497.00
+   Top Move:         e3f5
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              8/5ppp/p1pk4/1p3N1b/8/1P3P2/P1K1Bb2/8 b - - 1 33
+   Played Move:      e3f5
+   Evaluation:       centipawn=-503.00
+   Subjective Eval:  -503.00
+   Top Move:         d6e5
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0026
+   Move Accuracy:    98.9%
+
+
+
+================================================================================
+NODE 66: 33... Ke5 (BLACK)
+================================================================================
+Node ID:      978eb7c6...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Ke5
+  UCI:        d6e5
+  Color:      BLACK
+
+Position:
+  Turn:       White
+  Castling:   0
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=9, Black=12 (Δ-3)
+
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0013
+  Accuracy:       99.4%
+
+Engine Analysis (2 lines):
+  Line 1:     -500.00 | depth=16 | Nxg7 Bg6+ Kd1 Kf4 Ne8...
+              source=stockfish-17
+  Line 2:     -510.00 | depth=16 | Ne7 Kf4 Nxc6 Bxf3 Bxf3...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   99.4%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 66
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              8/5ppp/p1pk4/1p3N1b/8/1P3P2/P1K1Bb2/8 b - - 1 33
+   Evaluation:       centipawn=-503.00
+   Subjective Eval:  -503.00
+   Top Move:         d6e5
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              8/5ppp/p1p5/1p2kN1b/8/1P3P2/P1K1Bb2/8 w - - 2 34
+   Played Move:      d6e5
+   Evaluation:       centipawn=-500.00
+   Subjective Eval:  +500.00
+   Top Move:         f5g7
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0013
+   Move Accuracy:    99.4%
+
+
+
+================================================================================
+NODE 67: 34. Nxg7 (WHITE)
+================================================================================
+Node ID:      c01717b6...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Nxg7
+  UCI:        f5g7
+  Color:      WHITE
+
+Position:
+  Turn:       Black
+  Castling:   0
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=9, Black=11 (Δ-2)
+
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0119
+  Accuracy:       95.2%
+
+Engine Analysis (2 lines):
+  Line 1:     -528.00 | depth=16 | Bg6+ Kd1 Kf4 Ne8 h5...
+              source=stockfish-17
+  Line 2:     +83.00 | depth=16 | Bxf3 Bxf3 Kf4 Be2 Bd4...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   95.2%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 67
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              8/5ppp/p1p5/1p2kN1b/8/1P3P2/P1K1Bb2/8 w - - 2 34
+   Evaluation:       centipawn=-500.00
+   Subjective Eval:  +500.00
+   Top Move:         f5g7
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              8/5pNp/p1p5/1p2k2b/8/1P3P2/P1K1Bb2/8 b - - 0 34
+   Played Move:      f5g7
+   Evaluation:       centipawn=-528.00
+   Subjective Eval:  -528.00
+   Top Move:         h5g6
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0119
+   Move Accuracy:    95.2%
+
+
+
+================================================================================
+NODE 68: 34... Bg6+ (BLACK)
+================================================================================
+Node ID:      f7acad66...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Bg6+
+  UCI:        h5g6
+  Color:      BLACK
+
+Position:
+  Turn:       White
+  Castling:   0
+  Check:      True
+  Checkmate:  False
+  Legal:      True
+  Material:   White=9, Black=11 (Δ-2)
+
+🎯 CLASSIFICATION:
+  Classification: CRITICAL
+  Reason:         Only move preventing significant loss (≥10% point loss)
+  Point Loss:     0.0050
+  Accuracy:       97.9%
+
+Engine Analysis (2 lines):
+  Line 1:     -516.00 | depth=16 | Kd1 Kf4 Ne8 h5 Bf1...
+              source=stockfish-17
+  Line 2:     -526.00 | depth=16 | Kd2 Kf4 Ne8 h5 a4...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   97.9%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 68
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              8/5pNp/p1p5/1p2k2b/8/1P3P2/P1K1Bb2/8 b - - 0 34
+   Evaluation:       centipawn=-528.00
+   Subjective Eval:  -528.00
+   Top Move:         h5g6
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              8/5pNp/p1p3b1/1p2k3/8/1P3P2/P1K1Bb2/8 w - - 1 35
+   Played Move:      h5g6
+   Evaluation:       centipawn=-516.00
+   Subjective Eval:  +516.00
+   Top Move:         c2d1
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0050
+   Move Accuracy:    97.9%
+
+
+
+================================================================================
+NODE 69: 35. Kd2 (WHITE)
+================================================================================
+Node ID:      9b7c5190...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Kd2
+  UCI:        c2d2
+  Color:      WHITE
+
+Position:
+  Turn:       Black
+  Castling:   0
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=9, Black=11 (Δ-2)
+
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0054
+  Accuracy:       97.8%
+
+Engine Analysis (2 lines):
+  Line 1:     -529.00 | depth=16 | Kf4 Ne8 h5 a4 h4...
+              source=stockfish-17
+  Line 2:     -499.00 | depth=16 | Bh4 Bd1 a5 a4 b4...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   97.8%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 69
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              8/5pNp/p1p3b1/1p2k3/8/1P3P2/P1K1Bb2/8 w - - 1 35
+   Evaluation:       centipawn=-516.00
+   Subjective Eval:  +516.00
+   Top Move:         c2d1
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              8/5pNp/p1p3b1/1p2k3/8/1P3P2/P2KBb2/8 b - - 2 35
+   Played Move:      c2d2
+   Evaluation:       centipawn=-529.00
+   Subjective Eval:  -529.00
+   Top Move:         e5f4
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0054
+   Move Accuracy:    97.8%
+
+
+
+================================================================================
+NODE 70: 35... f5 (BLACK)
+================================================================================
+Node ID:      65573ccf...
+Mainline:     True
+Has Parent:   True
+Children:     0
+
+Move Details:
+  SAN:        f5
+  UCI:        f7f5
+  Color:      BLACK
+
+Position:
+  Turn:       White
+  Castling:   0
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=9, Black=11 (Δ-2)
+
+🎯 CLASSIFICATION:
+  Classification: EXCELLENT
+  Reason:         Very small point loss (< 0.045)
+  Point Loss:     0.0106
+  Accuracy:       95.7%
+
+Engine Analysis (2 lines):
+  Line 1:     -504.00 | depth=16 | f4+ Kxf4 Ne6+ Kg3 Nd8...
+              source=stockfish-17
+  Line 2:     -528.00 | depth=16 | a4 Kf6 Nxf5 Kxf5 axb5...
+              source=stockfish-17
+
+Move Quality:
+  Accuracy:   95.7%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 70
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              8/5pNp/p1p3b1/1p2k3/8/1P3P2/P2KBb2/8 b - - 2 35
+   Evaluation:       centipawn=-529.00
+   Subjective Eval:  -529.00
+   Top Move:         e5f4
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              8/6Np/p1p3b1/1p2kp2/8/1P3P2/P2KBb2/8 w - - 0 36
+   Played Move:      f7f5
+   Evaluation:       centipawn=-504.00
+   Subjective Eval:  +504.00
+   Top Move:         f3f4
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0106
+   Move Accuracy:    95.7%
+
+
+================================================================================
+SUMMARY
+================================================================================
+Game: Custom.pgn
+Nodes displayed: 71
+Total moves: 70
+Nodes with engine analysis: 71/71
+Extractable move pairs: 70/70
+
+🎯 CLASSIFICATION SUMMARY:
+  FORCED (only 1 legal move):        0
+  THEORY (in opening book):           5
+  BEST (top move or checkmate):       30
+  CRITICAL (prevents major loss):     2
+  BRILLIANT (sacrifice/risky):        0
+  EXCELLENT (point loss < 0.045):     15
+  GOOD (point loss < 0.08):           12
+  INACCURACY (point loss < 0.12):     1
+  MISTAKE (point loss < 0.22):        1
+  BLUNDER (point loss ≥ 0.22):        4
+  N/A (extraction failed):            0
+
+✅ Visualization complete!

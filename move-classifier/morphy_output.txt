@@ -1,0 +1,2050 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║        MORPHY vs DUKE KARL/COUNT ISOUARD (1858) - NODE VISUALIZATION         ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+Event:  Paris 1858 (Opera House)
+White:  Paul Morphy
+Black:  Duke Karl / Count Isouard
+Result: 1-0
+ECO:    C41 (Philidor Defense)
+
+🎯 Classification Enabled (includes Point Loss classification)
+
+⏳ Running full preprocessing pipeline (depth=16)...
+✅ Pipeline complete!
+
+📊 Total nodes: 34 (root + 33 moves)
+
+================================================================================
+NODE 0: ROOT NODE (Starting Position)
+================================================================================
+Node ID:      dd250084...
+Mainline:     True
+Has Parent:   False
+Children:     1
+
+Position:
+  Turn:       White
+  Castling:   9295429630892703873
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=39, Black=39 (Δ+0)
+
+Engine Analysis (2 lines):
+  Line 1:     +19.00 | depth=65 | c4 e5 g3 Nf6 Bg2...
+              source=lichess-cloud
+  Line 2:     +17.00 | depth=65 | e4 e5 Nf3 Nc6 Bb5...
+              source=lichess-cloud
+
+
+
+================================================================================
+NODE 1: 1. e4 (WHITE)
+================================================================================
+Node ID:      a3447f5a...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        e4
+  UCI:        e2e4
+  Color:      WHITE
+
+Position:
+  Turn:       Black
+  Castling:   9295429630892703873
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=39, Black=39 (Δ+0)
+
+🎯 CLASSIFICATION:
+  Classification: BOOK
+  Reason:         Position in opening book
+  Opening:        King's Pawn Game
+
+Engine Analysis (2 lines):
+  Line 1:     +15.00 | depth=60 | e5 Nf3 Nc6 Bb5 Nf6...
+              source=lichess-cloud
+  Line 2:     +18.00 | depth=60 | c5 Nc3 d6 Nf3 a6...
+              source=lichess-cloud
+
+Move Quality:
+  Accuracy:   98.6%
+
+Opening:
+  Name:       King's Pawn Game
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 1
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
+   Evaluation:       centipawn=+19.00
+   Subjective Eval:  +19.00
+   Top Move:         c2c4
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1
+   Played Move:      e2e4
+   Evaluation:       centipawn=+15.00
+   Subjective Eval:  +15.00
+   Top Move:         e7e5
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0035
+   Move Accuracy:    98.6%
+
+
+
+================================================================================
+NODE 2: 1... e5 (BLACK)
+================================================================================
+Node ID:      c47b13d6...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        e5
+  UCI:        e7e5
+  Color:      BLACK
+
+Position:
+  Turn:       White
+  Castling:   9295429630892703873
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=39, Black=39 (Δ+0)
+
+🎯 CLASSIFICATION:
+  Classification: BOOK
+  Reason:         Position in opening book
+  Opening:        King's Pawn Game
+
+Engine Analysis (2 lines):
+  Line 1:     +21.00 | depth=61 | Nf3 Nc6 Bb5 Nf6 O-O...
+              source=lichess-cloud
+  Line 2:     +4.00 | depth=61 | Nc3 Nc6 Nf3 Nf6 d4...
+              source=lichess-cloud
+
+Move Quality:
+  Accuracy:   97.8%
+
+Opening:
+  Name:       King's Pawn Game
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 2
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1
+   Evaluation:       centipawn=+15.00
+   Subjective Eval:  +15.00
+   Top Move:         e7e5
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2
+   Played Move:      e7e5
+   Evaluation:       centipawn=+21.00
+   Subjective Eval:  -21.00
+   Top Move:         g1f3
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0052
+   Move Accuracy:    97.8%
+
+
+
+================================================================================
+NODE 3: 2. Nf3 (WHITE)
+================================================================================
+Node ID:      87bfdbb9...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Nf3
+  UCI:        g1f3
+  Color:      WHITE
+
+Position:
+  Turn:       Black
+  Castling:   9295429630892703873
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=39, Black=39 (Δ+0)
+
+🎯 CLASSIFICATION:
+  Classification: BOOK
+  Reason:         Position in opening book
+  Opening:        King's Knight Opening
+
+Engine Analysis (2 lines):
+  Line 1:     +13.00 | depth=57 | Nc6 Bb5 Nf6 O-O Nxe4...
+              source=lichess-cloud
+  Line 2:     +27.00 | depth=57 | Nf6 Nxe5 d6 Nf3 Nxe4...
+              source=lichess-cloud
+
+Move Quality:
+  Accuracy:   97.1%
+
+Opening:
+  Name:       King's Knight Opening
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 3
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2
+   Evaluation:       centipawn=+21.00
+   Subjective Eval:  -21.00
+   Top Move:         g1f3
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2
+   Played Move:      g1f3
+   Evaluation:       centipawn=+13.00
+   Subjective Eval:  +13.00
+   Top Move:         b8c6
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0070
+   Move Accuracy:    97.1%
+
+
+
+================================================================================
+NODE 4: 2... d6 (BLACK)
+================================================================================
+Node ID:      119cd435...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        d6
+  UCI:        d7d6
+  Color:      BLACK
+
+Position:
+  Turn:       White
+  Castling:   9295429630892703873
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=39, Black=39 (Δ+0)
+
+🎯 CLASSIFICATION:
+  Classification: BOOK
+  Reason:         Position in opening book
+  Opening:        Philidor Defense
+
+Engine Analysis (2 lines):
+  Line 1:     +48.00 | depth=50 | d4 exd4 Nxd4 Be7 Nc3...
+              source=lichess-cloud
+  Line 2:     +25.00 | depth=50 | Bc4 Be7 d4 exd4 Nxd4...
+              source=lichess-cloud
+
+Move Quality:
+  Accuracy:   88.1%
+
+Opening:
+  Name:       Philidor Defense
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 4
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2
+   Evaluation:       centipawn=+13.00
+   Subjective Eval:  +13.00
+   Top Move:         b8c6
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              rnbqkbnr/ppp2ppp/3p4/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3
+   Played Move:      d7d6
+   Evaluation:       centipawn=+48.00
+   Subjective Eval:  -48.00
+   Top Move:         d2d4
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0305
+   Move Accuracy:    88.1%
+
+
+
+================================================================================
+NODE 5: 3. d4 (WHITE)
+================================================================================
+Node ID:      16b68117...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        d4
+  UCI:        d2d4
+  Color:      WHITE
+
+Position:
+  Turn:       Black
+  Castling:   9295429630892703873
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=39, Black=39 (Δ+0)
+
+🎯 CLASSIFICATION:
+  Classification: BOOK
+  Reason:         Position in opening book
+  Opening:        Philidor Defense
+
+Engine Analysis (2 lines):
+  Line 1:     +47.00 | depth=55 | exd4 Nxd4 Be7 Nc3 Nf6...
+              source=lichess-cloud
+  Line 2:     +62.00 | depth=55 | Nd7 c4 Ne7 Be3 exd4...
+              source=lichess-cloud
+
+Move Quality:
+  Accuracy:   99.6%
+
+Opening:
+  Name:       Philidor Defense
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 5
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              rnbqkbnr/ppp2ppp/3p4/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3
+   Evaluation:       centipawn=+48.00
+   Subjective Eval:  -48.00
+   Top Move:         d2d4
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              rnbqkbnr/ppp2ppp/3p4/4p3/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq - 0 3
+   Played Move:      d2d4
+   Evaluation:       centipawn=+47.00
+   Subjective Eval:  +47.00
+   Top Move:         e5d4
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0009
+   Move Accuracy:    99.6%
+
+
+
+================================================================================
+NODE 6: 3... Bg4 (BLACK)
+================================================================================
+Node ID:      88dd1da0...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Bg4
+  UCI:        c8g4
+  Color:      BLACK
+
+Position:
+  Turn:       White
+  Castling:   9295429630892703873
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=39, Black=39 (Δ+0)
+
+🎯 CLASSIFICATION:
+  Classification: EXCELLENT
+  Reason:         Very small point loss (< 0.045)
+  Point Loss:     0.0413
+  Accuracy:       84.3%
+
+Engine Analysis (2 lines):
+  Line 1:     +95.00 | depth=43 | dxe5 Nc6 exd6 Bxd6 h3...
+              source=lichess-cloud
+  Line 2:     +85.00 | depth=43 | Nc3 Nd7 Be3 Be7 h3...
+              source=lichess-cloud
+
+Move Quality:
+  Accuracy:   84.3%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 6
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              rnbqkbnr/ppp2ppp/3p4/4p3/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq - 0 3
+   Evaluation:       centipawn=+47.00
+   Subjective Eval:  +47.00
+   Top Move:         e5d4
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              rn1qkbnr/ppp2ppp/3p4/4p3/3PP1b1/5N2/PPP2PPP/RNBQKB1R w KQkq - 1 4
+   Played Move:      c8g4
+   Evaluation:       centipawn=+95.00
+   Subjective Eval:  -95.00
+   Top Move:         d4e5
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0413
+   Move Accuracy:    84.3%
+
+
+
+================================================================================
+NODE 7: 4. dxe5 (WHITE)
+================================================================================
+Node ID:      af11261b...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        dxe5
+  UCI:        d4e5
+  Color:      WHITE
+
+Position:
+  Turn:       Black
+  Castling:   9295429630892703873
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=39, Black=38 (Δ+1)
+
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0000
+  Accuracy:       100.0%
+
+Engine Analysis (2 lines):
+  Line 1:     +95.00 | depth=48 | Nc6 exd6 Bxd6 h3 Bh5...
+              source=lichess-cloud
+  Line 2:     +104.00 | depth=48 | Nd7 exd6 Bxd6 Be2 Bxf3...
+              source=lichess-cloud
+
+Move Quality:
+  Accuracy:   100.0%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 7
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              rn1qkbnr/ppp2ppp/3p4/4p3/3PP1b1/5N2/PPP2PPP/RNBQKB1R w KQkq - 1 4
+   Evaluation:       centipawn=+95.00
+   Subjective Eval:  -95.00
+   Top Move:         d4e5
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              rn1qkbnr/ppp2ppp/3p4/4P3/4P1b1/5N2/PPP2PPP/RNBQKB1R b KQkq - 0 4
+   Played Move:      d4e5
+   Evaluation:       centipawn=+95.00
+   Subjective Eval:  +95.00
+   Top Move:         b8c6
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0000
+   Move Accuracy:    100.0%
+
+
+
+================================================================================
+NODE 8: 4... Bxf3 (BLACK)
+================================================================================
+Node ID:      91235108...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Bxf3
+  UCI:        g4f3
+  Color:      BLACK
+
+Position:
+  Turn:       White
+  Castling:   9295429630892703873
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=36, Black=38 (Δ-2)
+
+🎯 CLASSIFICATION:
+  Classification: EXCELLENT
+  Reason:         Very small point loss (< 0.045)
+  Point Loss:     0.0336
+  Accuracy:       87.0%
+
+Engine Analysis (2 lines):
+  Line 1:     +135.00 | depth=30 | Qxf3 dxe5 Qb3 Nd7 Qxb7...
+              source=lichess-cloud
+  Line 2:     +95.00 | depth=30 | gxf3 dxe5 Qxd8+ Kxd8 Nc3...
+              source=lichess-cloud
+
+Move Quality:
+  Accuracy:   87.0%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 8
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              rn1qkbnr/ppp2ppp/3p4/4P3/4P1b1/5N2/PPP2PPP/RNBQKB1R b KQkq - 0 4
+   Evaluation:       centipawn=+95.00
+   Subjective Eval:  +95.00
+   Top Move:         b8c6
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              rn1qkbnr/ppp2ppp/3p4/4P3/4P3/5b2/PPP2PPP/RNBQKB1R w KQkq - 0 5
+   Played Move:      g4f3
+   Evaluation:       centipawn=+135.00
+   Subjective Eval:  -135.00
+   Top Move:         d1f3
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0336
+   Move Accuracy:    87.0%
+
+
+
+================================================================================
+NODE 9: 5. Qxf3 (WHITE)
+================================================================================
+Node ID:      7d7c9728...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Qxf3
+  UCI:        d1f3
+  Color:      WHITE
+
+Position:
+  Turn:       Black
+  Castling:   9295429630892703873
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=36, Black=35 (Δ+1)
+
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0000
+  Accuracy:       100.0%
+
+Engine Analysis (2 lines):
+  Line 1:     +153.00 | depth=40 | dxe5 Qb3 Nd7 Be3 Bc5...
+              source=lichess-cloud
+  Line 2:     +178.00 | depth=40 | Nd7 exd6 Bxd6 Nc3 Ngf6...
+              source=lichess-cloud
+
+Move Quality:
+  Accuracy:   100.0%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 9
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              rn1qkbnr/ppp2ppp/3p4/4P3/4P3/5b2/PPP2PPP/RNBQKB1R w KQkq - 0 5
+   Evaluation:       centipawn=+135.00
+   Subjective Eval:  -135.00
+   Top Move:         d1f3
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              rn1qkbnr/ppp2ppp/3p4/4P3/4P3/5Q2/PPP2PPP/RNB1KB1R b KQkq - 0 5
+   Played Move:      d1f3
+   Evaluation:       centipawn=+153.00
+   Subjective Eval:  +153.00
+   Top Move:         d6e5
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0000
+   Move Accuracy:    100.0%
+
+
+
+================================================================================
+NODE 10: 5... dxe5 (BLACK)
+================================================================================
+Node ID:      5191944a...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        dxe5
+  UCI:        d6e5
+  Color:      BLACK
+
+Position:
+  Turn:       White
+  Castling:   9295429630892703873
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=35, Black=35 (Δ+0)
+
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0000
+  Accuracy:       100.0%
+
+Engine Analysis (2 lines):
+  Line 1:     +146.00 | depth=50 | Qb3 Nd7 Be3 Bc5 Bxc5...
+              source=lichess-cloud
+  Line 2:     +142.00 | depth=50 | Bc4 Qf6 Qb3 Nd7 Qxb7...
+              source=lichess-cloud
+
+Move Quality:
+  Accuracy:   100.0%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 10
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              rn1qkbnr/ppp2ppp/3p4/4P3/4P3/5Q2/PPP2PPP/RNB1KB1R b KQkq - 0 5
+   Evaluation:       centipawn=+153.00
+   Subjective Eval:  +153.00
+   Top Move:         d6e5
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              rn1qkbnr/ppp2ppp/8/4p3/4P3/5Q2/PPP2PPP/RNB1KB1R w KQkq - 0 6
+   Played Move:      d6e5
+   Evaluation:       centipawn=+146.00
+   Subjective Eval:  -146.00
+   Top Move:         f3b3
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0000
+   Move Accuracy:    100.0%
+
+
+
+================================================================================
+NODE 11: 6. Bc4 (WHITE)
+================================================================================
+Node ID:      df73685a...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Bc4
+  UCI:        f1c4
+  Color:      WHITE
+
+Position:
+  Turn:       Black
+  Castling:   9295429630892703873
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=35, Black=35 (Δ+0)
+
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0000
+  Accuracy:       100.0%
+
+Engine Analysis (2 lines):
+  Line 1:     +168.00 | depth=46 | Qf6 Qb3 Nd7 Qxb7 Rb8...
+              source=lichess-cloud
+  Line 2:     +188.00 | depth=46 | Qe7 Bg5 Nf6 Nc3 c6...
+              source=lichess-cloud
+
+Move Quality:
+  Accuracy:   100.0%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 11
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              rn1qkbnr/ppp2ppp/8/4p3/4P3/5Q2/PPP2PPP/RNB1KB1R w KQkq - 0 6
+   Evaluation:       centipawn=+146.00
+   Subjective Eval:  -146.00
+   Top Move:         f3b3
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              rn1qkbnr/ppp2ppp/8/4p3/2B1P3/5Q2/PPP2PPP/RNB1K2R b KQkq - 1 6
+   Played Move:      f1c4
+   Evaluation:       centipawn=+168.00
+   Subjective Eval:  +168.00
+   Top Move:         d8f6
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0000
+   Move Accuracy:    100.0%
+
+
+
+================================================================================
+NODE 12: 6... Nf6 (BLACK)
+================================================================================
+Node ID:      6a9c99b3...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Nf6
+  UCI:        g8f6
+  Color:      BLACK
+
+Position:
+  Turn:       White
+  Castling:   9295429630892703873
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=35, Black=35 (Δ+0)
+
+🎯 CLASSIFICATION:
+  Classification: EXCELLENT
+  Reason:         Very small point loss (< 0.045)
+  Point Loss:     0.0315
+  Accuracy:       87.8%
+
+Engine Analysis (2 lines):
+  Line 1:     +208.00 | depth=40 | Qb3 Qe7 Qxb7 Qb4+ Qxb4...
+              source=lichess-cloud
+  Line 2:     +81.00 | depth=40 | Bg5 Bc5 Nd2 Nbd7 O-O-O...
+              source=lichess-cloud
+
+Move Quality:
+  Accuracy:   87.8%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 12
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              rn1qkbnr/ppp2ppp/8/4p3/2B1P3/5Q2/PPP2PPP/RNB1K2R b KQkq - 1 6
+   Evaluation:       centipawn=+168.00
+   Subjective Eval:  +168.00
+   Top Move:         d8f6
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              rn1qkb1r/ppp2ppp/5n2/4p3/2B1P3/5Q2/PPP2PPP/RNB1K2R w KQkq - 2 7
+   Played Move:      g8f6
+   Evaluation:       centipawn=+208.00
+   Subjective Eval:  -208.00
+   Top Move:         f3b3
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0315
+   Move Accuracy:    87.8%
+
+
+
+================================================================================
+NODE 13: 7. Qb3 (WHITE)
+================================================================================
+Node ID:      81c95cb0...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Qb3
+  UCI:        f3b3
+  Color:      WHITE
+
+Position:
+  Turn:       Black
+  Castling:   9295429630892703873
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=35, Black=35 (Δ+0)
+
+🎯 CLASSIFICATION:
+  Classification: CRITICAL
+  Reason:         Only move preventing significant loss (≥10% point loss)
+  Point Loss:     0.0046
+  Accuracy:       98.1%
+
+Engine Analysis (2 lines):
+  Line 1:     +202.00 | depth=41 | Qe7 Qxb7 Qb4+ Qxb4 Bxb4+...
+              source=lichess-cloud
+  Line 2:     +230.00 | depth=41 | Bc5 Bxf7+ Kf8 Bd5 Nbd7...
+              source=lichess-cloud
+
+Move Quality:
+  Accuracy:   98.1%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 13
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              rn1qkb1r/ppp2ppp/5n2/4p3/2B1P3/5Q2/PPP2PPP/RNB1K2R w KQkq - 2 7
+   Evaluation:       centipawn=+208.00
+   Subjective Eval:  -208.00
+   Top Move:         f3b3
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              rn1qkb1r/ppp2ppp/5n2/4p3/2B1P3/1Q6/PPP2PPP/RNB1K2R b KQkq - 3 7
+   Played Move:      f3b3
+   Evaluation:       centipawn=+202.00
+   Subjective Eval:  +202.00
+   Top Move:         d8e7
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0046
+   Move Accuracy:    98.1%
+
+
+
+================================================================================
+NODE 14: 7... Qe7 (BLACK)
+================================================================================
+Node ID:      ee5dde9e...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Qe7
+  UCI:        d8e7
+  Color:      BLACK
+
+Position:
+  Turn:       White
+  Castling:   9295429630892703873
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=35, Black=35 (Δ+0)
+
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0221
+  Accuracy:       91.3%
+
+Engine Analysis (2 lines):
+  Line 1:     +231.00 | depth=48 | Nc3 c6 Be3 Kd8 a3...
+              source=lichess-cloud
+  Line 2:     +212.00 | depth=48 | Qxb7 Qb4+ Qxb4 Bxb4+ Bd2...
+              source=lichess-cloud
+
+Move Quality:
+  Accuracy:   91.3%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 14
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              rn1qkb1r/ppp2ppp/5n2/4p3/2B1P3/1Q6/PPP2PPP/RNB1K2R b KQkq - 3 7
+   Evaluation:       centipawn=+202.00
+   Subjective Eval:  +202.00
+   Top Move:         d8e7
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              rn2kb1r/ppp1qppp/5n2/4p3/2B1P3/1Q6/PPP2PPP/RNB1K2R w KQkq - 4 8
+   Played Move:      d8e7
+   Evaluation:       centipawn=+231.00
+   Subjective Eval:  -231.00
+   Top Move:         b1c3
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0221
+   Move Accuracy:    91.3%
+
+
+
+================================================================================
+NODE 15: 8. Nc3 (WHITE)
+================================================================================
+Node ID:      f273197b...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Nc3
+  UCI:        b1c3
+  Color:      WHITE
+
+Position:
+  Turn:       Black
+  Castling:   9295429630892703873
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=35, Black=35 (Δ+0)
+
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0252
+  Accuracy:       90.1%
+
+Engine Analysis (2 lines):
+  Line 1:     +198.00 | depth=38 | c6 Bg5 Kd8 Bxf7 Nbd7...
+              source=lichess-cloud
+  Line 2:     +291.00 | depth=38 | Qb4 Bxf7+ Kd8 Qe6 Qe7...
+              source=lichess-cloud
+
+Move Quality:
+  Accuracy:   90.1%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 15
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              rn2kb1r/ppp1qppp/5n2/4p3/2B1P3/1Q6/PPP2PPP/RNB1K2R w KQkq - 4 8
+   Evaluation:       centipawn=+231.00
+   Subjective Eval:  -231.00
+   Top Move:         b1c3
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              rn2kb1r/ppp1qppp/5n2/4p3/2B1P3/1QN5/PPP2PPP/R1B1K2R b KQkq - 5 8
+   Played Move:      b1c3
+   Evaluation:       centipawn=+198.00
+   Subjective Eval:  +198.00
+   Top Move:         c7c6
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0252
+   Move Accuracy:    90.1%
+
+
+
+================================================================================
+NODE 16: 8... c6 (BLACK)
+================================================================================
+Node ID:      a440a824...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        c6
+  UCI:        c7c6
+  Color:      BLACK
+
+Position:
+  Turn:       White
+  Castling:   9295429630892703873
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=35, Black=35 (Δ+0)
+
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0222
+  Accuracy:       91.2%
+
+Engine Analysis (2 lines):
+  Line 1:     +227.00 | depth=34 | Be3 Kd8 O-O-O+ Kc7 Bxf7...
+              source=lichess-cloud
+  Line 2:     +199.00 | depth=34 | Bg5 Na6 Bxa6 bxa6 O-O...
+              source=lichess-cloud
+
+Move Quality:
+  Accuracy:   91.2%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 16
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              rn2kb1r/ppp1qppp/5n2/4p3/2B1P3/1QN5/PPP2PPP/R1B1K2R b KQkq - 5 8
+   Evaluation:       centipawn=+198.00
+   Subjective Eval:  +198.00
+   Top Move:         c7c6
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              rn2kb1r/pp2qppp/2p2n2/4p3/2B1P3/1QN5/PPP2PPP/R1B1K2R w KQkq - 0 9
+   Played Move:      c7c6
+   Evaluation:       centipawn=+227.00
+   Subjective Eval:  -227.00
+   Top Move:         c1e3
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0222
+   Move Accuracy:    91.2%
+
+
+
+================================================================================
+NODE 17: 9. Bg5 (WHITE)
+================================================================================
+Node ID:      d42c0efd...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Bg5
+  UCI:        c1g5
+  Color:      WHITE
+
+Position:
+  Turn:       Black
+  Castling:   9295429630892703873
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=35, Black=35 (Δ+0)
+
+🎯 CLASSIFICATION:
+  Classification: EXCELLENT
+  Reason:         Very small point loss (< 0.045)
+  Point Loss:     0.0206
+  Accuracy:       91.8%
+
+Engine Analysis (2 lines):
+  Line 1:     +200.00 | depth=46 | Na6 Bxf6 gxf6 Bxa6 bxa6...
+              source=lichess-cloud
+  Line 2:     +209.00 | depth=46 | Kd8 O-O-O+ Kc7 Bxf7 Nbd7...
+              source=lichess-cloud
+
+Move Quality:
+  Accuracy:   91.8%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 17
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              rn2kb1r/pp2qppp/2p2n2/4p3/2B1P3/1QN5/PPP2PPP/R1B1K2R w KQkq - 0 9
+   Evaluation:       centipawn=+227.00
+   Subjective Eval:  -227.00
+   Top Move:         c1e3
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              rn2kb1r/pp2qppp/2p2n2/4p1B1/2B1P3/1QN5/PPP2PPP/R3K2R b KQkq - 1 9
+   Played Move:      c1g5
+   Evaluation:       centipawn=+200.00
+   Subjective Eval:  +200.00
+   Top Move:         b8a6
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0206
+   Move Accuracy:    91.8%
+
+
+
+================================================================================
+NODE 18: 9... b5 (BLACK)
+================================================================================
+Node ID:      7a40b1fd...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        b5
+  UCI:        b7b5
+  Color:      BLACK
+
+Position:
+  Turn:       White
+  Castling:   9295429630892703873
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=35, Black=35 (Δ+0)
+
+🎯 CLASSIFICATION:
+  Classification: INACCURACY
+  Reason:         Moderate point loss (< 0.12)
+  Point Loss:     0.1072
+  Accuracy:       64.0%
+
+Engine Analysis (2 lines):
+  Line 1:     +354.00 | depth=36 | Nxb5 Qb4+ Qxb4 Bxb4+ c3...
+              source=lichess-cloud
+  Line 2:     +112.00 | depth=36 | Bxf6 Qxf6 Nxb5 cxb5 Bxb5+...
+              source=lichess-cloud
+
+Move Quality:
+  Accuracy:   64.0%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 18
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              rn2kb1r/pp2qppp/2p2n2/4p1B1/2B1P3/1QN5/PPP2PPP/R3K2R b KQkq - 1 9
+   Evaluation:       centipawn=+200.00
+   Subjective Eval:  +200.00
+   Top Move:         b8a6
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              rn2kb1r/p3qppp/2p2n2/1p2p1B1/2B1P3/1QN5/PPP2PPP/R3K2R w KQkq - 0 10
+   Played Move:      b7b5
+   Evaluation:       centipawn=+354.00
+   Subjective Eval:  -354.00
+   Top Move:         c3b5
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.1072
+   Move Accuracy:    64.0%
+
+
+
+================================================================================
+NODE 19: 10. Nxb5 (WHITE)
+================================================================================
+Node ID:      61f8ec4c...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Nxb5
+  UCI:        c3b5
+  Color:      WHITE
+
+Position:
+  Turn:       Black
+  Castling:   9295429630892703873
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=35, Black=34 (Δ+1)
+
+🎯 CLASSIFICATION:
+  Classification: BRILLIANT
+  Reason:         Sacrifice or risky move with insufficient counter-threats
+  Point Loss:     0.0018
+  Accuracy:       99.2%
+
+Engine Analysis (2 lines):
+  Line 1:     +351.00 | depth=34 | Qb4+ Qxb4 Bxb4+ c3 cxb5...
+              source=lichess-cloud
+  Line 2:     +507.00 | depth=34 | a6 Nd6+ Qxd6 Bxf7+ Kd8...
+              source=lichess-cloud
+
+Move Quality:
+  Accuracy:   99.2%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 19
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              rn2kb1r/p3qppp/2p2n2/1p2p1B1/2B1P3/1QN5/PPP2PPP/R3K2R w KQkq - 0 10
+   Evaluation:       centipawn=+354.00
+   Subjective Eval:  -354.00
+   Top Move:         c3b5
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              rn2kb1r/p3qppp/2p2n2/1N2p1B1/2B1P3/1Q6/PPP2PPP/R3K2R b KQkq - 0 10
+   Played Move:      c3b5
+   Evaluation:       centipawn=+351.00
+   Subjective Eval:  +351.00
+   Top Move:         e7b4
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0018
+   Move Accuracy:    99.2%
+
+
+
+================================================================================
+NODE 20: 10... cxb5 (BLACK)
+================================================================================
+Node ID:      3f66c7c5...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        cxb5
+  UCI:        c6b5
+  Color:      BLACK
+
+Position:
+  Turn:       White
+  Castling:   9295429630892703873
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=32, Black=34 (Δ-2)
+
+🎯 CLASSIFICATION:
+  Classification: INACCURACY
+  Reason:         Moderate point loss (< 0.12)
+  Point Loss:     0.0874
+  Accuracy:       69.5%
+
+Engine Analysis (2 lines):
+  Line 1:     +521.00 | depth=30 | Bxb5+ Nbd7 O-O-O Rd8 Rxd7...
+              source=lichess-cloud
+  Line 2:     +32.00 | depth=30 | Qxb5+ Qd7 Qxe5+ Be7 Rd1...
+              source=lichess-cloud
+
+Move Quality:
+  Accuracy:   69.5%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 20
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              rn2kb1r/p3qppp/2p2n2/1N2p1B1/2B1P3/1Q6/PPP2PPP/R3K2R b KQkq - 0 10
+   Evaluation:       centipawn=+351.00
+   Subjective Eval:  +351.00
+   Top Move:         e7b4
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              rn2kb1r/p3qppp/5n2/1p2p1B1/2B1P3/1Q6/PPP2PPP/R3K2R w KQkq - 0 11
+   Played Move:      c6b5
+   Evaluation:       centipawn=+521.00
+   Subjective Eval:  -521.00
+   Top Move:         c4b5
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0874
+   Move Accuracy:    69.5%
+
+
+
+================================================================================
+NODE 21: 11. Bxb5+ (WHITE)
+================================================================================
+Node ID:      ccea7441...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Bxb5+
+  UCI:        c4b5
+  Color:      WHITE
+
+Position:
+  Turn:       Black
+  Castling:   9295429630892703873
+  Check:      True
+  Checkmate:  False
+  Legal:      True
+  Material:   White=32, Black=33 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0000
+  Accuracy:       100.0%
+
+Engine Analysis (2 lines):
+  Line 1:     +539.00 | depth=32 | Nbd7 O-O-O Rd8 Rxd7 Nxd7...
+              source=lichess-cloud
+  Line 2:     +567.00 | depth=32 | Kd8 O-O-O+ Kc8 Rd3 Qb4...
+              source=lichess-cloud
+
+Move Quality:
+  Accuracy:   100.0%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 21
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              rn2kb1r/p3qppp/5n2/1p2p1B1/2B1P3/1Q6/PPP2PPP/R3K2R w KQkq - 0 11
+   Evaluation:       centipawn=+521.00
+   Subjective Eval:  -521.00
+   Top Move:         c4b5
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              rn2kb1r/p3qppp/5n2/1B2p1B1/4P3/1Q6/PPP2PPP/R3K2R b KQkq - 0 11
+   Played Move:      c4b5
+   Evaluation:       centipawn=+539.00
+   Subjective Eval:  +539.00
+   Top Move:         b8d7
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0000
+   Move Accuracy:    100.0%
+
+
+
+================================================================================
+NODE 22: 11... Nbd7 (BLACK)
+================================================================================
+Node ID:      043b12db...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Nbd7
+  UCI:        b8d7
+  Color:      BLACK
+
+Position:
+  Turn:       White
+  Castling:   9295429630892703873
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=32, Black=33 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0000
+  Accuracy:       100.0%
+
+Engine Analysis (2 lines):
+  Line 1:     +516.00 | depth=33 | O-O-O Rd8 Rxd7 Nxd7 Bxe7...
+              source=lichess-cloud
+  Line 2:     +328.00 | depth=33 | Bxf6 Qb4+ Qxb4 Bxb4+ c3...
+              source=lichess-cloud
+
+Move Quality:
+  Accuracy:   100.0%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 22
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              rn2kb1r/p3qppp/5n2/1B2p1B1/4P3/1Q6/PPP2PPP/R3K2R b KQkq - 0 11
+   Evaluation:       centipawn=+539.00
+   Subjective Eval:  +539.00
+   Top Move:         b8d7
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              r3kb1r/p2nqppp/5n2/1B2p1B1/4P3/1Q6/PPP2PPP/R3K2R w KQkq - 1 12
+   Played Move:      b8d7
+   Evaluation:       centipawn=+516.00
+   Subjective Eval:  -516.00
+   Top Move:         e1c1
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0000
+   Move Accuracy:    100.0%
+
+
+
+================================================================================
+NODE 23: 12. O-O-O (WHITE)
+================================================================================
+Node ID:      0d3085bd...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        O-O-O
+  UCI:        e1c1
+  Color:      WHITE
+
+Position:
+  Turn:       Black
+  Castling:   9295429630892703744
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=32, Black=33 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0000
+  Accuracy:       100.0%
+
+Engine Analysis (2 lines):
+  Line 1:     +539.00 | depth=36 | Rd8 Rxd7 Nxd7 Bxe7 Bxe7...
+              source=lichess-cloud
+  Line 2:     +551.00 | depth=36 | Rb8 Rxd7 Qxd7 Bxd7+ Nxd7...
+              source=lichess-cloud
+
+Move Quality:
+  Accuracy:   100.0%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 23
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              r3kb1r/p2nqppp/5n2/1B2p1B1/4P3/1Q6/PPP2PPP/R3K2R w KQkq - 1 12
+   Evaluation:       centipawn=+516.00
+   Subjective Eval:  -516.00
+   Top Move:         e1c1
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              r3kb1r/p2nqppp/5n2/1B2p1B1/4P3/1Q6/PPP2PPP/2KR3R b kq - 2 12
+   Played Move:      e1c1
+   Evaluation:       centipawn=+539.00
+   Subjective Eval:  +539.00
+   Top Move:         a8d8
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0000
+   Move Accuracy:    100.0%
+
+
+
+================================================================================
+NODE 24: 12... Rd8 (BLACK)
+================================================================================
+Node ID:      cbdd9b0b...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Rd8
+  UCI:        a8d8
+  Color:      BLACK
+
+Position:
+  Turn:       White
+  Castling:   9223372036854775808
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=32, Black=33 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0104
+  Accuracy:       95.8%
+
+Engine Analysis (2 lines):
+  Line 1:     +566.00 | depth=32 | Rxd7 Nxd7 Bxe7 Bxe7 Qd5...
+              source=lichess-cloud
+  Line 2:     +422.00 | depth=32 | Rd5 h6 Bxf6 Qxf6 Rhd1...
+              source=lichess-cloud
+
+Move Quality:
+  Accuracy:   95.8%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 24
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              r3kb1r/p2nqppp/5n2/1B2p1B1/4P3/1Q6/PPP2PPP/2KR3R b kq - 2 12
+   Evaluation:       centipawn=+539.00
+   Subjective Eval:  +539.00
+   Top Move:         a8d8
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              3rkb1r/p2nqppp/5n2/1B2p1B1/4P3/1Q6/PPP2PPP/2KR3R w k - 3 13
+   Played Move:      a8d8
+   Evaluation:       centipawn=+566.00
+   Subjective Eval:  -566.00
+   Top Move:         d1d7
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0104
+   Move Accuracy:    95.8%
+
+
+
+================================================================================
+NODE 25: 13. Rxd7 (WHITE)
+================================================================================
+Node ID:      61d43970...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Rxd7
+  UCI:        d1d7
+  Color:      WHITE
+
+Position:
+  Turn:       Black
+  Castling:   9223372036854775808
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=32, Black=30 (Δ+2)
+
+🎯 CLASSIFICATION:
+  Classification: BRILLIANT
+  Reason:         Sacrifice or risky move with insufficient counter-threats
+  Point Loss:     0.0000
+  Accuracy:       100.0%
+
+Engine Analysis (2 lines):
+  Line 1:     +592.00 | depth=32 | Nxd7 Bxe7 Bxe7 Qd5 a6...
+              source=lichess-cloud
+  Line 2:     +609.00 | depth=32 | Rxd7 Rd1 Qd6 Rxd6 Bxd6...
+              source=lichess-cloud
+
+Move Quality:
+  Accuracy:   100.0%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 25
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              3rkb1r/p2nqppp/5n2/1B2p1B1/4P3/1Q6/PPP2PPP/2KR3R w k - 3 13
+   Evaluation:       centipawn=+566.00
+   Subjective Eval:  -566.00
+   Top Move:         d1d7
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              3rkb1r/p2Rqppp/5n2/1B2p1B1/4P3/1Q6/PPP2PPP/2K4R b k - 0 13
+   Played Move:      d1d7
+   Evaluation:       centipawn=+592.00
+   Subjective Eval:  +592.00
+   Top Move:         f6d7
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0000
+   Move Accuracy:    100.0%
+
+
+
+================================================================================
+NODE 26: 13... Rxd7 (BLACK)
+================================================================================
+Node ID:      dbbf7d36...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Rxd7
+  UCI:        d8d7
+  Color:      BLACK
+
+Position:
+  Turn:       White
+  Castling:   9223372036854775808
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=27, Black=30 (Δ-3)
+
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0007
+  Accuracy:       99.7%
+
+Engine Analysis (2 lines):
+  Line 1:     +594.00 | depth=32 | Rd1 Qd6 Bxd7+ Nxd7 Qb7...
+              source=lichess-cloud
+  Line 2:     +369.00 | depth=32 | Bxf6 gxf6 Rd1 Bh6+ Kb1...
+              source=lichess-cloud
+
+Move Quality:
+  Accuracy:   99.7%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 26
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              3rkb1r/p2Rqppp/5n2/1B2p1B1/4P3/1Q6/PPP2PPP/2K4R b k - 0 13
+   Evaluation:       centipawn=+592.00
+   Subjective Eval:  +592.00
+   Top Move:         f6d7
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              4kb1r/p2rqppp/5n2/1B2p1B1/4P3/1Q6/PPP2PPP/2K4R w k - 0 14
+   Played Move:      d8d7
+   Evaluation:       centipawn=+594.00
+   Subjective Eval:  -594.00
+   Top Move:         h1d1
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0007
+   Move Accuracy:    99.7%
+
+
+
+================================================================================
+NODE 27: 14. Rd1 (WHITE)
+================================================================================
+Node ID:      4123075e...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Rd1
+  UCI:        h1d1
+  Color:      WHITE
+
+Position:
+  Turn:       Black
+  Castling:   9223372036854775808
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=27, Black=30 (Δ-3)
+
+🎯 CLASSIFICATION:
+  Classification: CRITICAL
+  Reason:         Only move preventing significant loss (≥10% point loss)
+  Point Loss:     0.0000
+  Accuracy:       100.0%
+
+Engine Analysis (2 lines):
+  Line 1:     +628.00 | depth=34 | Qd6 Rxd6 Bxd6 Bxf6 gxf6...
+              source=lichess-cloud
+  Line 2:     +665.00 | depth=34 | h5 Bxd7+ Qxd7 Qb8+ Ke7...
+              source=lichess-cloud
+
+Move Quality:
+  Accuracy:   100.0%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 27
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              4kb1r/p2rqppp/5n2/1B2p1B1/4P3/1Q6/PPP2PPP/2K4R w k - 0 14
+   Evaluation:       centipawn=+594.00
+   Subjective Eval:  -594.00
+   Top Move:         h1d1
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              4kb1r/p2rqppp/5n2/1B2p1B1/4P3/1Q6/PPP2PPP/2KR4 b k - 1 14
+   Played Move:      h1d1
+   Evaluation:       centipawn=+628.00
+   Subjective Eval:  +628.00
+   Top Move:         e7d6
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0000
+   Move Accuracy:    100.0%
+
+
+
+================================================================================
+NODE 28: 14... Qe6 (BLACK)
+================================================================================
+Node ID:      4bc622c9...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Qe6
+  UCI:        e7e6
+  Color:      BLACK
+
+Position:
+  Turn:       White
+  Castling:   9223372036854775808
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=27, Black=30 (Δ-3)
+
+🎯 CLASSIFICATION:
+  Classification: INACCURACY
+  Reason:         Moderate point loss (< 0.12)
+  Point Loss:     0.0999
+  Accuracy:       66.0%
+
+Engine Analysis (2 lines):
+  Line 1:     +3642.00 | depth=40 | Bxd7+ Qxd7 Qb8+ Ke7 Qxe5+...
+              source=lichess-cloud
+  Line 2:     +654.00 | depth=40 | Bxf6 gxf6 Bxd7+ Qxd7 Qb8+...
+              source=lichess-cloud
+
+Move Quality:
+  Accuracy:   66.0%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 28
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              4kb1r/p2rqppp/5n2/1B2p1B1/4P3/1Q6/PPP2PPP/2KR4 b k - 1 14
+   Evaluation:       centipawn=+628.00
+   Subjective Eval:  +628.00
+   Top Move:         e7d6
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              4kb1r/p2r1ppp/4qn2/1B2p1B1/4P3/1Q6/PPP2PPP/2KR4 w k - 2 15
+   Played Move:      e7e6
+   Evaluation:       centipawn=+3642.00
+   Subjective Eval:  -3642.00
+   Top Move:         b5d7
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0999
+   Move Accuracy:    66.0%
+
+
+
+================================================================================
+NODE 29: 15. Bxd7+ (WHITE)
+================================================================================
+Node ID:      e45212b8...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Bxd7+
+  UCI:        b5d7
+  Color:      WHITE
+
+Position:
+  Turn:       Black
+  Castling:   9223372036854775808
+  Check:      True
+  Checkmate:  False
+  Legal:      True
+  Material:   White=27, Black=25 (Δ+2)
+
+🎯 CLASSIFICATION:
+  Classification: BEST
+  Reason:         Top engine move played
+  Point Loss:     0.0000
+  Accuracy:       100.0%
+
+Engine Analysis (2 lines):
+  Line 1:     +4466.00 | depth=36 | Qxd7 Qb8+ Ke7 Qxe5+ Kd8...
+              source=lichess-cloud
+  Line 2:     M+4 | depth=36 | Ke7 Qb4+ Qd6 Qxd6+ Kd8...
+              source=lichess-cloud
+
+Move Quality:
+  Accuracy:   100.0%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 29
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              4kb1r/p2r1ppp/4qn2/1B2p1B1/4P3/1Q6/PPP2PPP/2KR4 w k - 2 15
+   Evaluation:       centipawn=+3642.00
+   Subjective Eval:  -3642.00
+   Top Move:         b5d7
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              4kb1r/p2B1ppp/4qn2/4p1B1/4P3/1Q6/PPP2PPP/2KR4 b k - 0 15
+   Played Move:      b5d7
+   Evaluation:       centipawn=+4466.00
+   Subjective Eval:  +4466.00
+   Top Move:         e6d7
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0000
+   Move Accuracy:    100.0%
+
+
+
+================================================================================
+NODE 30: 15... Nxd7 (BLACK)
+================================================================================
+Node ID:      cf9dead8...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Nxd7
+  UCI:        f6d7
+  Color:      BLACK
+
+Position:
+  Turn:       White
+  Castling:   9223372036854775808
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=24, Black=25 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: BLUNDER
+  Reason:         Large point loss (≥ 0.22)
+  Point Loss:     0.0000
+  Accuracy:       100.0%
+
+Engine Analysis (2 lines):
+  Line 1:     M+2 | depth=44 | Qb8+ Nxb8 Rd8#
+              source=lichess-cloud
+  Line 2:     +522.00 | depth=44 | Qb7 f6 Qc8+ Ke7 Be3...
+              source=lichess-cloud
+
+Move Quality:
+  Accuracy:   100.0%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 30
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              4kb1r/p2B1ppp/4qn2/4p1B1/4P3/1Q6/PPP2PPP/2KR4 b k - 0 15
+   Evaluation:       centipawn=+4466.00
+   Subjective Eval:  +4466.00
+   Top Move:         e6d7
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              4kb1r/p2n1ppp/4q3/4p1B1/4P3/1Q6/PPP2PPP/2KR4 w k - 0 16
+   Played Move:      f6d7
+   Evaluation:       mate=+2.00
+   Subjective Eval:  -2.00
+   Top Move:         b3b8
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0000
+   Move Accuracy:    100.0%
+
+
+
+================================================================================
+NODE 31: 16. Qb8+ (WHITE)
+================================================================================
+Node ID:      7aaabcb6...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Qb8+
+  UCI:        b3b8
+  Color:      WHITE
+
+Position:
+  Turn:       Black
+  Castling:   9223372036854775808
+  Check:      True
+  Checkmate:  False
+  Legal:      True
+  Material:   White=24, Black=25 (Δ-1)
+
+🎯 CLASSIFICATION:
+  Classification: BRILLIANT
+  Reason:         Sacrifice or risky move with insufficient counter-threats
+  Point Loss:     0.0000
+  Accuracy:       100.0%
+
+Engine Analysis (1 lines):
+  Line 1:     M+1 | depth=245 | Nxb8 Rd8#
+              source=lichess-cloud
+
+Move Quality:
+  Accuracy:   100.0%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 31
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              4kb1r/p2n1ppp/4q3/4p1B1/4P3/1Q6/PPP2PPP/2KR4 w k - 0 16
+   Evaluation:       mate=+2.00
+   Subjective Eval:  -2.00
+   Top Move:         b3b8
+   Has 2nd Line:     True
+
+📋 CURRENT NODE (after move):
+   FEN:              1Q2kb1r/p2n1ppp/4q3/4p1B1/4P3/8/PPP2PPP/2KR4 b k - 1 16
+   Played Move:      b3b8
+   Evaluation:       mate=+1.00
+   Subjective Eval:  +1.00
+   Top Move:         d7b8
+   Has 2nd Line:     False
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0000
+   Move Accuracy:    100.0%
+
+
+
+================================================================================
+NODE 32: 16... Nxb8 (BLACK)
+================================================================================
+Node ID:      80796db9...
+Mainline:     True
+Has Parent:   True
+Children:     1
+
+Move Details:
+  SAN:        Nxb8
+  UCI:        d7b8
+  Color:      BLACK
+
+Position:
+  Turn:       White
+  Castling:   9223372036854775808
+  Check:      False
+  Checkmate:  False
+  Legal:      True
+  Material:   White=15, Black=25 (Δ-10)
+
+🎯 CLASSIFICATION:
+  Classification: FORCED
+  Reason:         Only 1 legal move available
+
+Engine Analysis (2 lines):
+  Line 1:     M+1 | depth=34 | Rd8#
+              source=lichess-cloud
+  Line 2:     -555.00 | depth=34 | Kb1 Be7 Be3 Qa6 a3...
+              source=lichess-cloud
+
+Move Quality:
+  Accuracy:   100.0%
+
+────────────────────────────────────────────────────────────────────────────────
+EXTRACTED PAIR FOR NODE 32
+────────────────────────────────────────────────────────────────────────────────
+
+📋 PREVIOUS NODE (before move):
+   FEN:              1Q2kb1r/p2n1ppp/4q3/4p1B1/4P3/8/PPP2PPP/2KR4 b k - 1 16
+   Evaluation:       mate=+1.00
+   Subjective Eval:  +1.00
+   Top Move:         d7b8
+   Has 2nd Line:     False
+
+📋 CURRENT NODE (after move):
+   FEN:              1n2kb1r/p4ppp/4q3/4p1B1/4P3/8/PPP2PPP/2KR4 w k - 0 17
+   Played Move:      d7b8
+   Evaluation:       mate=+1.00
+   Subjective Eval:  -1.00
+   Top Move:         d1d8
+   Has 2nd Line:     True
+
+📊 CALCULATED METRICS:
+   Point Loss:       0.0000
+   Move Accuracy:    100.0%
+
+
+
+================================================================================
+NODE 33: 17. Rd8# (WHITE)
+================================================================================
+Node ID:      5dfca166...
+Mainline:     True
+Has Parent:   True
+Children:     0
+
+Move Details:
+  SAN:        Rd8#
+  UCI:        d1d8
+  Color:      WHITE
+
+Position:
+  Turn:       Black
+  Castling:   9223372036854775808
+  Check:      True
+  Checkmate:  True
+  Legal:      True
+  Material:   White=15, Black=25 (Δ-10)
+
+🎯 CLASSIFICATION:
+  Classification: N/A
+  Note:           information missing from current or previous node.
+
+Engine Analysis: Not available
+
+
+================================================================================
+SUMMARY
+================================================================================
+Game: Morphy
+Nodes displayed: 34
+Total moves: 33
+Nodes with engine analysis: 33/34
+Extractable move pairs: 32/33
+
+🎯 CLASSIFICATION SUMMARY:
+  FORCED (only 1 legal move):        1
+  THEORY (in opening book):           5
+  BEST (top move or checkmate):       13
+  CRITICAL (prevents major loss):     2
+  BRILLIANT (sacrifice/risky):        3
+  EXCELLENT (point loss < 0.045):     4
+  GOOD (point loss < 0.08):           0
+  INACCURACY (point loss < 0.12):     3
+  MISTAKE (point loss < 0.22):        0
+  BLUNDER (point loss ≥ 0.22):        1
+  N/A (extraction failed):            1
+
+✅ Visualization complete!

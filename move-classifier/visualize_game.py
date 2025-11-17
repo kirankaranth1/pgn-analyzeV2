@@ -1,25 +1,32 @@
 """
-Visualize Historical Chess Games - Node Inspector
+Visualize Chess Games - Node Inspector
 
 This script parses and displays detailed information about each node
-from famous historical games, allowing manual verification of
-the preprocessing pipeline output before classification.
+from chess games, allowing manual verification of the preprocessing 
+pipeline output and classification results.
 
-Supported Games:
+Supported Pre-built Games:
     - capablanca: Capablanca vs Marshall (1918) - 36 moves
     - morphy: Morphy vs Duke Karl/Count Isouard (1858) - 17 moves
 
 Usage:
-    python visualize_capablanca_nodes.py [GAME] [OPTIONS]
+    python visualize_game.py [GAME or PGN_FILE] [OPTIONS]
     
 Arguments:
-    GAME             Which game to visualize: 'capablanca' or 'morphy' (default: capablanca)
+    GAME or FILE     Pre-built game name ('capablanca', 'morphy') 
+                     or path to PGN file (default: capablanca)
     
 Options:
     --with-engine    Run full preprocessing with engine analysis (slow)
     --depth N        Engine analysis depth (default: 12)
     --cloud          Use cloud evaluation
+    --classify       Show move classifications
     --save FILE      Save output to file
+    
+Examples:
+    python visualize_game.py morphy --with-engine --classify
+    python visualize_game.py my_game.pgn --with-engine --depth 16
+    python visualize_game.py capablanca --move 15 --classify
 """
 
 import sys
@@ -281,14 +288,13 @@ Examples:
         """
     )
     parser.add_argument("game", nargs="?", default="capablanca",
-                       choices=["capablanca", "morphy"],
-                       help="Which game to visualize (default: capablanca)")
+                       help="Pre-built game ('capablanca', 'morphy') or path to PGN file")
     parser.add_argument("--with-engine", action="store_true", help="Run with engine analysis")
     parser.add_argument("--depth", type=int, default=12, help="Engine depth (default: 12)")
     parser.add_argument("--cloud", action="store_true", help="Use cloud evaluation")
     parser.add_argument("--show-fen", action="store_true", help="Show full FEN strings")
     parser.add_argument("--show-extracted", action="store_true", help="Show extracted node pairs")
-    parser.add_argument("--classify", action="store_true", help="Show basic classifications")
+    parser.add_argument("--classify", action="store_true", help="Show move classifications")
     parser.add_argument("--start", type=int, default=0, help="Start from node N")
     parser.add_argument("--end", type=int, help="End at node N")
     parser.add_argument("--move", type=int, help="Show only this move number")
@@ -296,9 +302,63 @@ Examples:
     
     args = parser.parse_args()
     
-    # Get game data
-    game_data = GAMES[args.game]
-    pgn = game_data["pgn"]
+    # Determine if input is a pre-built game or a file
+    game_key = args.game
+    pgn = None
+    game_data = None
+    
+    # Check if it's a pre-built game
+    if game_key in GAMES:
+        game_data = GAMES[game_key]
+        pgn = game_data["pgn"]
+    # Check if it's a file path
+    elif Path(game_key).exists():
+        pgn_file = Path(game_key)
+        print(f"📂 Loading PGN from file: {pgn_file}")
+        try:
+            with open(pgn_file, 'r') as f:
+                pgn = f.read().strip()
+            
+            # Create basic game data from file
+            game_data = {
+                "pgn": pgn,
+                "title": f"GAME FROM {pgn_file.name.upper()}",
+                "event": "Custom Game",
+                "white": "Unknown",
+                "black": "Unknown",
+                "result": "*",
+                "eco": "Unknown",
+                "moves": "?",
+                "ply": "?",
+            }
+            
+            # Try to extract metadata from PGN headers
+            import re
+            white_match = re.search(r'\[White\s+"([^"]+)"\]', pgn)
+            black_match = re.search(r'\[Black\s+"([^"]+)"\]', pgn)
+            result_match = re.search(r'\[Result\s+"([^"]+)"\]', pgn)
+            event_match = re.search(r'\[Event\s+"([^"]+)"\]', pgn)
+            eco_match = re.search(r'\[ECO\s+"([^"]+)"\]', pgn)
+            
+            if white_match:
+                game_data["white"] = white_match.group(1)
+            if black_match:
+                game_data["black"] = black_match.group(1)
+            if result_match:
+                game_data["result"] = result_match.group(1)
+            if event_match:
+                game_data["event"] = event_match.group(1)
+            if eco_match:
+                game_data["eco"] = eco_match.group(1)
+                
+        except Exception as e:
+            print(f"❌ Error loading PGN file: {e}")
+            sys.exit(1)
+    else:
+        print(f"❌ Error: '{game_key}' is not a recognized pre-built game and file does not exist")
+        print(f"\nAvailable pre-built games: {', '.join(GAMES.keys())}")
+        print(f"Or provide a path to a PGN file")
+        sys.exit(1)
     
     # Redirect output to file if requested
     if args.save:
@@ -308,11 +368,12 @@ Examples:
     print("║" + game_data["title"].center(78) + "║")
     print("╚" + "═" * 78 + "╝")
     print()
-    print(f"Game: {game_data['event']}")
-    print(f"White: {game_data['white']}")
-    print(f"Black: {game_data['black']}")
+    print(f"Event:  {game_data['event']}")
+    print(f"White:  {game_data['white']}")
+    print(f"Black:  {game_data['black']}")
     print(f"Result: {game_data['result']}")
-    print(f"ECO: {game_data['eco']}")
+    if game_data['eco'] != "Unknown":
+        print(f"ECO:    {game_data['eco']}")
     print()
     
     # Initialize classifier if needed
@@ -343,10 +404,11 @@ Examples:
     
     # Get all nodes
     nodes = get_node_chain(root)
-    expected_nodes = game_data['ply'] + 1
     print(f"📊 Total nodes: {len(nodes)} (root + {len(nodes)-1} moves)")
-    if len(nodes) != expected_nodes:
-        print(f"⚠️  Warning: Expected {expected_nodes} nodes")
+    if game_data['ply'] != "?":
+        expected_nodes = game_data['ply'] + 1
+        if len(nodes) != expected_nodes:
+            print(f"⚠️  Warning: Expected {expected_nodes} nodes")
     print()
     
     # Determine range to display
