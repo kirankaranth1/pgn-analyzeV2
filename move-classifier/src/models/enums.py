@@ -5,6 +5,7 @@ All enumeration types used in the classification system.
 """
 
 from enum import Enum
+from dataclasses import dataclass
 
 
 class PieceColor(str, Enum):
@@ -64,3 +65,13 @@ CLASSIFICATION_VALUES = {
     Classification.BOOK: 100,
     Classification.CHECKMATE: 100,
 }
+
+
+@dataclass
+class MoveClassificationResult:
+    """
+    Result of move classification including primary classification
+    and additional tags like missed opportunity.
+    """
+    classification: Classification
+    is_missed_opportunity: bool = False

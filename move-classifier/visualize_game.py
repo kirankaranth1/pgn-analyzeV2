@@ -160,38 +160,45 @@ def visualize_node(node, node_index: int, show_fen: bool = False, show_engine: b
             result = classifier.classify(node)
             
             # Display classification with details
-            print(f"  Classification: {result.value}")
+            classification_str = result.classification.value
+            if result.is_missed_opportunity:
+                classification_str += " + MISSED OPPORTUNITY"
+            print(f"  Classification: {classification_str}")
             
             # Add explanatory notes
-            if result == Classification.FORCED:
+            if result.classification == Classification.FORCED:
                 print(f"  Reason:         Only 1 legal move available")
-            elif result == Classification.BOOK:
+            elif result.classification == Classification.BOOK:
                 print(f"  Reason:         Position in opening book")
                 if node.state.opening:
                     print(f"  Opening:        {node.state.opening}")
-            elif result == Classification.BEST:
+            elif result.classification == Classification.BEST:
                 board = chess.Board(node.state.fen)
                 if board.is_checkmate():
                     print(f"  Reason:         Delivers checkmate")
                 else:
                     print(f"  Reason:         Top engine move played")
-            elif result == Classification.CRITICAL:
+            elif result.classification == Classification.CRITICAL:
                 print(f"  Reason:         Only move preventing significant loss (≥10% point loss)")
-            elif result == Classification.BRILLIANT:
+            elif result.classification == Classification.BRILLIANT:
                 print(f"  Reason:         Sacrifice or risky move with insufficient counter-threats")
-            elif result == Classification.EXCELLENT:
+            elif result.classification == Classification.EXCELLENT:
                 print(f"  Reason:         Very small point loss (< 0.045)")
-            elif result == Classification.GOOD:
+            elif result.classification == Classification.GOOD:
                 print(f"  Reason:         Small point loss (< 0.08)")
-            elif result == Classification.INACCURACY:
+            elif result.classification == Classification.INACCURACY:
                 print(f"  Reason:         Moderate point loss (< 0.12)")
-            elif result == Classification.MISTAKE:
+            elif result.classification == Classification.MISTAKE:
                 print(f"  Reason:         Significant point loss (< 0.22)")
-            elif result == Classification.BLUNDER:
+            elif result.classification == Classification.BLUNDER:
                 print(f"  Reason:         Large point loss (≥ 0.22)")
             
+            # Add note for missed opportunity
+            if result.is_missed_opportunity:
+                print(f"  Note:           Failed to capitalize on opponent's mistake/blunder")
+            
             # Show point loss if available and not special classification
-            if result not in [Classification.FORCED, Classification.BOOK]:
+            if result.classification not in [Classification.FORCED, Classification.BOOK]:
                 pair = extract_node_pair(node)
                 if pair:
                     from src.preprocessing.calculator import calculate_move_metrics
@@ -477,31 +484,35 @@ Examples:
             "BLUNDER": 0,
             "N/A": 0
         }
+        missed_opportunities = 0
         
         for i in range(1, len(nodes)):
             try:
                 result = classifier.classify(nodes[i])
                 
-                if result == Classification.FORCED:
+                if result.classification == Classification.FORCED:
                     classifications["FORCED"] += 1
-                elif result == Classification.BOOK:
+                elif result.classification == Classification.BOOK:
                     classifications["THEORY"] += 1
-                elif result == Classification.BEST:
+                elif result.classification == Classification.BEST:
                     classifications["BEST"] += 1
-                elif result == Classification.CRITICAL:
+                elif result.classification == Classification.CRITICAL:
                     classifications["CRITICAL"] += 1
-                elif result == Classification.BRILLIANT:
+                elif result.classification == Classification.BRILLIANT:
                     classifications["BRILLIANT"] += 1
-                elif result == Classification.EXCELLENT:
+                elif result.classification == Classification.EXCELLENT:
                     classifications["EXCELLENT"] += 1
-                elif result == Classification.GOOD:
+                elif result.classification == Classification.GOOD:
                     classifications["GOOD"] += 1
-                elif result == Classification.INACCURACY:
+                elif result.classification == Classification.INACCURACY:
                     classifications["INACCURACY"] += 1
-                elif result == Classification.MISTAKE:
+                elif result.classification == Classification.MISTAKE:
                     classifications["MISTAKE"] += 1
-                elif result == Classification.BLUNDER:
+                elif result.classification == Classification.BLUNDER:
                     classifications["BLUNDER"] += 1
+                
+                if result.is_missed_opportunity:
+                    missed_opportunities += 1
             except:
                 classifications["N/A"] += 1
         
@@ -516,6 +527,8 @@ Examples:
         print(f"  MISTAKE (point loss < 0.22):        {classifications['MISTAKE']}")
         print(f"  BLUNDER (point loss ≥ 0.22):        {classifications['BLUNDER']}")
         print(f"  N/A (extraction failed):            {classifications['N/A']}")
+        print()
+        print(f"  🚨 MISSED OPPORTUNITIES:              {missed_opportunities}")
     
     print("\n✅ Visualization complete!")
     

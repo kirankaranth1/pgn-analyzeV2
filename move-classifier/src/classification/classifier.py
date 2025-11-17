@@ -10,7 +10,7 @@ Matches JavaScript implementation from classification/classify.ts
 from typing import Optional
 
 from ..models.state_tree import StateTreeNode
-from ..models.enums import Classification, CLASSIFICATION_VALUES
+from ..models.enums import Classification, CLASSIFICATION_VALUES, MoveClassificationResult
 from ..config import ClassificationConfig
 from ..preprocessing.node_extractor import (
     extract_previous_state_tree_node,
@@ -20,6 +20,7 @@ from ..classification.basic_classifier import OpeningBook
 from ..classification.point_loss_classifier import point_loss_classify
 from ..classification.critical_classifier import consider_critical_classification
 from ..classification.brilliant_classifier import consider_brilliant_classification
+from ..classification.missed_opportunity_classifier import consider_missed_opportunity_classification
 
 
 class Classifier:
@@ -43,12 +44,13 @@ class Classifier:
         """
         self._opening_book = opening_book if opening_book is not None else OpeningBook()
         self._config = config if config is not None else ClassificationConfig()
+        self._last_classification: Optional[Classification] = None
     
     def classify(
         self,
         node: StateTreeNode,
         config: Optional[ClassificationConfig] = None
-    ) -> Classification:
+    ) -> MoveClassificationResult:
         """
         Classify a move based on position analysis.
         
@@ -59,7 +61,7 @@ class Classifier:
             config: Optional override configuration
             
         Returns:
-            Classification for the move
+            MoveClassificationResult with classification and missed opportunity flag
             
         Raises:
             ValueError: If node has no parent or extraction fails
@@ -80,7 +82,10 @@ class Classifier:
         
         # Priority 1: FORCED - only one legal move
         if len(list(previous.board.legal_moves)) <= 1:
-            return Classification.FORCED
+            classification = Classification.FORCED
+            result = MoveClassificationResult(classification=classification)
+            self._last_classification = classification
+            return result
         
         # Priority 2: THEORY - position in opening book
         if opts.include_theory:
@@ -88,11 +93,17 @@ class Classifier:
             if opening_name:
                 # Store opening name in state
                 current.state.opening = opening_name
-                return Classification.BOOK
+                classification = Classification.BOOK
+                result = MoveClassificationResult(classification=classification)
+                self._last_classification = classification
+                return result
         
         # Priority 3: CHECKMATE → BEST
         if current.board.is_checkmate():
-            return Classification.BEST
+            classification = Classification.BEST
+            result = MoveClassificationResult(classification=classification)
+            self._last_classification = classification
+            return result
         
         # Check if top move was played
         top_move_played = previous.top_move.uci() == current.played_move.uci()
@@ -120,13 +131,28 @@ class Classifier:
         ):
             classification = Classification.BRILLIANT
         
-        return classification
+        # Check for missed opportunity (if enabled)
+        is_missed_opportunity = False
+        if opts.include_missed_opportunity and self._last_classification:
+            is_missed_opportunity = consider_missed_opportunity_classification(
+                node,
+                classification,
+                self._last_classification
+            )
+        
+        # Update last classification for next move
+        self._last_classification = classification
+        
+        return MoveClassificationResult(
+            classification=classification,
+            is_missed_opportunity=is_missed_opportunity
+        )
     
     def classify_with_fallback(
         self,
         node: StateTreeNode,
         config: Optional[ClassificationConfig] = None
-    ) -> Optional[Classification]:
+    ) -> Optional[MoveClassificationResult]:
         """
         Classify a move with error handling (returns None instead of raising).
         
@@ -135,7 +161,7 @@ class Classifier:
             config: Optional classification configuration
             
         Returns:
-            Classification or None if classification fails
+            MoveClassificationResult or None if classification fails
         """
         try:
             return self.classify(node, config)
@@ -147,7 +173,7 @@ def classify_node(
     node: StateTreeNode,
     opening_book: Optional[OpeningBook] = None,
     config: Optional[ClassificationConfig] = None
-) -> Classification:
+) -> MoveClassificationResult:
     """
     Convenience function to classify a single node.
     
@@ -157,7 +183,7 @@ def classify_node(
         config: Optional classification configuration
         
     Returns:
-        Classification for the move
+        MoveClassificationResult with classification and missed opportunity flag
     """
     classifier = Classifier(opening_book=opening_book, config=config)
     return classifier.classify(node, config)

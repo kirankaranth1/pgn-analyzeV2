@@ -4,7 +4,7 @@ Data Models Module
 Contains all data structures used throughout the classification system.
 """
 
-from .enums import PieceColor, Classification, EngineVersion, CLASSIFICATION_VALUES
+from .enums import PieceColor, Classification, EngineVersion, CLASSIFICATION_VALUES, MoveClassificationResult
 from .state_tree import (
     Move,
     Evaluation,
@@ -34,6 +34,7 @@ __all__ = [
     "Classification",
     "EngineVersion",
     "CLASSIFICATION_VALUES",
+    "MoveClassificationResult",
     
     # State Tree
     "Move",

@@ -10,6 +10,7 @@ from .basic_classifier import BasicClassifier, OpeningBook
 from .critical_classifier import consider_critical_classification
 from .critical_move import is_move_critical_candidate
 from .brilliant_classifier import consider_brilliant_classification
+from .missed_opportunity_classifier import consider_missed_opportunity_classification
 
 __all__ = [
     "Classifier",
@@ -19,5 +20,6 @@ __all__ = [
     "consider_critical_classification",
     "is_move_critical_candidate",
     "consider_brilliant_classification",
+    "consider_missed_opportunity_classification",
 ]
 

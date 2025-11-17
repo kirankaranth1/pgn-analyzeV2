@@ -44,6 +44,9 @@ class ClassificationConfig:
     include_critical: bool = True
     """Enable CRITICAL classification."""
     
+    include_missed_opportunity: bool = True
+    """Enable MISSED_OPPORTUNITY tag for moves that fail to capitalize on opponent mistakes."""
+    
     enable_tactical_analysis: bool = True
     """Enable tactical pattern detection."""
     
